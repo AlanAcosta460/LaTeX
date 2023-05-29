@@ -1,0 +1,38 @@
+\documentclass[12pt]{article}
+\usepackage[none]{hyphenat} % Elimina la separación silábica
+\usepackage{helvet} % Tipo de letra Arial
+\renewcommand{\familydefault}{\sfdefault} % Cambio del tipo de letra
+\usepackage{setspace} % Interlineado
+\usepackage[margin=3cm]{geometry} % Margen
+\usepackage{fancyhdr} % Encabezado
+\usepackage[backend=biber, style=ieee]{biblatex} % Referencias
+\renewcommand*{\UrlFont}{\rmfamily} % Cambio del tipo de fuente en links
+
+% Quitar luego 
+\usepackage{lipsum}
+
+\sloppy % Justificado
+\onehalfspacing % Interlineado 1.5
+\pagestyle{fancy} % Tipo de encabezado
+\fancyhead[R]{Alan Omar Acosta Porcayo\\RETI 18} % Elimina el nombre de secciones y define texto personalizado del encabezado
+\setlength{\headheight}{27.69403pt} % Tamaño mínimo del encabezado 
+\setlength{\parindent}{1.25cm} % Sangría 
+\addbibresource{bibliografia.bib} % Documento externo de referencias
+
+\begin{document}
+    % Titulo
+    \begin{center}
+        \textbf{Titulo de relleno}
+    \end{center}
+
+    % Cuerpo (Primer párrafo sin sangría)
+    \noindent *Primer Párrafo* 
+
+    *Segundo Párrafo*    
+
+    \lipsum \\
+
+    % Bibliografía
+    % \renewcommand{\refname}{Bibliografía} % Cambio de nombre de la sección
+    % \printbibliography
+\end{document}
