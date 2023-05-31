@@ -1,0 +1,353 @@
+\documentclass[12pt, titlepage]{report}
+\usepackage[spanish]{babel}
+\usepackage[none]{hyphenat} 
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\sloppy
+\setlength{\parindent}{0cm}
+\graphicspath{{img/}}
+\renewcommand\thesection{\Alph{section}}
+\renewcommand\thesubfigure{\Roman{subfigure}.}
+\captionsetup[subfigure]{labelformat=simple}
+\decimalpoint 
+
+\begin{document}
+    \begin{titlepage}
+        \begin{center}
+            \begin{figure}[ht]
+                \centering
+                \begin{subfigure}[r]{0.2\textwidth}
+                    \includegraphics[width=\textwidth]{Escudo_UNAM.png}
+                \end{subfigure} \hspace{9cm}
+                \begin{subfigure}[l]{0.2\textwidth}
+                    \includegraphics[width=\textwidth]{Escudo_FI.png}
+                \end{subfigure} 
+            \end{figure}
+
+            \Huge \textbf{\\Tercer examen parcial experimental\\}
+            \huge Determinación experimental del centroide de un cuerpo\\
+            \Huge \textbf{\\Mecánica\\}
+            \huge \textbf{\\Nombre del profesor\\}
+            \Large{Lorenzo O. Miranda Codero\\}
+            \huge \textbf{\\Nombre de los integrantes\\}
+            \Large{Alan Omar Acosta Porcayo. No. lista 1\\Mauricio Gael Bonilla López. No. lista 9\\}
+        \end{center}
+    \end{titlepage}
+
+    \section{Preparación de la tabla de madera}   
+    \subsection*{Primer paso}
+    La figura que se construyó para este proyecto consta de 4 figuras simples: un triángulo rectángulo, un cuadrado, un semicírculo hueco y un rectángulo hueco.
+
+    \begin{figure}[ht]
+        \centering
+        \setcounter{figure}{0}
+        \includegraphics[width=2.5cm]{Croquis.jpg}
+        \caption{Croquis con los puntos A, B y C}
+    \end{figure}
+    
+    \begin{figure}[ht]
+        \centering
+        \begin{subfigure}{0.25\textwidth}
+            \centering
+            \includegraphics[width=2cm]{Croquis_Fig1.jpg}
+            \caption{Triángulo\\rectángulo}
+        \end{subfigure}  
+        \begin{subfigure}{0.25\textwidth}
+            \centering
+            \includegraphics[width=2cm]{Croquis_Fig2.jpg}
+            \caption{Cuadrado}
+        \end{subfigure} 
+        \begin{subfigure}{0.25\textwidth}
+            \centering
+            \includegraphics[width=2cm]{Croquis_Fig3.jpg}
+            \caption{Semicírculo\\hueco}
+        \end{subfigure} 
+        \begin{subfigure}{0.25\textwidth}
+            \centering
+            \includegraphics[width=1.5cm]{Croquis_Fig4.jpg}
+            \caption{Rectángulo\\hueco}
+        \end{subfigure}  
+        \caption{Figuras simples}     
+    \end{figure}
+
+    Una vez realizado el croquis, en una hoja blanca tamaño carta se realizó el dibujo incluyendo las medidas que tendrá la tabla de madera.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[height=7cm]{Dibujo.jpg}
+        \caption{Dibujo a escala numérica}
+    \end{figure}
+
+    \hfill
+    \section{Modelación matemática de las fuerzas de los elementos elásticos (ligas o resortes) empleados}
+    \subsection*{Segundo paso}
+    Debido a que no contamos con un dinamómetro para medir las fuerzas utilizaremos tres ligas, las cuales caracterizaremos a partir de 5 pesas caseras creadas con bolsas de arroz previamente pesadas. Con la ayuda de estas mediciones obtendremos un modelo matemático para cada liga mediante un ajuste lineal.
+
+    \begin{figure}[ht]
+        \centering
+        \begin{subfigure}[l]{0.4\textwidth}
+            \centering
+            \includegraphics[height=3cm]{Placeholder.png}
+            \caption{Ligas}
+        \end{subfigure}
+        \begin{subfigure}[3]{0.4\textwidth}
+            \centering
+            \includegraphics[height=3cm]{Placeholder.png}
+            \caption{Pesas}
+        \end{subfigure}
+        \caption{Materiales para medir fuerzas}
+    \end{figure}
+    
+    \subsection*{Tercer paso}
+    Para el proceso de caracterización de cada liga, se mide primero la longitud natural, es decir, sin aplicarle ninguna fuerza, registrando las mediciones en cm. Posteriormente, se utilizara cada peso para sujetarlo con la liga y medir la deformación de esta, anotando cada medición en una tabla. 
+
+    \begin{table}[ht]
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \multicolumn{3}{|c|}{Longitud natural (Ln) [cm] = 0 cm} \\ \hline
+            Fuerza F[N] & Longitud final (Lf) [cm] & Deformación $\delta$  (Lf $-$ Ln) [cm] \\ \hline
+            0 & 0 & 0 \\ \hline
+            0 & 0 & 0 \\ \hline
+            0 & 0 & 0 \\ \hline
+            0 & 0 & 0 \\ \hline
+            0 & 0 & 0 \\ \hline
+        \end{tabular}
+        \caption{Caracterización liga 1}
+        \vspace*{2cm}
+
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \multicolumn{3}{|c|}{Longitud natural (Ln) [cm] = 0 cm} \\ \hline
+            Fuerza F[N] & Longitud final (Lf) [cm] & Deformación $\delta$  (Lf $-$ Ln) [cm] \\ \hline
+            0 & 0 & 0 \\ \hline
+            0 & 0 & 0 \\ \hline
+            0 & 0 & 0 \\ \hline
+            0 & 0 & 0 \\ \hline
+            0 & 0 & 0 \\ \hline
+        \end{tabular}
+        \caption{Caracterización liga 2}
+        \vspace*{2cm}
+
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \multicolumn{3}{|c|}{Longitud natural (Ln) [cm] = 0 cm} \\ \hline
+            Fuerza F[N] & Longitud final (Lf) [cm] & Deformación $\delta$  (Lf $-$ Ln) [cm] \\ \hline
+            0 & 0 & 0 \\ \hline
+            0 & 0 & 0 \\ \hline
+            0 & 0 & 0 \\ \hline
+            0 & 0 & 0 \\ \hline
+            0 & 0 & 0 \\ \hline
+        \end{tabular}
+        \caption{Caracterización liga 3}
+    \end{table}
+    \clearpage
+
+    \subsection*{Cuarto paso}
+    Con base en los datos obtenidos para liga, se creó con ayuda de EXCEL una gráfica de F vs $\delta$ y se realizó un ajuste lineal que permite conocer la fuerza en el elemento elástico. El modelo matemático que se obtiene de cada gráfica tiene la siguiente forma: 
+    $$F_{1}=k_{1}\delta+Fo_{1}$$
+    $F_{1}= $ fuerza en la liga o resorte 1 \\
+    $k_{1}= $ constante de la liga 1 (pendiente de la recta) \\
+    $\delta= $ deformación de la liga \\
+    $Fo_{1}= $ fuerza residual en la liga (ordenada al origen)\\
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[height=4cm]{Placeholder.png}
+        \caption{Gráfica liga 1}
+    \end{figure}
+    $$F_{1}= [N]$$
+    \vspace*{1cm}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[height=4cm]{Placeholder.png}
+        \caption{Gráfica liga 2}
+    \end{figure}
+    $$F2= [N]$$
+    \vspace*{.1cm}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[height=4cm]{Placeholder.png}
+        \caption{Gráfica liga 3}
+    \end{figure}
+    $$F3= [N]$$
+    
+    \subsection*{Quinto paso}
+    El quinto paso consta de hacer el tercer y cuarto paso para las dos ligas restantes. La tabla, la grafica y el modelo matemático de cada liga se encuentra en la sección pertinente. 
+
+    \hfill
+    \section{Obtención en forma teórica del centroide ``C'' de la figura compuesta}
+    \subsection*{Sexto paso}
+    Al dibujo realizado en el primer paso se le colocó un sistema coordenado X$-$Y, y a partir de este sistema se obtienen las coordenadas del centroide en la figura plana, empleando las siguientes expresiones:
+
+    $$ \bar{X}=\frac{\sum_{i= 1}^{n} x_{i}A_{i}}{\sum_{i= 1}^{n}A_{i}}$$
+    $$ \bar{Y}=\frac{\sum_{i= 1}^{n} y_{i}A_{i}}{\sum_{i= 1}^{n}A_{i}}$$
+
+    Cálculos:\\
+    Figura 1:
+    $$A_{1}=\frac{(30)(20)}{2}=300 [cm^2]$$
+    $$x_{1}=\frac{30}{3}=10[cm]$$
+    $$y_{1}=30+\frac{20}{3}=36.66[cm]$$
+    Figura 2:
+    $$A_{2}=(30)(30)=900[cm^2]$$
+    $$x_{2}=\frac{30}{2}=15[cm]$$
+    $$y_{2}=\frac{30}{2}=15[cm]$$
+    Figura 3:
+    $$A_{3}=-\frac{\pi(5^2)}{2}=-39.27[cm^2]$$
+    $$x_{3}=4+5=9[cm]$$
+    $$y_{3}=19+\frac{4(5)}{3\pi}=21.12[cm]$$
+    Figura 4:
+    $$A_{4}=-(6)(10)=-60[cm^2]$$
+    $$x_{4}=12+\frac{6}{2}=15[cm]$$
+    $$y_{4}=\frac{10}{2}=5[cm]$$\\
+    $$ \bar{X}=\frac{\sum_{i= 1}^{n} x_{i}A_{i}}{\sum_{i= 1}^{n}A_{i}} = \frac{(10)(300)+(15)(900)+(9)(-39.27)+(15)(-60)}{300+900-39.27-60}$$
+    $$ \bar{X}==\frac{3000+13500-353.43-900}{1100.73}=\frac{12546.57}{1100.73}=11.4[cm]$$
+    $$ \bar{Y}=\frac{\sum_{i= 1}^{n} y_{i}A_{i}}{\sum_{i= 1}^{n}A_{i}} = \frac{(36.66)(300)+(15)(900)+(21.12)(-39.27)+(5)(-60)}{300+900-39.27-60}$$
+    $$ \bar{Y}==\frac{10998+13500-829.38-300}{1100.73}=\frac{23368.62}{1100.73}=21.23[cm]$$ \\
+    $$C(11.4, 21.23) [cm]$$
+
+    \newpage
+    \subsection*{Séptimo paso}
+    Una vez obtenidas las coordenadas del centroide ``C'', es posible marcar en la tabla de madera la posición de este centroide y, con ayuda de un soporte colocado en el centroide, lograr mantener la tabla en equilibrio.
+
+    \begin{figure}[ht]
+        \centering
+        \begin{subfigure}[l]{0.4\textwidth}
+            \centering
+            \includegraphics[height=3cm]{Placeholder.png}
+            \caption{Centroide marcado en la tabla}
+        \end{subfigure}
+        \begin{subfigure}[3]{0.4\textwidth}
+            \centering
+            \includegraphics[height=3cm]{Placeholder.png}
+            \caption{Tabla en equilibrio}
+        \end{subfigure}
+        \caption{Centroide en la tabla}
+    \end{figure}
+
+    \hfill
+    \section{Elaboración de la tabla que se usará en el experimento}
+    \subsection*{Octavo paso}
+    A partir de la figura compuesta se cortó una pieza de madera de triplay con 18 mm de grosor, la cual fue hecha en una carpintería.
+
+    \hfill
+    \section{Registro de las tensiones que sostienen a la tabla}
+    \subsection*{Noveno paso}
+    A la tabla de madera se le colocaron tres armellas en los puntos A, B y C, que de acuerdo a nuestro sistema coordenado tienen las siguientes coordenadas:
+
+    $$A(,) [cm]$$
+    $$B(,) [cm]$$
+    $$C(,) [cm]$$
+
+    A cada armella se le colocó un pedazo de hilo/estambre y se colgó en posición horizontal hasta quedar en equilibrio.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[height=4cm]{Placeholder.png}
+        \caption{Tabla en equilibrio}
+    \end{figure}
+
+    \subsection*{Décimo paso}
+    La tensión de cada liga se obtiene a partir de la deformación de la liga medida experimentalmente, y sustituyendo cada deformación en su respectivo modelo matemático. 
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[height=4cm]{Placeholder.png}
+        \caption{Medición de deformaciones}
+    \end{figure}
+
+    $$\delta_{1}=Lf_{1}-Ln_{1}= - [cm] = [cm]$$
+    $$\delta_{2}=Lf_{2}-Ln_{2}= - [cm] = [cm]$$
+    $$\delta_{3}=Lf_{3}-Ln_{3}= - [cm] = [cm]$$
+
+    $$F_{1}=k_{1}\delta_{1}+Fo_{1} [N] =  [N] = [N]$$
+    $$F_{2}=k_{2}\delta_{2}+Fo_{2} [N] =  [N] = [N]$$
+    $$F_{3}=k_{3}\delta_{3}+Fo_{3} [N] =  [N] = [N]$$
+
+    \hfill
+    \section{Determinación del centro de gravedad ``G'' de la tabla con base en las tensiones obtenidas experimentalmente}
+    \subsection*{Décimo primer paso}
+    Una vez obtenidos $T_{1}$, $T_{2}$ y $T_{1}$, y con las coordenadas de A, B y C, es posible construir un sistema equivalente fuerza$-$par aplicado al origen de coordenadas, y posteriormente, construir otro con la fuerza resultante aplicada un punto ``G'' llamado centro de gravedad.
+
+    Vectores de Tensión y su momento aplicado en el origen:
+
+    $$T_{1} =  \hat{k} [N]$$
+    $$T_{2} =  \hat{k} [N]$$
+    $$T_{3} =  \hat{k} [N]$$
+
+    $$M^{T_{1}}_{O} = $$
+    $$M^{T_{2}}_{O} = $$
+    $$M^{T_{3}}_{O} = $$
+
+    Suma de los tres pares de trasporte:
+    
+    $$\sum_{i = 1}^{3} M^T_{O} =$$
+
+    Suma de las tres fuerzas (Resultante R):
+
+    $$\sum_{i = 1}^{3} T_{i} =$$
+
+    Sistema fuerza$-$par aplicado en el origen:
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[height=4cm]{Placeholder.png}
+        \caption{Sistema fuerza$-$par}
+    \end{figure}
+
+    Coordenadas del centro de gravedad ``G'':
+
+    $$\sum_{i=1}^{3} M^T_{O} = M^R_{O}$$
+
+    \subsection*{Décimo segundo paso}
+    Con las coordenadas del centro de gravedad ``G'', obtenidas en el paso anterior se marca con un ``pequeño círculo'' la letra ``G'' en la tabla de madera.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[height=4cm]{Placeholder.png}
+        \caption{Centro de gravedad marcado}
+    \end{figure}
+
+    \hfill
+    \section{Comprobación de resultados}
+    \subsection*{Décimo tercer paso. Comprobación del equilibrio de fuerzas}
+    Magnitud del peso de la tabla: $$W=mg=( [kg])(9.81 [\frac{m}{s^2}]) = [N]$$
+    Resultante de las 3 fuerzas: $$R = [N]$$
+    Porcentaje de error: $$\%E=\frac{|W-R|}{W}100\%=\frac{|0-0|}{0}100\% = \%$$
+
+    \subsection*{Décimo cuarto paso. Comprobación del valor del peso W}
+    Volumen de cada figura simple:
+    
+    $$V_{1} = (A_{1} [cm^2])(1.8 [cm]) = (0 [cm^2])(1.8 [cm]) = [cm^3]$$
+    $$V_{1} = (A_{2} [cm^2])(1.8 [cm]) = (0 [cm^2])(1.8 [cm]) = [cm^3]$$
+    $$V_{1} = (A_{3} [cm^2])(1.8 [cm]) = (0 [cm^2])(1.8 [cm]) = [cm^3]$$
+
+    Volumen total: $$V_{total}=\sum_{i = 1}^{4} V_{i} = [cm^3] = [cm^3]$$
+
+    Peso específico del triplay: $$\gamma =0 [\frac{N}{m^3}] = 0 [\frac{N}{cm^3}]$$
+
+    Volumen total por el peso específico: $$W_{teo}=V_{total}\gamma = (0[cm^3])(0[\frac{N}{cm^3}])$$
+
+    Porcentaje de error: $$\%E=\frac{|W-W_{teo}|}{W}100\%=\frac{|0-0|}{0}100\% = \%$$
+
+    \subsection*{Décimo quinto paso. Comprobación de la ubicación del centro de gravedad de la tabla}
+    Coordenadas del centroide: $$C(0, 0)[cm]$$
+    Coordenadas del centro de gravedad: $$G(0, 0)[cm]$$ 
+    Diferencia entre ``C'' y ``G'': 
+    $$|x_{C}-x_{G}| [cm] = [cm] = [cm]$$
+    $$|y_{C}-y_{G}| [cm] = [cm] = [cm]$$
+
+    \subsection*{Décimo sexto paso. Conclusiones}
+    *Análisis de resultados y conclusiones*
+    
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[height=4cm]{Placeholder.png}
+        \caption{Punto de apoyo en ``G''}
+    \end{figure}
+
+\end{document}
