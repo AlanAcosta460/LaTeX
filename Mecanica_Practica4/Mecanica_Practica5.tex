@@ -43,8 +43,8 @@
             \textbf{\\Integrantes:\\}
             Acosta Porcayo Alan Omar\\
             Bonilla López Mauricio Gael\\
-            3\\
-            4\\
+            Cisneros Rojas Héctor Manuel\\
+            Domínguez González Andrea\\
         \end{center}
         \begin{flushright}
             \Large \textbf{Semestre 2023-2}
@@ -88,13 +88,12 @@
 
     \begin{figure}[ht]
         \centering
-        \includegraphics[width=0.5\textwidth]{Placeholder.png}
+        \includegraphics[width=0.15\textwidth]{DCL_E1.jpg}
         \caption{DCL del carro dinámico}
     \end{figure}
 
-    Bajo estas condiciones, su aceleración se puede calcular con la expresión $a=g\sin\theta$, donde $g=9.78[m/s^2]$ y $\theta$ es el ángulo del plano inclinado.
-    
-    $$a=9.78\sin(10^\circ) = 1.70[m/s^2]$$
+    Bajo estas condiciones, su aceleración se puede calcular con la expresión $a=g\sen\theta$, donde $g=9.78[m/s^2]$ y $\theta$ es el ángulo del plano inclinado.
+    $$a=9.78\sen(10^\circ) = 1.70[m/s^2]$$
 
     Para registrar los datos por medio del software \textit{PASCO Capstone} fue necesario configurar el sensor de movimiento: la frecuencia de muestreo se cambió a 50 Hz y el tipo de registro se configuró en basado en tiempo con una duración de 2 segundos. 
 
@@ -131,7 +130,6 @@
         \item Dibujar la gráfica del polinomio cuadrático: 
         
         \centerline{\textbf{Graf2 = Plot[FunX, \{$t$, 0, 0.9\}]}}
-        \newpage
         \item Mostrar las gráficas \textbf{Graf1} y \textbf{Graf2} superpuestas:
         
         \centerline{\textbf{Show[Graf1, Graf2]}}
@@ -221,6 +219,7 @@
         \caption{Polinomios cuadráticos}
     \end{longtable}
 
+    \newpage
     Las gráficas superpuestas de \textbf{DatAj} y \textbf{Funx} obtenidas para cada medición se muestran a continuación:
 
     \begin{figure}[ht]
@@ -235,10 +234,7 @@
             \includegraphics[width=7cm]{Graf2.png}
             \caption{Medición 2}
         \end{minipage}
-    \end{figure}
-
-    \begin{figure}[ht]
-        \centering
+        \par\bigskip
         \begin{minipage}[c]{0.45\linewidth}
             \centering
             \includegraphics[width=7cm]{Graf3.png}
@@ -249,12 +245,12 @@
             \includegraphics[width=7cm]{Graf4.png}
             \caption{Medición 4}
         \end{minipage}
-    \end{figure}
-
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[width=7cm]{Graf5.png}
-        \caption{Medición 5}
+        \par\bigskip
+        \begin{minipage}[c]{0.45\linewidth}
+            \centering
+            \includegraphics[width=7cm]{Graf5.png}
+            \caption{Medición 5}
+        \end{minipage}
     \end{figure}
     
     \newpage Los valores de \textbf{a}, \textbf{b}, \textbf{c} y de \textit{\textbf{rms}} obtenidos para cada medición están registrados en la siguiente tabla:
@@ -271,7 +267,7 @@
             4 & 1.75372 & 0.0417374 & 0.000939254 & 0.000525488 \\ \hline
             5 & 1.75738 & -0.0205133 & 0.00106774 & 0.000570782 \\ \hline
         \end{tabular}
-        \caption[short]{Valores de movimiento}
+        \caption[short]{Valores dinámicos}
     \end{table}
 
     \begin{enumerate}[a), topsep=0.5cm, resume]
@@ -295,19 +291,20 @@
 
         \begin{figure}[ht]
             \centering
-            \includegraphics[width=0.5\textwidth]{Graf_Rapidez.png}
+            \includegraphics[width=0.45\textwidth]{Graf_Rapidez.png}
             \caption{Gráfica de la rapidez promedio}
         \end{figure}
 
+        \newpage
         \item Obtener la gráfica de aceleración, \textbf{AcelProm} vs. tiempo, que se obtiene derivando la función \textbf{FunVprom}:
         
         \centerline{\textbf{Acelprom = D[FunVprom, $t$]}}
-        \centerline{$1.74975$ [$m/s^2$]}
+        \centerline{$1.74975$ [$m/s^2$]} 
         \centerline{\textbf{Plot[[Acelprom], \{$t$, 0, 0.7\}]}}
 
         \begin{figure}[ht]
             \centering
-            \includegraphics[width=0.5\textwidth]{Graf_Aceleracion.png}
+            \includegraphics[width=0.45\textwidth]{Graf_Aceleracion.png}
             \caption{Gráfica de la aceleración promedio}
         \end{figure}
 
@@ -330,23 +327,128 @@
 
         \begin{figure}[ht]
             \centering
-            \includegraphics[width=0.5\textwidth]{Plano_de_Fase.png}
+            \includegraphics[width=0.45\textwidth]{Plano_de_Fase.png}
             \caption{Plano de Fase}
         \end{figure}
     \end{enumerate}
 
+    \newpage
     Para finalizar con el primer experimento se compararan los valores de aceleración ``teóricos'' y ``experimentales''. El valor de la aceleración teórica fue de 1.70 [$m/s^2$] y el valor de la aceleración experimental fue de 1.74975 [$m/s^2$]. Con estos datos es posible calcular el porcentaje de error experimental:
-
     $$\%EE=\frac{|Aceleracion_{teorica}-Aceleracion_{experimental}|}{Aceleracion_{teorica}}\times100\%$$
     $$\%EE=\frac{|1.70-1.74975|}{1.70}\times100\%=2.93\%$$
 
     Con un porcentaje de error relativamente bajo de aproximadamente 3\% demuestra que el experimento se realizó siguiendo correctamente las instrucciones, asimismo, demuestra que la manera teórica de calcular la aceleración es comprobable. Que el error no haya sido del 0\% se puede deberse a causas como una ligera variación o interferencia en la realización de las mediciones o de un redondeo de decimales en los cálculos.
 
     \section*{Segundo Experimento}
+    El experimento consiste en estudiar el movimiento de un carro sobre un riel de aire. Se ajusta el riel en un ángulo de 12° con respecto a la horizontal y se tapan los orificios. Se coloca un contenedor boca abajo cerca del extremo más alto del riel y se colocan dos compuertas optoelectrónicas a diferentes distancias. Luego, se suelta el carro cerca de la primera compuerta y se enciende la compresora de aire. 
+    
+    El cronómetro registra el tiempo mientras el carro adquiere velocidad y luego se desacelera hasta detenerse. Se toman varias mediciones de distancia, tiempo y altura para estimar el ángulo del riel con respecto a la horizontal. El experimento se repite varias veces para obtener resultados más precisos.
 
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.5\textwidth]{Rampa_Exp2.png}
+        \caption{Configuración del segundo experimento}
+    \end{figure}
+    
+    Considerando que en esta parte del riel, la fuerza de fricción entre el carro y el riel es despreciable, el diagrama de cuerpo libre es el siguiente:
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.5\textwidth]{DCL_E2.png}
+        \caption{DCL del carro para riel de aire}
+    \end{figure}
+
+    Con base en el diagrama de cuerpo libre, se pueden establecer las expresiones para la aceleración, constante, así como la rapidez y la posición en función del tiempo y del ángulo de inclinación.
+
+    Para sin fricción:
+    $$\sum F_x = W\sen\theta = ma$$
+    $$\sum F_y = N - W\cos\theta = 0$$
+
+    Usamos $a = g\sen\theta$ de $v = v_0 y v_0t + \frac{1}{2}at^2$
+    $$x = \frac{1}{2}at^2 \Rightarrow a = \frac{2x}{t^2}$$
+
+    A partir de las expresiones anteriores, se calculó el ángulo de inclinación del riel, con base en la distancia entre las compuertas optoelectrónicas medida durante la realización del experimento y el tiempo promedio de los medidos con el cronómetro digital, considerando que la aceleración de la gravedad es $g = 9.78$ [$m/s^2$]
+
+    Distancia entre compuertas = 80 [$cm$]
+
+    \begin{longtable}{|c|c|c|}
+        \hline
+        \multirowcell{2}{Medición} & \multirowcell{2}{Tiempo registrado entre\\las compuertas [$s$]} & \multirowcell{2}{Distancia recorrida en la\\cinta canela [$m$]} \\
+        ~ & ~ & ~ \\ \hline
+        1 & 0.8265 & 47.5 \\ \hline
+        2 & 0.8467 & 47.4 \\ \hline
+        3 & 0.8361 & 47.8 \\ \hline
+        4 & 0.8404 & 55 \\ \hline
+        5 & 0.8396 & 50 \\ \hline
+    \end{longtable}
+    \newpage
+    
+    \centerline{$F = 0.83803$ [$N$]}
+    \centerline{$v = 0.79$ [$m/s$]}
+    \centerline{$a = \frac{2(0.79)}{(0.83803)^2} = 2.2497$ [$m/s^2$]}
+
+    Sustituimos en $a = g\sen\theta$
+    $$2.2497 = 9.78\sen\theta$$
+
+    Despejamos:
+    $$\theta = \sen^{-1} (\frac{2.2497}{9.78})$$
+    $$\theta = 13.2988^\circ$$
+
+    Con base en las expresiones de posición y velocidad del móvil, así como en el ángulo de inclinación estimado del riel de aire con respecto a la horizontal, obtenido al final del punto 5, y la distancia entre las compuertas optoelectrónicas, es posible determinar la velocidad final en dicho intervalo de movimiento.
+
+    Para rapidez final:
+    $$v = v_0 + at$$
+    $$v = at$$
+    $$v = (2.2497)(0.83803)$$
+    \centerline{$v = 1.8853$ [$m/s$]}
+
+    Considerando que la fuerza de fricción cinética de la cinta canela está presente en el carro, el diagrama de cuerpo libre es el siguiente:
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.45\textwidth]{DCL_E22.png}
+        \caption{DCL del carro para riel de aire con fricción presente}
+    \end{figure}
+
+    Luego, se establecen las ecuaciones de movimiento del carro en el intervalo anterior, en función del tiempo, considerando el ángulo conocido igual al que se estimó con base en trigonometría, considerando como condición inicial de rapidez, la rapidez final del intervalo de movimiento anterior, calculada anteriormente.
+    $$v = 1.88853 [m/s]$$
+    $$\theta = 13.2988^\circ$$
+    
+    Fricción de movimiento: 
+    $$\sum F_x = W\sen\theta = ma$$
+    $$\sum F_y = N - W\cos\theta = 0$$
+
+    Ocupamos $N$:
+    $$N = W\cos\theta$$
+
+    Despejamos:
+    $$MK = \frac{ma - W\sen\theta}{-W\cos\theta} \Rightarrow \frac{g\sen\theta - a}{g\cos\theta}$$
+
+    Sustituimos los datos:
+    $$MK = \frac{9.78\sen(13.2988) - (-0.019)}{9.78\cos(13.2988)} = 0.23836$$
+
+    Tenemos que:
+    $$v^2 = v^2 + 2a(x - x_0)$$
+
+    Despejamos $a$:
+    $$a = -\frac{v^2}{2x} = -\frac{(1.8853)^2}{2(49.59)} = 0.019[m/s^2]$$
+
+    Con base en el valor de $g$ mencionado, y la distancia recorrida promedio de las cinco que se midieron durante la realización del experimento, se puede obtener el valor del coeficiente de fricción cinética, $k$, al sustituir los valores de posición y rapidez finales en las expresiones cinemática en este intervalo de movimiento.
+    $$\mu = \tan\theta - \frac{a}{g\cos\theta} = 0.2343$$
 
     \newpage
     \section*{Conclusiones}
+    \textbf{Acosta Porcayo Alan Omar:}\\
+    La realización de esta práctica fue de utilidad para aplicar los conocimientos sobre cinemática y dinámica que hemos adquirido durante el curso. Los objetivos que se plantearon al principio fueron cumplidos, pues se realizaron los experimentos y los cálculos correspondientes, y también utilizamos herramientas de software para la toma y el procedimiento de mediciones experimentales. 
+    
+    \textbf{Bonilla López Mauricio Gael:}\\
+    Este experimento resultó fácil de hacer, aportando un gran apoyo visual a los temas vistos en clase, junto con el software que se utilizó considero que se lograron los objetivos de la práctica y una mejor comprensión sobre el movimiento y desplazamiento en una superficie inclinada.
+    
+    \textbf{Cisneros Rojas Héctor Manuel:}\\
+    Mediante esta práctica, adquirimos conocimientos sobre cómo determinar la aceleración de un móvil que se desliza hacia abajo en una pendiente inclinada, sin considerar la presencia de fricción. Esta determinación se puede realizar tanto de forma teórica como práctica. Además, logramos el objetivo de utilizar eficazmente el software \textit{Mathematica} como una herramienta para generar gráficas con mayor precisión. Esto nos permitió comprender de manera más profunda los fenómenos mecánicos que estábamos investigando.
+    
+    \textbf{Domínguez González Andrea:}\\
+    La práctica fue muy interesante, porque en el primer experimento pudimos entender con mayor precisión y aplicación en el mundo físico cómo actúa la fuerza de fricción, y en el segundo experimento pude ver (y de una manera muy interesante) cómo la fuerza de rozamiento en el aire (que es bastante ingenioso, algo que nunca se me había ocurrido y desconocía), sin duda podríamos concluir que la fuerza de rozamiento juega un papel importante en el movimiento de objetos.
 
     \section*{Bibliografía}
     Práctica 5. Movimiento rectilíneo uniformemente variado. Manual de Prácticas del Laboratorio de Mecánica, División de Ciencias Básica, 2022. \url{https://bit.ly/43A70I3}
