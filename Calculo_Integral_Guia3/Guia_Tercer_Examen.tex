@@ -5,6 +5,8 @@
 \usepackage{amsmath} 
 \usepackage{parskip} 
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+\usepackage{graphicx}
+\usepackage{wrapfig}
 
 \sloppy
 \setlength{\parindent}{0cm}
@@ -126,12 +128,64 @@
     $f(x) = y = 5 - x \Rightarrow g(x) = y = \frac{4}{x}$ \\
     Puntos de intersección: $f(x) = g(x) \Rightarrow 5-x = 4/x \Rightarrow 5x -x^2 = 4 \Rightarrow x^2-5x+4 = 0 \Rightarrow (x-4)(x-1) = 0$ \\
     $\Rightarrow \underline{(x-1) = 0} \Rightarrow x_1 = 1 \Rightarrow y = 5 - (1) \Rightarrow (1, 4) \Longrightarrow \underline{(x-4) = 0}  \Rightarrow x_2 = 4 \Rightarrow y = 5 - (4) \Rightarrow (4, 1) \Longrightarrow \boxed{[1, 4]}$ \\
-    Para saber que función esta arriba: para $x = 2$\\
+    Para saber que función esta arriba o abajo: para $x = 2$\\
     $f(x) = y = \underline{5-x} \Rightarrow f(2) = 5 - 2 = 3 \Longrightarrow g(x) = y = \underline{\frac{4}{x}} \Rightarrow g(2) = \frac{4}{2} = 2 \Longrightarrow \boxed{f(x) $ esta arriba y $ g(x) $ esta debajo: $ g(x) \leq f(x)}$ \\
-    Por lo tanto, el área entre las funciones f y g en el intervalo, es: $A = \int_{1}^{4}[f(x)-g(x)]\,dx \int_{1}^{4}[(5-x)-(\frac{4}{x})]\,dx = 5\int_{1}^{4}\,dx - \int_{1}^{4}x\,dx - 4\int_{1}^{4}\frac{dx}{x} = [5x - \frac{x^2}{2} - 4\ln|x|]_{1}^{4} = (5(4) - \frac{4^2}{2} - 4\ln|4|) - (5(1) - \frac{1^2}{2} - 4\ln|1|) = 20 - 8 - 4\ln|4| - 5 + \frac{1}{2} + 0 = 7 + \frac{1}{2} - 4\ln|4| = \frac{15}{2} - 4\ln|4| = 7.5 - 4\ln|4| = 1.954822556 \unit{u^2}$
+    Por lo tanto, el área entre las funciones f y g en el intervalo, es: $A = \int_{1}^{4}[f(x)-g(x)]\,dx \int_{1}^{4}[(5-x)-(\frac{4}{x})]\,dx = 5\int_{1}^{4}\,dx - \int_{1}^{4}x\,dx - 4\int_{1}^{4}\frac{dx}{x} = [5x - \frac{x^2}{2} - 4\ln|x|]_{1}^{4} = (5(4) - \frac{4^2}{2} - 4\ln|4|) - (5(1) - \frac{1^2}{2} - 4\ln|1|) = 20 - 8 - 4\ln|4| - 5 + \frac{1}{2} + 0 = 7 + \frac{1}{2} - 4\ln|4| = \frac{15}{2} - 4\ln|4| = 7.5 - 4\ln|4| = \boxed{1.954822556 \unit{u^2}}$
 
     \hfill \break
     Área entre dos curvas que se intersectan en más de dos puntos \\
     Encontrar el área de la región comprendida entre las gráficas de $f(x) = x^3 + 2$ y $g(x) = x+2$. \\
+    Puntos de intersección: $f(x) = g(x) \Rightarrow x^3+2 = x+2 \Rightarrow x^3+2-x-2 = 0 \Rightarrow x^3-x = 0 \Rightarrow x(x^2-1) = 0 \Rightarrow \underline{x = 0} \Rightarrow \boxed{x_1 = 0} \Rightarrow x^2-1 = 0 = (x-1)(x+1) = 0 \Rightarrow \underline{x+1 = 0} \Rightarrow \boxed{x_2 = -1} \Rightarrow \underline{x-1 = 0} \Rightarrow \boxed{x_3 = 1}$ \\
+    Las gráficas se cortan cuando $x = 1, 0, -1$: Si $g(x) = x+2$ \\
+    $\Rightarrow x = -1 \Rightarrow g(-1) = -1+2 = 1 \Rightarrow (-1, 1)$\\
+    $\Rightarrow x = 0 \Rightarrow g(0) = 0+2 = 2 \Rightarrow (0, 2)$\\
+    $\Rightarrow x = 1 \Rightarrow g(1) = 1+2 = 3 \Rightarrow (1, 3)$\\
+    Los intervalos van en el orden: $(-1, 1), (0, 2), (1, 3) \Rightarrow $ intervalos $\boxed{[-1, 0], [0, 1]}$ \\
+    Para saber que función esta arriba o abajo: a) para los puntos $(-1, 1)$ y $(0, 2)$, es decir, el intervalo $[-1, 0]$, entonces $x = -1/2$ (la mitad)\\
+    $f(x) = x^3+2 \Rightarrow f(-\frac{1}{2}) = (-\frac{1}{2})^3+2 = -\frac{1}{8} + 2 = \frac{-1+16}{8} = \frac{15}{8} \Longrightarrow g(x) = x+2  \Rightarrow g(-\frac{1}{2}) = -\frac{1}{2}+2 = -\frac{3}{2} \Longrightarrow \boxed{f(x)$ esta arriba y $g(x)$ esta debajo: $\frac{3}{2}\leq\frac{15}{8} \Rightarrow g(x)\leq f(x)}$
+    b) para los puntos $(0, 2)$ y $(1, 3)$, es decir, el intervalo $[0, 1]$, entonces $x = 1/2$ (la mitad)\\
+    $f(x) = x^3+2 \Rightarrow f(\frac{1}{2}) = (\frac{1}{2})^3+2 = \frac{1}{8} + 2 = \frac{1+16}{8} = \frac{17}{8} \Longrightarrow g(x) = x+2  \Rightarrow g(\frac{1}{2}) = \frac{1}{2}+2 = -\frac{5}{2} \Longrightarrow \boxed{g(x)$ esta arriba y $f(x)$ esta debajo: $\frac{17}{8}\leq\frac{5}{2} \Rightarrow f(x)\leq g(x)}$\\
+    Entonces se necesitan dos integrales, una para el intervalo $[-1, 0]$ y otra para el intervalo $[0, 1]$: $A = \int_{-1}^0[f(x)-g(x)]dx + \int_0^1[g(x)-f(x)]dx = \int_{-1}^0[(x^3+2) - (x+2)]dx + \int_0^1[(x+2)-(x^3+2)]dx = \int_{-1}^0(x^3-x)dx + \int_0^1(-x^3+x)dx = [\frac{x^4}{4} - \frac{x^2}{2}]_{-1}^0 + [-\frac{x^4}{4} + \frac{x^2}{2}]_0^1 = 0 - [\frac{(-1)^4}{4} - \frac{(-1)^2}{2}] + [-\frac{1^4}{4} + \frac{1^2}{2}] - 0 = -[\frac{1}{4} - \frac{1}{2}] + [-\frac{1}{4} + \frac{1}{2}] = \frac{1}{4} + \frac{1}{4} = \boxed{\frac{1}{2} \unit{u^2}}$ 
 
+    \hfill \break
+    Volumen de un sólido de revolución: Método de discos\\
+    Eje de revolución OX, $y = f(x), [a,b] \Longrightarrow V = \pi\int_a^b[f(x)]^2dx$ \\
+    Eje de revolución OY, $x = g(y), [c,d] \Longrightarrow V = \pi\int_c^d[g(y)]^2dy$
+
+    1) Encontrar el volumen que se obtiene al hacer girar la región limitada por las curvas con ecuaciones $y = f(x) = \sqrt{x-1} = 0$ y $x = 2$, alrededor del eje de las abscisas (OX), es: $y = \sqrt{x-1} = 0 \Rightarrow x = 1 \Rightarrow \boxed{[1, 2]}$ \\
+    Si $x-1 \geq 0 \Rightarrow x \geq 1$, si $x = 1 \Rightarrow y = 0$ \\
+    $V = \pi\int_a^b[f(x)]^2dx = \pi\int_1^2[(x-1)^{\frac{1}{2}}]^2dx = \pi\int_1^2(x-1)dx = \pi(\frac{x^2}{2}-x)]_1^2 = \pi[(\frac{2^2}{2}-2) - (\frac{1^2}{2}-1)] = \pi[0 + \frac{1}{2}] = \boxed{\frac{\pi}{2} \unit{u^3}}$
+
+    2) Encontrar el volumen del sólido formado al girar la región acotada por las gráficas de $y = x^2+1$, $x= 0$ y $y = 2$ alrededor del eje OY, como se muestra en la figura: $y = x^2+1 \Rightarrow x = \sqrt{y-1} \Rightarrow y-1 \geq 0 \Rightarrow y \geq 1 \Rightarrow$ si $y = 1 \Rightarrow x = 0 \Rightarrow [c, d] =\boxed{[1, 2]}$ \\
+    $V = \pi\int_c^d[g(y)]^2dy = V = \pi\int_1^2[(y-1)^{\frac{1}{2}}]^2dy = \pi\int_1^2(y-1)dy = \pi(\frac{y^2}{2}-y)]_1^2 = \pi[(\frac{2^2}{2}-2) - (\frac{1^2}{2}-1)] = \pi[0 - (-\frac{1}{2})] = \boxed{\frac{\pi}{2} \unit{u^3}}$
+
+    \hfill \break 
+    Volumen de un sólido de revolución: Método de las arandelas o del anillo \\ 
+    Radio exterior $R(x)$ y radio interior $r(x)$: $V = \pi\int_a^b[[R(x)]^2-[r(x)]^2]dx$ \\  
+    Radio exterior $R(y)$ y radio interior $r(y)$: $V = \pi\int_c^d[[R(y)]^2-[r(y)]^2]dy$ 
+
+    3) Encontrar el volumen del sólido formado al girar la región acotada para las gráficas de $y = \sqrt{x}$ y $y = x^2$, alrededor del eje OX. \\
+    Para encontrar los puntos de intersección de las gráficas: $x^2 = \sqrt{x} \Rightarrow x^2 - x^{\frac{1}{2}} = 0 \Rightarrow x^{\frac{1}{2}}(x^{\frac{3}{2}}-1) = 0 \Rightarrow x^{\frac{1}{2}}(x^{\frac{3}{4}} + 1)(x^{\frac{3}{4}} - 1) = 0 \Rightarrow \underline{x^{\frac{1}{2}} = 0} \Rightarrow x_1 = 0 \Rightarrow \underline{x^{\frac{3}{4}} + 1 = 0} \Rightarrow x_2 =$ imaginario $\underline{x^{\frac{3}{4}} - 1 = 0} \Rightarrow x_3 = 1$ \\
+    Para $y = f(x) = x^2 \Longrightarrow f(0) = 0^2 = 0 \Rightarrow \boxed{(0,0)} \Longrightarrow f(1) = 1^2 = 1 \Rightarrow \boxed{(1,1)}$ \\
+    Aplicando la ecuación (1), se tiene que integrando entre $a = 0$ y $b = 1$, se tiene: $V = \pi\int_a^b[[R(x)]^2-[r(x)]^2]dx = \pi\int_0^1[[\sqrt{x}]^2-[x^2]^2]dx = \pi\int_0^1(x-x^4)dx = \pi[\frac{x^2}{2} - \frac{x^5}{5}]_0^1 = \pi[(\frac{1^2}{2} - \frac{1^5}{5}) - 0] = \pi(\frac{1}{2} - \frac{1}{5}) = \pi(\frac{5-2}{10}) = \pi(\frac{3}{10}) = \boxed{\frac{3\pi}{10} \unit{u^3}}$
+    
+    4) Encontrar el volumen del sólido formado al girar la región acotada por las gráficas de $y = x^2+1$, $y = 0$, $x = 0$ y $x = 1$, alrededor del eje OY, como se muestra en la figura: 
+    \begin{wrapfigure}{r}{0.4\textwidth}
+        \includegraphics[width=0.4\textwidth]{Solidos1.png}
+    \end{wrapfigure}
+    Los radios exterior e interior son: \\
+    Para $0 \leq y\geq 1 \\\Rightarrow R(y) = 1, r(y) = 0$ \\
+    Para $1 \leq y\geq 2 \\\Rightarrow R(y) = 1, r(y) = \sqrt{y-1}$ \\
+
+    Se tiene: \\
+    $a = 0$, $b = 1$ y $c = 1$, $d = 2$ \\ 
+    $V = \pi\int_0^1[[R(y)]^2-[r(y)]^2]dy + \pi\int_1^2[[R(y)]^2-[r(y)]^2]dy =  \pi\int_0^1([1]^2-[0]^2)dy + \pi\int_1^2([1]^2-[\sqrt{y-1}]^2)dy = \pi\int_0^1(1-0)dy + \pi\int_1^2(1-(y-1))dy = \pi\int_0^1dy + \pi\int_1^2(2-y)dy = \pi[y]_0^1 + \pi[2y - \frac{y^2}{2}]_1^2 = \pi[1-0] + \pi[(2(2) - \frac{2^2}{2}) - (2(1) - \frac{1^2}{2})] = \pi + \pi[2 - \frac{3}{2}] = \pi + \frac{\pi}{2} = \boxed{\frac{3\pi}{2} \unit{u^3}}$
+
+    \hfill \break
+    Volumen de un sólido de revolución: Método de las capas \\
+    Eje de revolución horizontal: $V = 2\pi\int_c^d yg(y)dy$ \\
+    Eje de revolución vertical: $V = 2\pi\int_c^d xf(x)dx$ 
+
+    5) Encontrar el volumen del sólido formado al girar la región acotada por las gráficas de $y = x^2+1$, $y = 0$, $x = 0$ y $x = 1$, alrededor del eje OY: Si $y = x^2+1 \Longrightarrow \underline{x = 0} \Rightarrow y = 1 \Rightarrow (0, 1) \Longrightarrow \underline{x = 1} \Rightarrow y = 2 \Rightarrow (1, 2)$\\
+    $V = 2\pi\int_a^b xf(x)dx = 2\pi\int_0^1 x(x^2+1)dx = 2\pi\int_0^1 (x^3+x)dx = 2\pi[\frac{x^4}{4}+\frac{x^2}{2}]_0^1 = 2\pi[(\frac{1^4}{4}+\frac{1^2}{2}) - 0] = 2\pi[\frac{1}{4}+\frac{1}{2}] = \frac{2\pi\cdot3}{4} = \boxed{\frac{3\pi}{2} \unit{u^3}}$
 \end{document}
