@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage[spanish]{babel}
 \usepackage[none]{hyphenat} % Elimina la separación silábica
 \usepackage{helvet} % Tipo de letra Arial
 \renewcommand{\familydefault}{\sfdefault} % Cambio del tipo de letra
@@ -7,9 +8,7 @@
 \usepackage{fancyhdr} % Encabezado
 \usepackage[backend=biber, style=ieee]{biblatex} % Referencias
 \usepackage[hidelinks]{hyperref}
-
-% Quitar luego 
-\usepackage{lipsum}
+\usepackage{csquotes}
 
 \sloppy % Justificado
 \onehalfspacing % Interlineado 1.5
@@ -20,6 +19,7 @@
 \addbibresource{bibliografia.bib} % Documento externo de referencias
 \hypersetup{colorlinks=true, urlcolor=blue, citecolor=blue}
 \urlstyle{same}
+\decimalpoint
     
 \begin{document}
     % Titulo
@@ -29,10 +29,7 @@
 
     % Cuerpo (Primer párrafo sin sangría)
     \noindent 
-    
-    *Segundo Párrafo*
 
-    \lipsum
 
     % Bibliografía
     % \renewcommand{\refname}{Bibliografía} % Cambio de nombre de la sección
