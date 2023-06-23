@@ -1,22 +1,22 @@
 \documentclass[12pt]{article}
+
 \usepackage[spanish]{babel}
-\usepackage[none]{hyphenat} % Elimina la separación silábica
-\usepackage{helvet} % Tipo de letra Arial
-\renewcommand{\familydefault}{\sfdefault} % Cambio del tipo de letra
-\usepackage{setspace} % Interlineado
-\usepackage[margin=3cm]{geometry} % Margen
-\usepackage{fancyhdr} % Encabezado
-\usepackage[backend=biber, style=ieee]{biblatex} % Referencias
+\usepackage[none]{hyphenat}
+\usepackage{helvet}
+\usepackage{setspace}
+\usepackage[margin=3cm]{geometry}
+\usepackage{fancyhdr}
 \usepackage[hidelinks]{hyperref}
 \usepackage{csquotes}
 
-\sloppy % Justificado
-\onehalfspacing % Interlineado 1.5
-\pagestyle{fancy} % Tipo de encabezado
-\fancyhead[R]{Alan Omar Acosta Porcayo\\RETI 18} % Elimina el nombre de secciones y define texto personalizado del encabezado
-\setlength{\headheight}{27.69403pt} % Tamaño mínimo del encabezado 
-\setlength{\parindent}{1.25cm} % Sangría 
-\addbibresource{bibliografia.bib} % Documento externo de referencias
+\renewcommand{\familydefault}{\sfdefault}
+
+\sloppy
+\onehalfspacing
+\pagestyle{fancy}
+\fancyhead[R]{Alan Omar Acosta Porcayo\\RETI 18}
+\setlength{\headheight}{27.69403pt}
+\setlength{\parindent}{1.25cm}
 \hypersetup{colorlinks=true, urlcolor=blue, citecolor=blue}
 \urlstyle{same}
 \decimalpoint
@@ -24,14 +24,98 @@
 \begin{document}
     % Titulo
     \begin{center}
-        \textbf{Titulo de relleno}
+        \textbf{Las causas del problema de tráfico vehicular en la Ciudad de México}
     \end{center}
 
     % Cuerpo (Primer párrafo sin sangría)
-    \noindent 
+    \noindent En una urbe como la Ciudad de México con más 9 millones de habitantes, según cifras oficiales del Instituto Nacional de Estadística y Geografía (INEGI) [1], la movilidad es fundamental para el crecimiento de la economía. El flujo vehicular transporta a los ciudadanos a sus centros de trabajo y distribuye los productos y servicios a toda la ciudad, sin embargo, el aumento en la circulación provoca un problema de congestión, tiempos de viaje más largos y mayores costos.
 
+    El mexicano tiene que lidiar con las dificultades cotidianas del tráfico vehicular, e incluso puede llegar extrañarlas. Este nivel de aceptación ante la problemática hace que tanto las causas como las consecuencias de este fenómeno pasen a un segundo plano en la mentalidad del colectivo.
 
-    % Bibliografía
-    % \renewcommand{\refname}{Bibliografía} % Cambio de nombre de la sección
-    % \printbibliography
+    Sin embargo, el estudio de este problema en el campo científico y técnico es amplio y permite un análisis metodológico de las causas, involucrando áreas como la psicología, la teoría económica de oferta y demanda y la ingeniería en la infraestructura vial.  
+
+    Dentro de los factores que afectan directamente al crecimiento del flujo vehicular está el número vehículos. El parque vehicular de la Zona Metropolitana de la Ciudad de México (ZMCM) contaba con 3 511 371 vehículos registrados en el año 2000 [2], 15 años después, la cifra aumentó a 9.5 millones [3]. 
+
+    Este crecimiento del parque vehicular no solo responde a un aumento poblacional, sino también a uno económico. El gran flujo de actividades económicas en la ciudad provoca que habitantes y productos de otros estados se trasladen a la ZMCM, generando una demanda de más vehículos. 
+
+    El efecto que provoca la cantidad en aumento de autos en circulación es inevitable y solo crecerá con el tiempo. Sin embargo, un factor que si puede ser combatido es la cantidad y confiabilidad de la información que poseen los usuarios.
+    
+    La visión más realista del tráfico asume que los usuarios no tienen una información perfecta de la red vial, y envase a esta información deciden cómo y cuando recorrer lo que consideran la mejor ruta. Su decisión es influenciada por criterios como el costo, tiempo, seguridad y comodidad [2].
+
+    Por lo tanto, una carencia de información útil lleva al usuario a tomar malas decisiones, afectando también a otros usuarios de la red vial como consecuencia.
+
+    Las rutas disponibles de las que un usuario puede elegir están directamente relacionadas con la calidad de las intersecciones viales. Un mal diseño en la infraestructura y el uso de controladores de tránsito obsoletos, han comprobado ser una de las causas principales del problema de transporte en el mundo [4].
+    
+    La logística de las intersecciones es estudiada por la ingeniería de tránsito, que se enfoca en la optimización de operación del flujo vehicular. Dentro de los distintos tipos de vialidad, hay algunos que presentan problemas potenciales en la circulación. Por ejemplo, la intersección a nivel (área que es compartida por dos o más caminos), es fácil de planear y construir, pero el problema se genera cuando el flujo vehicular aumenta y el tipo de intersección no tiene la capacidad de servicio en las horas pico [4].
+
+    Un tipo especial de intersección es la glorieta, caracterizada por un anillo que permite una circulación circular alrededor de una isleta central. El problema recae en la indecisión del conductor y a la incomprensión de las reglas de conducción, causando conflictos y accidentes de baja gravedad, pero que obstruyen el flujo normal del tráfico [4].
+
+    Para minimizar la cantidad accidentes en la vialidad se utiliza un sistema de semáforos que controlan el tránsito y la seguridad de los usuarios. La influencia del semáforo es de tal importancia, que un sistema con fallas causa un atascamiento en las intersecciones más transitadas y un riesgo de accidentes que agravaran la situación. 
+    
+    Por su parte, los accidentes viales son tanto una causa como una consecuencia del problema vehicular. Además de que los accidentes se ocasionen por un mal diseño de las vialidades y un sistema de control deficiente, también pueden provocarse por las malas prácticas del conductor. 
+    
+    La psicología del tránsito es una rama de la psicología industrial u organizacional que se encarga de estudiar a los factores psicológicos relacionados con el comportamiento en el ambiente vial [5]. Según un estudio realizado en Perú, el factor humano es responsable del 69\% de los accidentes de tránsito, y en México se registran 28 muertes por cada 10 000 habitantes [6]. 
+
+    Algunos factores que afectan el desempeño de los conductores son el sueño, la fatiga y el consumo de sustancias como el alcohol. Además, algunos comportamientos de riesgo consecuencia de las malas prácticas son la agresión y la hostilidad hacia otros conductores y peatones [6].
+
+    Con una infraestructura abarrotada por la congestión, una carencia de un sistema de control sin fallas y con accidentes que obstruyen la libre circulación, la solución que parecería más factible sería una ampliación de las vialidades. Sin embargo, esta propuesta no puede estar más equivocada. 
+
+    Según la paradoja de Braess, agregar una nueva vialidad a la red de transporte no necesariamente conlleva una mejora en el sentido de reducción del tiempo total del viaje [2]. Esta situación a primera vista contradictoria se sustenta bajo la teoría económica de la oferta y la demanda.
+
+    Nombrado también como el tráfico inducido, se describe en otras palabras como la nueva demanda de transporte asociada a la ampliación de la infraestructura. La ampliación vial genera una mejoraría en el corto plazo que, paulatinamente, abre paso a una congestión vial aún más grave que en un principio. 
+
+    Un estudio realizado con información de 1950 a 2001 confirma la existencia del tráfico inducido en México. La reducción del tiempo de transporte se traduce en un aumento de las distancias recorridas, lo que implica la presencia este fenómeno. Por lo tanto, la única forma de que no exista tráfico inducido es que la relación entre el precio de la gasolina con respecto al total de kilómetros recorridos y el tiempo de viaje sea cero, lo cual es prácticamente imposible [7].
+
+    Como se ha mencionado anteriormente, el estudio de las causas del problema del tráfico se ha realizado con referencia en ciudades con un sistema vial complejo, pero es importante investigar si estas causas se presentan de igual manera en sistemas a una menor escala. 
+
+    En el año 2018 se realizó una investigación de campo en la Ciudad Universitaria (CU) de la UNAM, registrando los datos del estado del tránsito y el sistema de transporte Pumabus, de manera que se enuncien los principales motivos en la demora del servicio de transporte [8].
+
+    El motivo más relevante es el tiempo de ascenso y descenso de pasajeros, representando entre un 66\% y 74\% del total de demoras. Por otro lado, la velocidad promedio de los autobuses es de 25.3 km/h, que es mucho menor a la permitida para la libre circulación que es de 40 km/h, significando una reducción de un 23\% en la eficiencia.
+    
+    Las detenciones por semáforos y la congestión representan el segundo y tercer motivo de demora respectivamente. El horario que especialmente presento problemas de congestión fue el de la tarde y valle-tarde, debido a que los usuarios tienen a trasportarse en sus vehículos a lugares de almuerzo. 
+    
+    Otros motivos con menor repercusión fueron la congestión por los estacionamientos, por intersección o por imprudencia del peatón. Los dos primeros solo ocurriendo en horas pico.
+
+    Por todo lo anterior, es importante volver a reafirmar como el problema del tráfico vehicular se ha convertido en la rutina del ciudadano mexicano, sin embargo es posible reconocer y analizar las causas del tráfico y proponer soluciones de acuerdo a ellas.
+    
+    Algunas propuestas realistas requieren de una mejora en los dispositivos de control, como la instalación de circuitos cerrados de televisión, que permitan reducir los riesgos que se enfrentan en entornos sociales como el de tráfico vehicular [9]. Asimismo, la implementación de las tecnologías basadas en la inteligencia artificial que provean información y optimicen el flujo dependiendo de la densidad vehicular en tiempo real [10] [11].
+    
+    Estas tecnologías han probado ser de utilidad y parecen ser una las pocas alternativas viables. Es posible que con el desarrollo de nueva políticas gubernamentales y con una investigación más extensa de las causas se logren propuestas y acciones que solucionen o, en menor medida, paren el crecimiento paulatino del tráfico vehicular.
+    \hfil \break
+
+    \setlength{\parindent}{0cm}    
+    \textbf{Bibliografía}
+
+    [1] Dirección de Atención a Medios / Dirección General Adjunta de Comunicación, ``En la ciudad de méxico somos 9 209 944 habitantes: censo de población y vivienda 2020'', INEGI, Ciudad de México, 98/21, 28 de enero de 2021. [En línea]. Disponible: \url{https://bit.ly/3Nm9B1F} 
+    \hfil \break
+
+    [2] A. Lozano, V. Torres y J. P. Antún, ``Tráfico vehicular en zonas urbanas'', \textit{Ciencias}, abril-junio, n.º 70, p. 33–35, 2003. [En línea]. Disponible: \url{https://bit.ly/3XgqzTX}
+    \hfil \break
+
+    [3] J. Loza, L. Laurent y E. Laurent, ``El crecimiento anárquico de la región central de méxico. consecuencias actuales y futuras'', \textit{RILCO}, vol. 1, n.º 2, 2019. [En línea]. Disponible: \url{https://bit.ly/3Xlrq5N}
+    \hfil \break
+
+    [4] G. Hernández, J. Ortiz y M. A. Rodríguez, ``Vialidad, problemática en intersecciones viales de áreas urbanas causas y soluciones.'', \textit{CULCyT}, vol. 12, n.º 56, p. 25–32, 2015. [En línea]. Disponible: \url{https://bit.ly/3NisIK5}
+    \hfil \break
+
+    [5] G. González y A. Dantagnán, ``Psicología del tránsito: la agresión al conducir'', en \textit{VII Congreso Internacional de Investigación y Práctica Profesional en Psicología XXII Jornadas de Investigación XI Encuentro de Investigadores en Psicología del MERCOSUR}., Buenos Aires, Argentina, 2015. [En línea]. Disponible: \url{https://bit.ly/4388QiZ}
+    \hfil \break
+
+    [6] W. L. Arias, ``Una reseña introductoria a la psicología del tránsito'', \textit{Revista de Psicología}, vol. 13, n.º 1, p. 113–119, 2011. [En línea]. Disponible: \url{https://bit.ly/43RQHHc}
+    \hfil \break
+
+    [7] L. M. Galindo, D. R. Heres y L. Sánchez, ``Tráfico inducido en México: contribuciones al debate e implicaciones de política pública'', \textit{Estudios Demográficos y Urbanos}, vol. 21, n.º 1, p. 123–157, 2006. [En línea]. Disponible: \url{https://bit.ly/3r0eXbn}
+    \hfil \break
+
+    [8] E. Amortegui, ``Pasantía de investigación para la obtención y análisis de información para el mejoramiento del transporte y del tráfico vehicular en el campus de la Ciudad Univeristaria UNAM, Ciudad de México'', Trabajo final de grado, Universidad distrital Francisco José de Caldas, Bogotá, 2018. [En línea]. Disponible: \url{https://bit.ly/3NR8hFT}
+    \hfil \break
+
+    [9] N. Arteaga, ``Video-vigilancia del espacio urbano: tránsito, seguridad y control social'', \textit{Andamios}, vol. 7, n.º 14, p. 263–286, 2010. [En línea]. Disponible: \url{https://bit.ly/42S3zM4}
+    \hfil \break
+
+    [10] M. V. Bances y M. F. Ramos, ``Semáforos inteligentes para la regulación del tráfico vehicular'', \textit{ICTI}, vol. 1, n.º 1, pp. 37, 2015. [En línea]. Disponible: \url{https://bit.ly/3CEchmH}
+    \hfil \break
+
+    [11] J. Castán, S. Ibarra, J. Laria, J. Guzmán y E. Castán, ``Control de tráfico basado en agentes inteligentes'', \textit{Polibits}, vol. 50, p. 61–68, 2014. [En línea]. Disponible:\url{https://bit.ly/3NjOAVA}
+    \hfil \break
 \end{document}
