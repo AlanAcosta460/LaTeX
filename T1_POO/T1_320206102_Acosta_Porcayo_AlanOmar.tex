@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[none]{hyphenat}
+\usepackage[margin=3cm]{geometry}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{multirow, makecell}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+    language=Java,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\scriptsize\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=3
+}
+
+\sloppy
+\setlength{\parindent}{0cm}
+\decimalpoint
+\setenumerate[2]{label=\alph*)}
+
+\begin{document}
+    \begin{center}
+        \large \textbf{Elementos y propiedades básicos de POO}
+    \end{center}
+    
+    \begin{flushright}
+        32020610-2. \\
+        Acosta Porcayo Alan Omar.
+    \end{flushright}
+
+    \begin{enumerate}
+        \item Investigue los siguientes conceptos relacionados a POO y describa con sus propias palabras la definición de cada uno de ellos:
+        \begin{enumerate}
+            \item Abstracción:
+            \item Polimorfismo:
+            \item Herencia:
+            \item Encapsulamiento:
+        \end{enumerate}
+        Dé ejemplos triviales de la aplicación de estos cuatro conceptos.
+
+        \item Investigue que otro tipo de paradigmas de programación existen y haga una tabla de ventajas y desventajas con respecto a POO.
+        % \begin{longtable}
+        % \end{longtable}
+
+        \item Realice un programa en JAVA que calcule la suma de los primeros n números naturales, donde n sea un parámetro que se recibe del teclado. 
+        \begin{lstlisting}
+public class suma_n_naturales {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingrese el valor de n: ");
+        int n = sc.nextInt(), suma = 0;
+        sc.close();
+
+        for(int i = 1; i <= n; i ++) {
+            suma += i;
+        }
+
+        System.out.println("El valor de la suma de los primeros " + n + " naturales es: " + suma);
+
+    }
+}
+        \end{lstlisting}
+
+        \item Realice un programa en JAVA que calcule la suma de los primeros n números naturales, donde n sea un parámetro que se recibe del teclado. 
+        \begin{lstlisting}
+import java.util.Scanner;
+
+public class factorial {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+    
+        System.out.print("Ingrese el valor de n para calcular su factorial: ");
+        int n = sc.nextInt(), factorial = 1;
+        sc.close();
+
+        for(int aux = n; aux > 1; aux --) {
+            factorial *= aux;
+        }
+
+        System.out.println("El factorial de " + n + " es: " + factorial);
+    }
+}
+        \end{lstlisting}
+
+        \item Expresa tu comentario del video sobre “El fin de los programadores”
+    \end{enumerate}
+\end{document}
