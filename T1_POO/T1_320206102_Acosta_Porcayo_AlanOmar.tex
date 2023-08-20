@@ -48,19 +48,29 @@
     \begin{enumerate}[leftmargin=*]
         \item Investigue los siguientes conceptos relacionados a POO y describa con sus propias palabras la definición de cada uno de ellos:
         \begin{enumerate}[leftmargin=*]
-            \item Abstracción: 
-            \item Polimorfismo:
-            \item Herencia:
-            \item Encapsulamiento:
+            \item Abstracción: es la capacidad de separar una situación u objeto en sus partes elementales para poder analizarlas. Un ejemplo es poder abstraer las partes de una pintura o un mural para apreciar cada una por separado.
+            \item es la capacidad de un objeto de guardar valores de tipos diferentes y de actuar de manera distinta en función de los parámetros con el que se invoca. Un ejemplo de la vida real es que los animales pueden emitir sonido pero no todos suena igual. 
+            \item Herencia: permite crear una clase que amplié los atributos y métodos de una clase ``madre'' o base.permite crear una clase que amplié los atributos y métodos de una clase "madre" o base. Por ejemplo, una persona puede heredar características de sus padres como el color de los ojos y el cabello.
+            \item Encapsulamiento: herramienta para proteger atributos o métodos de cambios inesperados, limitando el acceso solo por métodos permitidos por el desarrollador. En programación un ejemplo son los métodos setters y getters que permite acceder y obtener el valor de una variable.
         \end{enumerate}
         Dé ejemplos triviales de la aplicación de estos cuatro conceptos.
 
         \item Investigue que otro tipo de paradigmas de programación existen y haga una tabla de ventajas y desventajas con respecto a POO.
-        % \begin{longtable}
-        % \end{longtable}
+
+        \begin{tabular}{|c|p{5.5cm}|p{5.5cm}|}
+            \hline
+            ~ & Ventajas & Desventajas \\ \hline
+            Estructurada & Menor tiempo de desarrollo. & Genera código espagueti. \\ \hline
+            Procedimental & Programas más cortos, genera una gran biblioteca de funciones. & Complicado crear programas con procedimientos puros. \\ \hline
+            Modular & Permite dividir el programa en subprogramas más simples. & Dependencia entre programas. \\ \hline
+            Lógica & Permite la aplicación de reglas, hipótesis y teoremas, permite formalizar hechos del mundo real. & Pocos ámbitos de aplicación, no hay herramientas de depuración. \\ \hline
+            Funcional & Permite estructuras de datos infinitas, el testing es más sencillo. & Difícil de optimizar y aprender. \\ \hline 
+        \end{tabular}
 
         \item Realice un programa en JAVA que calcule la suma de los primeros n números naturales, donde n sea un parámetro que se recibe del teclado. 
         \begin{lstlisting}
+import java.util.Scanner;
+
 public class suma_n_naturales {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -101,5 +111,11 @@ public class factorial {
         \end{lstlisting}
 
         \item Expresa tu comentario del video sobre “El fin de los programadores”
+        
+        Como el video explica, las herramientas de inteligencia artificial han surgido para facilitar las tareas en diversas áreas pero sobre todo en la computación. Es tan fácil como acceder y escribir una solicitud para que una de estas herramientas escriba el código por ti, sin embargo, estas herramientas tienen sus limitaciones y en ocasiones su código puede contener errores. 
+
+        Pienso que las capacidades que tienes las herramientas de IA en la actualidad no son lo suficientemente avanzadas o complejas para remplazar a los programadores, pero si representan una gran fuente de ayuda para resolver errores o problemas simples. 
+
+        Por otro lado, aunque creo que las IA's pueden ser muy útiles en el aprendizaje, también pueden ser perjudiciales si no tienen un uso responsable. Por ejemplo, una persona que comienza a aprender a programar y usa las IA's sin conocer las bases de la programación o el lenguaje, tendrá dificultad en aplicar sus conocimientos en problemas más complejos que no puedan ser solucionados por las IA's. Pues no se está aprendiendo realmente, solo se copia el código sin saber como funciona.  
     \end{enumerate}
 \end{document}
