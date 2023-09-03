@@ -191,11 +191,6 @@ public class Referencia {
 }
   \end{lstlisting}
 
-  \textbf{Terminal}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=0.75\columnwidth, center]{Pa.png}
-  % \end{figure}
-
   Calcular áreas de figuras geométricas usando la estructura de control \textit{switch}.
   \begin{lstlisting}
 import java.util.Scanner;
@@ -251,9 +246,9 @@ public class FigurasGeometricas {
   \end{lstlisting} 
 
   \textbf{Terminal}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=0.75\columnwidth, center]{Pa.png}
-  % \end{figure}
+  \begin{figure}[ht]
+    \includegraphics[width=0.4\columnwidth, center]{FG1.png}
+  \end{figure}
 
   \subsection*{Ejercicio Práctico en el Lab}
   Calcular áreas de figuras geométricas usando la estructura de control \textit{switch} y entradas del usuario.
@@ -321,9 +316,9 @@ public class FigurasGeometricas2 {
   \end{lstlisting}
 
   \textbf{Terminal}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=0.75\columnwidth, center]{Pb.png}
-  % \end{figure} 
+  \begin{figure}[ht]
+    \includegraphics[width=0.5\columnwidth, center]{FG2.png}
+  \end{figure} 
 
   Imprimir en la terminal los números primos en el rango que ingrese el usuario.
 
@@ -355,15 +350,15 @@ public class Primos {
   \end{lstlisting}
 
   \textbf{Terminal}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=0.75\columnwidth, center]{Pb.png}
-  % \end{figure} 
+  \begin{figure}[ht]
+    \includegraphics[width=0.75\columnwidth, center]{Primos.png}
+  \end{figure} 
 
   \section*{Resultados}
   \subsection*{Problema 1}
   Elabore un programa que simule la compra de una tienda en línea. Considere al menos $20$ productos con sus costos. El cliente puede escoger n productos, al final deberá mostrarle cuanto es el total de su compra. Si la compra es mayor a $2,000$ pesos que se aplique un descuento del $5\%$ de la compra total, si la compra es mayor a $4,000$ pesos o más aplique un descuento del $7\%$. \textbf{Use la estructura de control \textit{Switch}}.
 
-  \textbf{Explicación} 
+  \textbf{Explicación} \\
 
 
   \textbf{Código}
@@ -394,48 +389,219 @@ public class Primos {
 
   \subsection*{Versión A}
 
-
-  \textbf{Explicación} 
-
-  \textbf{Código}
-  % \begin{lstlisting}
-
-  % \end{lstlisting}
-  
-  \textbf{Terminal}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=0.75\columnwidth, center]{P2.png}
-  % \end{figure}
-
-  \subsection*{Versión B}
-
-  \textbf{Explicación} 
+  \textbf{Explicación} \\
+  Para mostrar cada estrofa se creo un método de tipo \textit{static} recursivo que se controla con un ciclo \textit{for} desde la el método \textit{main}. Los parámetros del método recursivo son el numero de la ultima estrofa y una variable iterativa que comienza desde $0$ y aumenta hasta ser igual al número de la ultima estrofa. Esto permite repetir las estrofas anteriores mientras se agregan las estrofas nuevas. 
 
   \textbf{Código}
-  % \begin{lstlisting}
+  \begin{lstlisting}
+public class Problema2VersionA {
+  static void estrofas(int i, int j) {
+    String estrofa = "";
+    
+    if(j >= i) {
+      System.out.println();
+      return;
+    }
 
-  % \end{lstlisting}
+    switch(j) {
+      case 0: estrofa = "Una perdiz en un peral"; break;
+      case 1: estrofa = "Dos t\u00F3rtolas"; break;
+      case 2: estrofa = "Tres gallinas francesas"; break;
+      case 3: estrofa = "Cuatro p\u00E1jaros piando"; break;
+      case 4: estrofa = "Cinco anillos de oro"; break;
+      case 5: estrofa = "Seis ocas empollando"; break;
+      case 6: estrofa = "Siete cisnes nadando"; break;
+      case 7: estrofa = "Ocho sirvientas orde\u00F1ando"; break;
+      case 8: estrofa = "Nueve damas danzando"; break;
+      case 9: estrofa = "Diez se\u00F1ores saltando"; break;
+      case 10: estrofa = "Once gaiteros tocando la gaita"; break;
+      case 11: estrofa = "Doce tamborileros tocando el tambor";break;
+    }
+  
+    System.out.println(estrofa);
+    estrofas(i, j + 1);    
+  }
+
+  public static void main(String[] args) {
+    for(int i = 1; i <= 12; i ++)
+      estrofas(i, 0);
+  }
+}  
+  \end{lstlisting}
   
   \textbf{Terminal}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=0.75\columnwidth, center]{P2.png}
-  % \end{figure}
+  \begin{figure}[ht]
+    \includegraphics[width=0.38\columnwidth, center]{P2A.png}
+  \end{figure}
+
+  \subsection*{Versión B} 
+  
+  \textbf{Explicación} \\
+  Para generar el orden aleatorio de las estrofas se crean 12 variables de tipo entero y se asignan con valores entre 1 y 12 sin repetirse, esto se hace mediante un ciclo \textit{while} que solo se termina cuando todas las variables son asignadas. El método para imprimir las estrofas es parecido a la versión A pero sin ser recursivo pues se controla por 2 ciclos \textit{for} y una estructura \textit{switch} en el método \textit{main}, lo que permite repetir las estrofas anteriores y llegar hasta las 12 estrofas.
+  
+  \textbf{Código}
+  \begin{lstlisting}
+import java.util.Random;
+
+public class Problema2VersionB {
+  static int n0, n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11 = -1;
+
+  static void estrofas(int i) {
+    String estrofa = "";
+
+    switch(i) {
+      case 0: estrofa = "Una perdiz en un peral"; break;
+      case 1: estrofa = "Dos t\u00F3rtolas"; break;
+      case 2: estrofa = "Tres gallinas francesas"; break;
+      case 3: estrofa = "Cuatro p\u00E1jaros piando"; break;
+      case 4: estrofa = "Cinco anillos de oro"; break;
+      case 5: estrofa = "Seis ocas empollando"; break;
+      case 6: estrofa = "Siete cisnes nadando"; break;
+      case 7: estrofa = "Ocho sirvientas orde\u00F1ando"; break;
+      case 8: estrofa = "Nueve damas danzando"; break;
+      case 9: estrofa = "Diez se\u00F1ores saltando"; break;
+      case 10: estrofa = "Once gaiteros tocando la gaita"; break;
+      case 11: estrofa = "Doce tamborileros tocando el tambor"; break;
+    }
+    
+    System.out.println(estrofa); 
+  }
+
+  static void generarOrdenAleatorio() {
+    Random rand = new Random();
+    int i = 0;
+
+    while (i < 12) {
+      int n = rand.nextInt(12);
+      boolean flag = true;
+
+      if (n0 == n) flag = false;
+      else if (n1 == n) flag = false;
+      else if (n2 == n) flag = false;
+      else if (n3 == n) flag = false;
+      else if (n4 == n) flag = false;
+      else if (n5 == n) flag = false;
+      else if (n6 == n) flag = false;
+      else if (n7 == n) flag = false;
+      else if (n8 == n) flag = false;
+      else if (n9 == n) flag = false;
+      else if (n10 == n) flag = false;
+      else if (n11 == n) flag = false;
+      
+      if (flag) {
+        switch(i) {
+          case 0: n0 = n; break;
+          case 1: n1 = n; break;
+          case 2: n2 = n; break;
+          case 3: n3 = n; break;
+          case 4: n4 = n; break;
+          case 5: n5 = n; break;
+          case 6: n6 = n; break;
+          case 7: n7 = n; break;
+          case 8: n8 = n; break;
+          case 9: n9 = n; break;
+          case 10: n10 = n; break;
+          case 11: n11 = n; break;    
+        }
+        i ++;
+      }
+    }
+  }
+  
+  public static void main(String[] args) {
+    generarOrdenAleatorio();
+
+    for(int i = 1; i <= 12; i ++) {
+      for(int j = 0; j < i; j ++) {
+        switch(j) {
+          case 0: estrofas(n0); break;
+          case 1: estrofas(n1); break;
+          case 2: estrofas(n2); break;
+          case 3: estrofas(n3); break;
+          case 4: estrofas(n4); break;
+          case 5: estrofas(n5); break;
+          case 6: estrofas(n6); break;
+          case 7: estrofas(n7); break;
+          case 8: estrofas(n8); break;
+          case 9: estrofas(n9); break;
+          case 10: estrofas(n10); break;
+          case 11: estrofas(n11); break;
+        }
+      }
+      System.out.println();
+    }
+  }
+}   
+  \end{lstlisting}
+  
+  \textbf{Terminal}
+  \begin{figure}[ht]
+    \includegraphics[width=0.55\columnwidth, center]{P2B.png}
+  \end{figure}
 
   \subsection*{Problema 3}
   Realice el programa:  \href{https://edabit.com/challenge/48EJWLhF224na8po3}{Which Generation Are You?}. \textbf{Use operadores ternarios anidados}.
 
-  \textbf{Explicación} 
-  
+  \textbf{Explicación} \\
+  Para resolver este problema se necesitan dos entradas de datos del usuario, el primero es un entero obligatoriamente entre $-3$ y $3$ y un carácter ``m'' o ``f''. Estos datos se pasan como parámetros a un método de tipo \textit{static} que primero accede a una estructura \textit{switch} para seleccionar la generación y luego por medio de un operador ternario se determina el sexo. Esta función retorna un \textit{String} que finalmente se imprime en el método \textit{main}.
 
   \textbf{Código}
-  % \begin{lstlisting}
+  \begin{lstlisting}
+import java.util.Scanner;
 
-  % \end{lstlisting}
+public class Problema3 {
+  static String Generation(int n, char s) {
+    switch(n) {
+      case -3:
+        return (s == 'm') ? "great grandfather" : "great grandmother";
+      case -2:
+        return (s == 'm') ? "grandfather" : "grandmother";
+      case -1:
+        return (s == 'm') ? "father" : "mother";
+      case 0:
+        return "me!";
+      case 1:
+        return (s == 'm') ? "son" : "daughter";
+      case 2:
+        return (s == 'm') ? "grandson" : "granddaughter";
+      case 3:
+        return (s == 'm') ? "great grandson" : "great granddaughter";
+      default:
+        return "";
+    }
+  }   
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int n;
+    char s;
+    
+    do {
+      System.out.print("Ingrese el numero de generacion (entre -3 y 3): ");
+      n = sc.nextInt();
+
+      if(n < -3 || n > 3)
+        System.out.println("Error. Valor fuera de rango\n");
+    } while (n < -3 || n > 3);
+
+    do {
+      System.out.print("Ingrese el sexo (m/f): ");
+      s = sc.next().charAt(0);
+
+      if(s != 'm' && s != 'f')
+        System.out.println("Error. Valor invalido\n");
+    } while (s != 'm' && s != 'f');
+
+    System.out.println("\n" + Generation(n, s));
+    sc.close();
+  }
+}    
+  \end{lstlisting}
 
   \textbf{Terminal}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=0.75\columnwidth, center]{P3.png}
-  % \end{figure}
+  \begin{figure}[ht]
+    \includegraphics[width=0.8\columnwidth, center]{P3.png}
+  \end{figure}
 
   \subsection*{Problema 4}
   Realice el programa:  \href{https://edabit.com/challenge/7CWbYfRji9yhna9tf}{Remove Trailing and Leading Zeros}. \textbf{Use operaciones \textit{casting}}.
@@ -456,18 +622,55 @@ public class Primos {
   \subsection*{Problema 5}
   Realice el programa:  \href{https://edabit.com/challenge/48EJWLhF224na8po3}{Get the Date}. \textbf{Puede usar cualquier librería del API de JAVA}.
 
-  \textbf{Explicación} 
+  \textbf{Explicación} \\
+  Este código brinda la capacidad al usuario de ingresar una fecha siguiendo el formato ``DD/MM/YYYY''. A continuación, hace uso de la clase LocalDate y del objeto \textit{DateTimeFormatter} para llevar a cabo el análisis y la formateación de la fecha proporcionada. Una vez que se ha obtenido la fecha, se identifica el día de la semana correspondiente haciendo uso del método \textit{getDayOfWeek()}, el cual devuelve el nombre en inglés (por ejemplo, ``MONDAY'' para lunes). Posteriormente, se realiza una traducción de los nombres de los días de la semana al idioma español empleando una estructura \textit{if-else if}, lo que conlleva la conversión de ``MONDAY'' a ``Lunes'', ``TUESDAY'' a ``Martes'', y de manera sucesiva. Por último, se presenta en la pantalla el día de la semana en español. 
   
 
   \textbf{Código}
-  % \begin{lstlisting}
+  \begin{lstlisting}
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
-  % \end{lstlisting}
+public class Problema5 {
+
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Ingresa la fecha (DD/MM/YYYY): ");
+    String fechaInput = scanner.nextLine();
+
+    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    LocalDate fecha = LocalDate.parse(fechaInput, dateFormat);
+    String diaDeLaSemana = fecha.getDayOfWeek().toString();
+    
+    if (diaDeLaSemana.equals("MONDAY")) {
+      diaDeLaSemana = "Lunes";
+    } else if (diaDeLaSemana.equals("TUESDAY")) {
+      diaDeLaSemana = "Martes";
+    } else if (diaDeLaSemana.equals("WEDNESDAY")) {
+      diaDeLaSemana = "Miercoles";
+    } else if (diaDeLaSemana.equals("THURSDAY")) {
+      diaDeLaSemana = "Jueves";
+    } else if (diaDeLaSemana.equals("FRIDAY")) {
+      diaDeLaSemana = "Viernes";
+    } else if (diaDeLaSemana.equals("SATURDAY")) {
+      diaDeLaSemana = "Sabado";
+    } else if (diaDeLaSemana.equals("SUNDAY")) {
+      diaDeLaSemana = "Domingo";
+    }
+    
+    System.out.println("El dia de la semana es: " + diaDeLaSemana);
+    scanner.close();
+  }
+}
+  \end{lstlisting}
 
   \textbf{Terminal}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=0.75\columnwidth, center]{P3.png}
-  % \end{figure}
+  \begin{figure}[ht]
+    \includegraphics[width=0.75\columnwidth, center]{P5.png}
+  \end{figure}
 
 
   \section*{Conclusiones}
