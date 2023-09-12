@@ -256,7 +256,7 @@ public class pract3 {
   \textbf{Utilice el manejo de cadenas y arreglos matriciales}.
 
   \begin{figure}[ht]
-    \includegraphics[width=0.5\columnwidth, center]{Scytale.png}
+    \includegraphics[width=0.4\columnwidth, center]{Scytale.png}
   \end{figure}
 
   \textbf{Explicación} \\
@@ -319,38 +319,6 @@ public class Problema1 {
   \begin{figure}[ht]
     \includegraphics[width=0.6\columnwidth, center]{P1.png}
   \end{figure}
-
-
-  \subsection*{Problema 2}
-  Simule un sistema de inscripciones para los alumnos de una universidad, el alumno podrá:
-
-  \begin{enumerate}[label=\alph*.]
-    \item Inscribirse a una materia.
-    \item Darse de baja en una materia.
-    \item Ver el historial de su inscripción en cualquier momento.
-    \item Finalizar inscripción (mostrar un resumen de sus materias)
-  \end{enumerate}
-
-  Considere las siguientes clases de tipo publicas alumno (nombre, apellido materno, apellido paterno, número de cuenta, edad y sexo), materia o asignatura (clave de la materia, nombre de la materia, créditos y cupo) y el sistema de inscripción donde estará el método \textit{Main}.
-
-  El (los) alumno(s) tienen que darse de alta en el sistema de inscripción primeramente para luego realizar su inscripción cuando un alumno termine su inscripción. El sistema seguirá abierto para una nueva alta de alumno. Si la materia ya no tiene cupo no permite realizar la inscripción y manda mensaje de CUPO LLENO.
-
-  Al final el programa se deberá mostrar el listado de cada alumno y su inscripción, así como cada materia con su cupo final.
-
-  \textbf{Utilice clases públicas y atributos de tipo privado, \textit{getters and setters, Hashtable} para las materias y \textit{Arraylist} para la inscripción de alumnos, o cualquier otro tipo de colección que considere mejor.}.
-
-  \textbf{Explicación} \\
-  
-
-  \textbf{Código}
-  % \begin{lstlisting}
-
-  % \end{lstlisting}
-  
-  \textbf{Terminal}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=0.38\columnwidth, center]{P2A.png}
-  % \end{figure}
 
   \subsection*{Problema 3}
   Programe el juego de la tortuga y la liebre.
@@ -538,17 +506,80 @@ public class Problema3 {
   \textbf{Utilice Sets y sus operaciones}.
 
   \textbf{Explicación} \\
+  Para la generación de los conjuntos $A$, $B$, $C$ y $D$ se utiliza el método \textit{generarConjuntoAleatorio()} que se encarga de generar conjuntos de números enteros aleatorios y devuelve un conjunto \textit{Set$<$Integer$>$}. 
   
+  Para el inciso a) ee crea un nuevo conjunto \textit{interseccionABCD}.
+  Se calcula la intersección de \textit{interseccionABCD} con los conjuntos $A$, $B$, $C$ y $D$ utilizando el método \textit{retainAll()}. El resultado es un conjunto que contiene solo los elementos que están presentes en todos los conjuntos $A$, $B$, $C$ y $D$.
+
+  Para el inciso b) ee calcula la intersección de los conjuntos $A$ y $B$ en \textit{interseccionAB}. Se calcula la intersección de los conjuntos $C$ y $D$ en \textit{interseccionCD}. Se crea un nuevo conjunto \textit{unionABCD} que contiene todos los elementos de \textit{interseccionAB} y \textit{interseccionCD} combinados. Esto representa la unión de dos intersecciones.
+
+  Para el inciso c) se crea un nuevo conjunto \textit{unionSinRepetir}. Se agregan todos los elementos de los conjuntos $A$, $B$, $C$ y $D$ a \textit{unionSinRepetir}. La particularidad de usar \textit{HashSet} es que se asegura de que no haya elementos duplicados, por lo que al final, \textit{unionSinRepetir} contiene la unión de todos los conjuntos sin elementos repetidos.
+
+  Pot ultimo, para el inciso d) se crea un nuevo conjunto \textit{complementoBU} que comienza como una copia del conjunto $B$ utilizando \textit{new HashSet$<>$(B)}. Luego, se utiliza el método \textit{removeAll()} en \textit{complementoBU} para eliminar todos los elementos que están en el conjunto \textit{unionSinRepetir}. El conjunto \textit{complementoBU} resultante contiene los elementos que están no estan en $B$.
 
   \textbf{Código}
-  % \begin{lstlisting}
+  \begin{lstlisting}
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
-  % \end{lstlisting}
+public class Problema4 {
+  public static void main(String[] args) {
+    Set<Integer> A = generarConjuntoAleatorio(10);
+    Set<Integer> B = generarConjuntoAleatorio(20);
+    Set<Integer> C = generarConjuntoAleatorio(30);
+    Set<Integer> D = generarConjuntoAleatorio(40);
+
+    System.out.println("Conjunto A: " + A);
+    System.out.println("Conjunto B: " + B);
+    System.out.println("Conjunto C: " + C);
+    System.out.println("Conjunto D: " + D);
+
+    Set<Integer> interseccionABCD = new HashSet<>(A);
+    interseccionABCD.retainAll(B);
+    interseccionABCD.retainAll(C);
+    interseccionABCD.retainAll(D);
+
+    Set<Integer> interseccionAB = new HashSet<>(A);
+    interseccionAB.retainAll(B);
+    Set<Integer> interseccionCD = new HashSet<>(C);
+    interseccionCD.retainAll(D);
+    Set<Integer> unionABCD = new HashSet<>(interseccionAB);
+    unionABCD.addAll(interseccionCD);
+
+    Set<Integer> unionSinRepetir = new HashSet<>(A);
+    unionSinRepetir.addAll(B);
+    unionSinRepetir.addAll(C);
+    unionSinRepetir.addAll(D);
+
+    Set<Integer> complementoBU = new HashSet<>(unionSinRepetir);
+    complementoBU.removeAll(B);
+    
+    System.out.println("\n\na. A interseccion B interseccion C interseccion
+     D: " + interseccionABCD);
+    System.out.println("\nb. (A interseccion B) union (C interseccion D): 
+    " + unionABCD);
+    System.out.println("\nc. U = A union B union C union D sin repeticion de
+     elementos: " + unionSinRepetir);
+    System.out.println("\nd. Complemento de B con respecto a U: " + 
+    complementoBU);
+  }
+  
+  public static Set<Integer> generarConjuntoAleatorio(int tamano) {
+    Set<Integer> conjunto = new HashSet<>();
+    Random random = new Random();
+    while (conjunto.size() < tamano) {
+      conjunto.add(random.nextInt(201)); 
+    }
+    return conjunto;
+  }
+}    
+  \end{lstlisting}
 
   \textbf{Terminal}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=0.15\columnwidth, center]{P4.png}
-  % \end{figure}
+  \begin{figure}[ht]
+    \includegraphics[width=\columnwidth, center]{P4.png}
+  \end{figure}
 
   \subsection*{Problema 5}
   Construya un árbol genealógico \textbf{sencillo} de cualquier panteón mitológico (griego, romano, nórdico, etc) seleccione cualquier tipo de estructura tipo Tree que java ofrece. De manera tal que una estructura de tipo Tree es una persona y sobre el estarán sus hij@s.
@@ -565,17 +596,180 @@ public class Problema3 {
   Y podemos buscar sus descendientes, borrar, o agregar. Y buscar sus antecesores.
 
   \textbf{Explicación} \\
-  
+  Es una implementación de un árbol genealógico ficticio basado en la mitología griega. A través de una serie de nodos, representados como objetos DefaultMutableTreeNode, se establecen relaciones jerárquicas entre diversos personajes mitológicos griegos, como Urano, Cronos, Zeus y otros dioses y diosas importantes.
+
+  Ofrece funciones para explorar, modificar y visualizar las relaciones familiares entre los personajes.  
 
   \textbf{Código}
-  % \begin{lstlisting}
+  \begin{lstlisting}
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeNode;
+import java.util.Scanner;
 
-  % \end{lstlisting}
+public class Problema5 {
+  private static DefaultMutableTreeNode uranos;
+  private static DefaultMutableTreeNode zeus;
+  private static Scanner sc;
+
+  public Problema5() {
+    // Crear los nodos para los personajes
+    uranos = new DefaultMutableTreeNode("Uranos");
+    DefaultMutableTreeNode cronos = new DefaultMutableTreeNode("Cronos");
+
+    zeus = new DefaultMutableTreeNode("Zeus");
+    DefaultMutableTreeNode ades = new DefaultMutableTreeNode("Ades");
+    DefaultMutableTreeNode hestia = new DefaultMutableTreeNode("Hestia");
+    DefaultMutableTreeNode demeter = new DefaultMutableTreeNode("Demeter");
+    DefaultMutableTreeNode hera = new DefaultMutableTreeNode("Hera");
+    DefaultMutableTreeNode poseidon = new DefaultMutableTreeNode("Poseidon");
+
+    DefaultMutableTreeNode hefesto = new DefaultMutableTreeNode("Hefesto");
+    DefaultMutableTreeNode ares = new DefaultMutableTreeNode("Ares");
+    DefaultMutableTreeNode dioniso = new DefaultMutableTreeNode("Dioniso");
+    DefaultMutableTreeNode hermes = new DefaultMutableTreeNode("Hermes");
+    DefaultMutableTreeNode atenea = new DefaultMutableTreeNode("Atenea");
+    DefaultMutableTreeNode artemisa = new DefaultMutableTreeNode("Artemisa");
+    DefaultMutableTreeNode apolo = new DefaultMutableTreeNode("Apolo");
+    DefaultMutableTreeNode afrodita = new DefaultMutableTreeNode("Afrodita");
+
+    // Construir el arbol genealogico
+    uranos.add(cronos);
+
+    cronos.add(zeus);
+    cronos.add(poseidon);
+    cronos.add(ades);
+    cronos.add(hestia);
+    cronos.add(demeter);
+    cronos.add(hera);
+    cronos.add(poseidon);
+
+    zeus.add(hefesto);
+    zeus.add(ares);
+    zeus.add(dioniso);
+    zeus.add(hermes);
+    zeus.add(atenea);
+    zeus.add(artemisa);
+    zeus.add(apolo);
+    zeus.add(afrodita);
+
+    sc = new Scanner(System.in);
+  }
+
+  public TreeNode buscarDescendiente(TreeNode root, String nombre) {
+    if (root.toString().equalsIgnoreCase(nombre)) {
+      return root;
+    }
+    for (int i = 0; i < root.getChildCount(); i++) {
+      TreeNode resultado = buscarDescendiente(root.getChildAt(i), nombre);
+      if (resultado != null) {
+        return resultado;
+      }
+    }
+    return null;
+  }
+
+  public void printTree(TreeNode root, String indent) {
+    System.out.println(indent + root);
+    for (int i = 0; i < root.getChildCount(); i++) {
+      printTree(root.getChildAt(i), indent + " | ");
+    }
+  }
+
+  public void buscarUnDescendiente() {
+    // Buscar un descendiente
+    System.out.print("\nIngresa el nombre que deseas buscar: ");
+    String nombreABuscar = sc.nextLine();
+    TreeNode nodoEncontrado = buscarDescendiente(uranos, nombreABuscar);
+    if (nodoEncontrado != null) {
+      System.out.println("Descendiente encontrado: " + nodoEncontrado);
+      if (nodoEncontrado.getParent() != null)
+        System.out.println("\nPadre: " + nodoEncontrado.getParent());
+      else
+        System.out.println("\nPadre: No tiene");
+      // desendientes
+      if (nodoEncontrado.getChildCount() == 0)
+        System.out.println("\nHijos: No tiene");
+      else {
+        System.out.println("\nHijos: ");
+        for (int i = 0; i < nodoEncontrado.getChildCount(); i++) {
+          System.out.println(" - " + nodoEncontrado.getChildAt(i));
+        }
+      }
+    } else {
+      System.out.println("Descendiente no encontrado: " + nombreABuscar);
+    }
+  }
+
+  public void agregarUnDescendiente() {
+    System.out.println("\nAgregar un descendiente a Zeus:");
+    System.out.print("Ingresa el nombre del nuevo descendiente: ");
+    String descendiente = sc.nextLine();
+    DefaultMutableTreeNode nuevoDescendiente = new 
+                            DefaultMutableTreeNode(descendiente);
+    zeus.add(nuevoDescendiente);
+    System.out.println("Descendiente agregado a Zeus: " + descendiente);
+  }
+
+  public void eliminarUnDescendiente() {
+    System.out.println("\nEliminar un descendiente de Zeus:");
+    System.out.print("Ingresa el nombre del descendiente a eliminar: ");
+    String descendiente = sc.nextLine();
+    DefaultMutableTreeNode nodoAEliminar = (DefaultMutableTreeNode) 
+                            buscarDescendiente(zeus, descendiente);
+    if (nodoAEliminar != null) {
+      zeus.remove(nodoAEliminar);
+      System.out.println("Descendiente eliminado de Zeus: " + nodoAEliminar);
+    } else {
+      System.out.println("Descendiente no encontrado en Zeus: " + descendiente);
+    }
+  }
+
+  public static void main(String[] args) {
+    Problema5 programa = new Problema5();
+
+    // Menu
+    int opcion = 0;
+    do {
+      System.out.println("\nMenu:");
+      System.out.println("1. Imprimir arbol genealogico");
+      System.out.println("2. Buscar un descendiente");
+      System.out.println("3. Agregar un descendiente a Zeus");
+      System.out.println("4. Eliminar un descendiente de Zeus");
+      System.out.println("5. Salir");
+      System.out.print("Ingresa una opcion: ");
+      opcion = Integer.parseInt(sc.nextLine());
+      switch (opcion) {
+        case 1:
+          System.out.println();
+          programa.printTree(uranos, "");
+          break;
+        case 2:
+          programa.buscarUnDescendiente();
+          break;
+        case 3:
+          programa.agregarUnDescendiente();
+          break;
+        case 4:
+          programa.eliminarUnDescendiente();
+          break;
+        case 5:
+          System.out.println("Adios!");
+          break;
+        default:
+          System.out.println("Opcion no valida");
+          break;
+      }
+    } while (opcion != 5);
+
+    sc.close();
+  }
+}
+  \end{lstlisting}
 
   \textbf{Terminal}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=0.75\columnwidth, center]{P5.png}
-  % \end{figure}
+  \begin{figure}[ht]
+    \includegraphics[width=0.75\columnwidth, center]{P5.png}
+  \end{figure}
 
   \section*{Conclusiones}
   La incorporación de bibliotecas en la programación se convierte en un recurso crucial para potenciar la eficacia, la calidad y la cooperación en el proceso de desarrollo de software. Estas bibliotecas ofrecen soluciones previamente diseñadas para tareas comunes, lo que conlleva ahorro de tiempo y minimiza la probabilidad de cometer errores. Asimismo, fomentan la capacidad de reutilizar código. En última instancia, adquirir destrezas en la utilización de bibliotecas se convierte en una habilidad esencial y contribuye al logro de éxitos en el ámbito de la programación.
