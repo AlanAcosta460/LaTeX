@@ -308,16 +308,14 @@ public class Racquet {
 }    
   \end{lstlisting}
 
+  \newpage
   \section*{Resultados}
   \subsection*{Problema 1}
   Construya el modelo UML de la composición e interacción de objetos y clases del código del \textit{MiniTennis} ubicado en \url{https://github.com/LeonardoLed/POO/tree/main/TemaIII.HerenciayPolimorfismo/Prac3}
-  
-  \textbf{Explicación} \\
 
-
-  % \begin{figure}[ht]
-  %   \includegraphics[width=0.4\columnwidth, center]{P1.png}
-  % \end{figure}
+  \begin{figure}[ht]
+    \includegraphics[width=\columnwidth, center]{P1.jpg}
+  \end{figure}
 
   
   \subsection*{Problema 2}
@@ -344,15 +342,15 @@ public class Racquet {
 
   \begin{figure}[ht]
     \centering
-    \begin{minipage}[l]{0.3\columnwidth}
+    \begin{minipage}[l]{0.25\columnwidth}
       \includegraphics[width=\columnwidth, left]{dot.png}
       \caption*{Cuerpo}
     \end{minipage}
-    \begin{minipage}[c]{0.3\columnwidth}
+    \begin{minipage}[c]{0.25\columnwidth}
       \includegraphics[width=\columnwidth, center]{head.png}
       \caption*{Cabeza}
     \end{minipage}
-    \begin{minipage}[r]{0.25\columnwidth}
+    \begin{minipage}[r]{0.2\columnwidth}
       \includegraphics[width=\columnwidth, right]{apple.jpg}
       \caption*{Manzana}
     \end{minipage}
@@ -361,7 +359,7 @@ public class Racquet {
   Para agregar la opción de volver a jugar cuando se pierde el juego primero se para el \textit{timer} con el método \textit{stop()}, luego se utiliza la clase \textit{JOptionPane} y el método \textit{showConfirmDialog()} para desplegar una ventana con dos botones como se muestra en la siguiente imagen:
 
   \begin{figure}[ht]
-    \includegraphics[width=0.75\columnwidth, center]{v1.png}
+    \includegraphics[width=0.6\columnwidth, center]{v1.png}
   \end{figure}
 
   Si se selecciona la opción \textit{Yes} la variable \textit{inGame} se reasigna a \textit{true}, la variable \textit{score} (que guarda la puntuación del jugador) se inicializa en 0 y se utiliza el método \textit{initGame()} para reiniciar el juego.
@@ -369,7 +367,7 @@ public class Racquet {
   Si se selecciona la opción \textit{No} se despliega una nueva ventana con el método \textit{showMessageDialog()} para mostrar el puntaje final y luego se termina la ejecución del juego.
 
   \begin{figure}[ht]
-    \includegraphics[width=0.75\columnwidth, center]{v2.png}
+    \includegraphics[width=0.6\columnwidth, center]{v2.png}
   \end{figure}  
 
   Para que el juego no termine cuando se choca con un borde de la ventana, es necesario cambiar las condiciones en el método \textit{checkCollision}. Si la cabeza de la víbora llega al borde superior o inferior, se cambia la posición de \textit{y} para aparecer del lado opuesto. Lo mismo ocurre con los bordes izquierdo y derecho pero cambiando la posición en \textit{x}.
@@ -377,7 +375,7 @@ public class Racquet {
   Finalmente, para jugar en 3 velocidades se creo un nuevo método llamado \textit{setSpeed()} que se llama al iniciar el juego. Primero se despliega una ventana en la que el usuario pueda seleccionar alguna de las 3 velocidades utilizando el método \textit{showInputDialog()} al que se le pasa como parámetro un arreglo de cadenas con las opciones disponibles.
 
   \begin{figure}[ht]
-    \includegraphics[width=0.75\columnwidth, center]{v3.png}
+    \includegraphics[width=0.6\columnwidth, center]{v3.png}
   \end{figure}
   
   Este método retorna la cadena que seleccionó el usuario y se guarda en una nueva variable para comprobar cual fue la selección. Para poder alterar la velocidad de movimiento de la víbora se cambió la constante \textit{DELAY} a una variable normal. En el caso de la velocidad ``Babosa'' se modificó el \textit{delay} a 160 para ir más lento y la velocidad ``Anaconda'' a 80 para ir más rápido.
