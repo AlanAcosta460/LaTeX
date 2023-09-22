@@ -312,17 +312,155 @@ public class TicTacToe implements Board {
 
   \linejump
   \textbf{Explicación} \\
+  Para programar el juego de ahorcado se utilizaron las 3 clases sugeridas. La clase \textit{Palabra} se encarga de elegir aleatoriamente una palabra entre las 30 posibles para crear dos variables, una con la palabra que se tiene que adivinar y otra con guiones bajos ($\_$) que el usuario ira llenando con sus intentos. Esta clase tiene dos métodos \textit{getters} para saber la palabra y la palabra escondida y otro método para comprobar si la letra que ingresó el usuario esta en la palabra original para agregar la letra a la palabra escondida. 
+  
+  La clase \textit{Ahorcado} se encarga de dibujar la figura simple del ahorcado y también lleva un control de las vidas del jugador por medio de un método \textit{get} y uno para restar una vida en caso de equivocarse. 
 
-
-  \textbf{Código}
-  % \begin{lstlisting}
+  En la clase \textit{Main} se realiza la composición de objetos de las clases \textit{Palabra} y \textit{Ahorcado}. Dentro de un ciclo \textit{while} se muestra la palabra escondida con el progreso que lleva el jugador además de la figura del ahorcado. Se pide una letra y se revisa si está en la palabra original, y en caso de que no esté se resta una vida. El ciclo \textit{while} se interrumpe cuando se acabaron las vidas o si se adivinó la palabra. Por último se imprime un mensaje de victoria o derrota dependiendo el caso. 
     
-  % \end{lstlisting}
+  \textbf{Clase \textit{Palabra}}
+  \begin{lstlisting}
+import java.util.ArrayList;
+import java.util.Random;
 
+public class Palabra {
+  private ArrayList<String> words = new ArrayList<String>();
+  private StringBuilder word = new StringBuilder();
+  private StringBuilder hiddenWord = new StringBuilder();
+  private Random rand = new Random();
+
+  public Palabra() {
+    setWords();
+    
+    int r = rand.nextInt(words.size());
+    this.word = new StringBuilder(words.get(r).toUpperCase());
+    
+    for(int i = 0; i < word.length(); i++)
+      this.hiddenWord.append('_');
+  }
+
+  private void setWords() {
+    words.add("personas");
+    words.add("computadora");
+    words.add("ciudad");
+    words.add("sistema");
+    words.add("historia");
+    words.add("internet");
+    words.add("perro");
+    words.add("gato");
+    words.add("casa");
+    words.add("dia");
+    words.add("noche");
+    words.add("importante");
+    words.add("pelicula");
+    words.add("musica");
+    words.add("libro");
+    words.add("desarrollo");
+    words.add("tiempo");
+    words.add("programacion");
+    words.add("cuerpo");
+    words.add("problema");
+    words.add("solucion");
+    words.add("informacion");
+    words.add("movimiento");
+    words.add("lenguaje");
+    words.add("actividad");
+    words.add("luz");
+    words.add("fuerza");  
+    words.add("nuevo");
+    words.add("espacio");
+    words.add("naturaleza");
+  }
+
+  public StringBuilder getWord() {
+    return this.word;
+  }
+
+  public StringBuilder getHiddenWord() {
+    return this.hiddenWord;
+  }
+
+  public boolean guessLetter(char l) {
+    boolean inWord = false;
+    
+    for(int i = 0; i < word.length(); i++) {
+      if(word.charAt(i) == l) {
+        this.hiddenWord.setCharAt(i, l);
+        inWord = true;
+      }
+    } 
+    
+    return inWord;
+  }
+}        
+  \end{lstlisting}
+
+  \textbf{Clase \textit{Ahorcado}}
+  \begin{lstlisting}
+public class Ahorcado {
+  private int lives = 7;
+
+  public void paintAhorcado() {
+    for(int i = 0; i < lives; i++) {
+      switch(i) {
+        case 0: System.out.print("  O"); break;
+        case 1: System.out.print("\n/"); break;
+        case 2: System.out.print(" | "); break;
+        case 3: System.out.print((char)92); break;
+        case 4: System.out.print("\n  |"); break;
+        case 5: System.out.print("\n/   "); break;
+        case 6: System.out.print((char)92); break;
+      }
+    }
+  }
+
+  public int getLives() {
+    return this.lives;
+  }
+
+  public void loseLife() {
+    this.lives--;
+  }
+}  
+  \end{lstlisting}
+
+  \textbf{Clase \textit{Main}}
+  \begin{lstlisting}
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    Ahorcado game = new Ahorcado();
+    Palabra p = new Palabra();
+    StringBuilder w = new StringBuilder(p.getWord());
+
+    while(game.getLives() > 0 && !p.getHiddenWord().toString().equals(w.toString())) {
+      System.out.println("Adivina: " + p.getHiddenWord());
+      game.paintAhorcado();
+
+      System.out.print("\nLetra: ");
+      char l = sc.next().charAt(0);
+      l = Character.toUpperCase(l);
+      if(!p.guessLetter(l))
+        game.loseLife();
+      System.out.println();
+    }
+
+    if(game.getLives() == 0)
+      System.out.println("Perdiste :( La palabra era: " + w + "");
+    else
+      System.out.println("Adivinaste la palabra " + w + "!");
+
+    sc.close();
+  }
+}    
+  \end{lstlisting}
+  
   \textbf{Ejecución}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=\columnwidth, center]{P3.jpg}
-  % \end{figure}
+  \begin{figure}[ht]
+    \includegraphics[width=0.6\columnwidth, center]{P3.png}
+  \end{figure}
 
   \subsection*{Problema 4}
   El matemático S. Ulam en 1964 planteo una secuencia de números entera que sigue una serie de reglas planteada en \url{https://edabit.com/challenge/RkicZ4kkcSx8K3d4e}x. Programe la secuencia de Ulam, pero que reciba desde consola los primeros dos elementos de la secuencia y se calcule sobre esos dos elementos.
@@ -336,17 +474,82 @@ public class TicTacToe implements Board {
 
   \linejump
   \textbf{Explicación} \\
+  El programa funciona a partir de los dos primeros números de la secuencia ingresados en la consola, los cuales se envían al método \textit{ulam} que se encarga de calcular los siguientes 8 números.
 
+  En el método se utiliza la colección \textit{ArrayList} para crear dos variables, la secuencia (\textit{sequence}) y la suma de los elementos de la secuencia (\textit{sums}). Primero se agregan los dos números ingresados por el usuario, luego, dentro de un ciclo \textit{for}, se vacia la variable \textit{sums} para volver a llenarla con los sumas de los elementos de la secuencia. Después, utilizando el método \textit{sort} y la clase \textit{Comparator} se ordena la lista de sumas para eliminar los elementos de \textit{sums} que ya están en la secuencia.
+
+  Por último, dentro de un ciclo \textit{while} se busca a la suma menor y que no este repetida a través de dos condicionales. La primera solo se aplica cuando la lista de sumas tiene un elemento, pues no tiene más con que comparar. La segunda comprueba si un elemento de \textit{sums} está repetido, y si lo está procede a eliminar todas las repeticiones de este número. Si no se cumplieron las dos condicionales quiere decir que el elemento en 0 de \textit{sums} es la suma mínima y no repetida y se agrega a la secuencia. Al terminar con los 8 elementos de la secuencia, se retorna y se imprime en el método \textit{main}.
 
   \textbf{Código}
-  % \begin{lstlisting}
-    
-  % \end{lstlisting}
+  \begin{lstlisting}
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Comparator;
+
+public class Problema4 {
+  static ArrayList<Integer> ulam(int u, int v) {
+    ArrayList<Integer> sequence = new ArrayList<Integer>();
+    ArrayList<Integer> sums = new ArrayList<Integer>();
+
+    sequence.add(u);
+    sequence.add(v);
+
+    for(int i = 0; i < 8; i ++) {
+      sums.clear();
+
+      for(int j = 0; j < sequence.size(); j ++) {
+        for(int k = j + 1; k < sequence.size(); k ++)
+          sums.add(sequence.get(j) + sequence.get(k));
+      }
+
+      sums.sort(Comparator.naturalOrder());
+
+      for(int j = 0; j < sums.size(); j ++) {
+        if(sequence.contains(sums.get(j))) {
+          sums.remove(j);
+          j --;
+        }
+      }
+
+      while(true) {
+        if(sums.size() == 1) {
+          sequence.add(sums.get(0));
+          break;
+        } else if(sums.get(0) == sums.get(1)) {
+          int temp = sums.get(0);
+          while(sums.get(0) == temp)
+            sums.remove(0);
+        } else {
+          sequence.add(sums.get(0));
+          break;
+        }
+      }
+    }
+
+    return sequence;
+  }
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    System.out.print("Numero 1: ");
+    int u = sc.nextInt();
+    System.out.print("Numero 2: ");
+    int v = sc.nextInt();
+
+
+    System.out.println("\nPrimeros 10 numeros de la secuencia: ");
+    System.out.println(ulam(u, v));
+
+    sc.close();
+  }
+}    
+  \end{lstlisting}
 
   \textbf{Ejecución}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=\columnwidth, center]{P4.jpg}
-  % \end{figure}
+  \begin{figure}[ht]
+    \includegraphics[width=0.6\columnwidth, center]{P4.png}
+  \end{figure}
 
   \section*{Conclusiones}
   
@@ -355,5 +558,7 @@ public class TicTacToe implements Board {
   \small
   Solano, J. (2017, 20 enero). \textit{Manual de prácticas de Programación Orientada a Objetos}. Laboratorio de Computación Salas A y B. \url{http://lcp02.fi-b.unam.mx/} \\
 
-  Matt. \textit{Ulam Sequence}. Edabit. \url{https://edabit.com/challenge/RkicZ4kkcSx8K3d4e}
+  Matt. \textit{Ulam Sequence}. Edabit. \url{https://edabit.com/challenge/RkicZ4kkcSx8K3d4e} \\
+
+  \textit{Java ArrayList sort()}. (n.d.). \url{https://www.programiz.com/java-programming/library/arraylist/sort}x
 \end{document}
