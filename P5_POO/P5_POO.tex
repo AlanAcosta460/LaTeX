@@ -90,7 +90,7 @@
   La abstracción y el encapsulamiento son dos conceptos fundamentales en la programación orientada a objetos que permiten simplificar y proteger la complejidad de los sistemas. La abstracción se enfoca en centrarse en lo que un objeto hace sin preocuparse por cómo lo hace, lo que facilita la comprensión y el uso de objetos complejos. Por otro lado, el encapsulamiento implica ocultar los detalles internos de un objeto y proporcionar acceso controlado a sus datos y operaciones a través de métodos.
 
   \subsection*{Abstracción}
-  La abstracción se refiere a la capacidad de enfocarse en los aspectos más significativos de un problema y expresar una solución en términos simplificados. Esto permite manejar la complejidad de los sistemas del mundo real al analizar "qué hace" un objeto en lugar de "cómo lo hace". La abstracción se ilustra con un ejemplo común: la televisión, cuyos usuarios pueden interactuar con sus funciones sin necesidad de conocer su funcionamiento interno.
+  La abstracción se refiere a la capacidad de enfocarse en los aspectos más significativos de un problema y expresar una solución en términos simplificados. Esto permite manejar la complejidad de los sistemas del mundo real al analizar ``qué hace'' un objeto en lugar de ``cómo lo hace''. La abstracción se ilustra con un ejemplo común: la televisión, cuyos usuarios pueden interactuar con sus funciones sin necesidad de conocer su funcionamiento interno.
 
   \subsection*{Encapsulamiento}
   El encapsulamiento implica agrupar datos y operaciones relacionadas dentro de una unidad de programación, protegiendo así la información interna de un objeto. Esto se logra mediante el ocultamiento de datos, lo que significa que el acceso a los atributos de un objeto se realiza a través de métodos específicos. Los niveles de visibilidad, como público, protegido y privado, controlan qué partes del programa pueden acceder a estos atributos, proporcionando una interfaz clara para interactuar con el objeto.
@@ -99,10 +99,10 @@
   Los modificadores de acceso, como público, protegido y privado, definen la visibilidad de los miembros de una clase (atributos y métodos). Estos modificadores permiten controlar quién puede acceder y modificar los atributos de un objeto. El uso adecuado de estos modificadores garantiza la integridad de los datos y facilita futuros cambios en la implementación sin afectar a otras partes del programa.
 
   \subsection*{Acceso a Miembros}
-  Los métodos de acceso, como getters y setters, son métodos públicos que permiten leer y modificar los atributos privados de un objeto. Los métodos consultores (getters) proporcionan información sin cambiar los valores de los atributos, mientras que los métodos modificadores (setters) permiten cambiar esos valores. Esta separación de acceso controlado a los datos internos mejora la modularidad y la seguridad del código.
+  Los métodos de acceso, como \textit{getters} y \textit{setters}, son métodos públicos que permiten leer y modificar los atributos privados de un objeto. Los métodos consultores (\textit{getters}) proporcionan información sin cambiar los valores de los atributos, mientras que los métodos modificadores (\textit{setters}) permiten cambiar esos valores. Esta separación de acceso controlado a los datos internos mejora la modularidad y la seguridad del código.
 
   \subsection*{Composición}
-  La composición es la capacidad de una clase de tener referencias a objetos de otras clases como miembros. Esto refleja las relaciones "tiene un" en sistemas complejos. Por ejemplo, un cuerpo humano tiene un cerebro y un corazón. La composición facilita la reutilización de software y la construcción de sistemas jerárquicos y modularizados.
+  La composición es la capacidad de una clase de tener referencias a objetos de otras clases como miembros. Esto refleja las relaciones ``tiene un'' en sistemas complejos. Por ejemplo, un cuerpo humano tiene un cerebro y un corazón. La composición facilita la reutilización de software y la construcción de sistemas jerárquicos y modularizados.
 
   En conjunto, la abstracción y el encapsulamiento son principios clave para crear sistemas de software eficientes y mantenibles, permitiendo una comprensión más clara de objetos complejos y protegiendo la integridad de los datos y la funcionalidad del programa.
 
@@ -265,17 +265,174 @@ public class TicTacToe implements Board {
 
   \linejump
   \textbf{Explicación} \\
+  Este código representa una adaptación del juego ``Tic Tac Toe'' en una versión ampliada de 5x5, en la que dos jugadores se enfrentan para conseguir una fila, columna o diagonal con cuatro símbolos, ``X'' u ``O'', antes que su oponente.
 
+  En esta versión, el tablero se representa mediante una matriz de 5x5 llamada \textit{board}. Inicialmente, todas las casillas están numeradas del 1 al 25, indicando las posiciones iniciales del juego.
 
-  \textbf{Código}
-  % \begin{lstlisting}
-    
-  % \end{lstlisting}
+  Los jugadores se identifican mediante objetos de la clase \textit{HumanPlayer}, uno para ``X'' (denominado \textit{playerX}) y otro para ``O'' (denominado \textit{playerO}). Estos jugadores se alternan en cada turno para realizar sus respectivos movimientos en el tablero.
 
+  La ejecución del juego ocurre en el método \textit{main()}. Un bucle \textit{while} se mantiene en funcionamiento hasta que se declare un ganador o se produzca un empate. En cada turno, se muestra el estado actual del tablero, y el jugador en turno elige una casilla válida para colocar su símbolo. El juego verifica si el movimiento es válido y si la casilla está disponible antes de actualizar el tablero y pasar al siguiente turno.
+
+  La lógica para determinar un ganador se encuentra en el método \textit{checkWinner()}, que examina todas las posibles combinaciones de filas, columnas y diagonales para verificar si algún jugador ha obtenido la victoria. En caso contrario, si no quedan casillas vacías, se declara un empate.
+  
+  Finalmente, una vez que el juego ha llegado a su conclusión, se muestra el resultado en la consola, indicando si hubo un ganador o si el juego culminó en empate.
+
+  \textbf{Clase \textit{HumanPlayer}}
+  \begin{lstlisting}
+import java.util.*;
+
+abstract class Player {
+  protected String symbol;
+
+  public abstract void setSymbol(String symbol);
+  public abstract int makeMove();
+}
+
+class HumanPlayer extends Player {
+  Scanner scanner = new Scanner(System.in);
+
+  public HumanPlayer(String symbol) {
+    setSymbol(symbol);
+  }
+
+  @Override
+  public void setSymbol(String symbol) {
+    this.symbol = symbol;
+  }
+
+  @Override
+  public int makeMove() {
+    System.out.print("Es el turno de " + this.symbol);
+    System.out.print(". Ingresa un numero del 1 al 25: ");
+    int move = scanner.nextInt();
+    return move;
+  }
+}
+  \end{lstlisting}
+
+  \textbf{Clase \textit{TicTacToe}}
+  \begin{lstlisting}
+interface Board {
+  String checkWinner();
+  void printBoard();
+}
+
+public class TicTacToe implements Board {
+  private static String[] board = new String[25];
+  private static HumanPlayer playerX = new HumanPlayer("X");
+  private static HumanPlayer playerO = new HumanPlayer("O");
+
+  public TicTacToe() {
+    for (int i = 0; i < 9; i ++) {
+        board[i] = "0" + String.valueOf(i + 1);
+    }
+    for (int i = 9; i < 25; i++) {
+        board[i] = String.valueOf(i + 1);
+    }
+  }
+
+  public String checkWinner() {
+    for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5; j++) {
+        if (j + 3 < 5) {
+          if (board[i * 5 + j].equals(board[i * 5 + j + 1]) &&
+              board[i * 5 + j].equals(board[i * 5 + j + 2]) &&
+              board[i * 5 + j].equals(board[i * 5 + j + 3])) {
+            return board[i * 5 + j];
+          }
+        }
+        if (i + 3 < 5) {
+          if (board[i * 5 + j].equals(board[(i + 1) * 5 + j]) &&
+              board[i * 5 + j].equals(board[(i + 2) * 5 + j]) &&
+              board[i * 5 + j].equals(board[(i + 3) * 5 + j])) {
+            return board[i * 5 + j];
+          }
+        }
+        if (i + 3 < 5 && j + 3 < 5) {
+          if (board[i * 5 + j].equals(board[(i + 1) * 5 + j + 1]) &&
+              board[i * 5 + j].equals(board[(i + 2) * 5 + j + 2]) &&
+              board[i * 5 + j].equals(board[(i + 3) * 5 + j + 3])) {
+            return board[i * 5 + j];
+          }
+        }
+        if (i + 3 < 5 && j - 3 >= 0) {
+          if (board[i * 5 + j].equals(board[(i + 1) * 5 + j - 1]) &&
+              board[i * 5 + j].equals(board[(i + 2) * 5 + j - 2]) &&
+              board[i * 5 + j].equals(board[(i + 3) * 5 + j - 3])) {
+            return board[i * 5 + j];
+          }
+        }
+      }
+    }
+
+    for(int i = 0; i < 25; i++) {
+      if (board[i].equals(String.valueOf(i + 1))) {
+        return null;
+      } 
+    }
+
+    return "Empate";
+  }
+
+  public void printBoard() {
+    System.out.println("\nTablero actual:");
+    for (int i = 0; i < 25; i++) {
+      System.out.print("| " + board[i] + " ");
+      if ((i + 1) % 5 == 0) {
+        System.out.println("|");
+      }
+    }
+  }
+
+  public static void main(String[] args) {
+    TicTacToe t = new TicTacToe();
+    int turno = 1;
+    String jugadorActual = "X";
+    String winner = null;
+    int move;
+
+    System.out.println("Bienvenido Tic Tac Toe 5x5");
+    t.printBoard();
+
+    while (winner == null) {
+      do {
+        if (turno % 2 == 1) {
+          move = playerX.makeMove();
+          jugadorActual = playerX.symbol;
+        } else {
+          move = playerO.makeMove();
+          jugadorActual = playerO.symbol;
+        }
+        
+        if(move >= 1 && move <= 25 && 
+            !board[move - 1].equals(playerX.symbol) && 
+            !board[move - 1].equals(playerO.symbol)) {
+          board[move - 1] = jugadorActual;
+          turno++;
+          break;
+        } else {
+          System.out.println("Movimiento invalido. Intentalo de nuevo.");
+        }
+      } while(true);
+
+      t.printBoard();
+      winner = t.checkWinner();
+    }
+
+    if (winner.equals("Empate")) {
+      System.out.println("Es un empate!");
+    } else {
+      System.out.println("El ganador es " + winner + "!");
+    }
+  }
+}  
+  \end{lstlisting}
+  
+  \newpage
   \textbf{Ejecución}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=\columnwidth, center]{P1.jpg}
-  % \end{figure}
+  \begin{figure}[ht]
+    \includegraphics[width=0.8\columnwidth, center]{P1.png}
+  \end{figure}
 
   \subsection*{Problema 2}
   Realice un verificador de contraseña usando encapsulamiento de tipo \textit{private} y \textit{protected}. El programa recibe una cadena candidata para ser contraseña y se valida que:
@@ -294,7 +451,9 @@ public class TicTacToe implements Board {
 
   \linejump
   \textbf{Explicación} \\
+  Este código consta de dos clases: \textit{Password} y \textit{PasswordInput}. La clase \textit{PasswordInput} contiene un método \textit{main()} que solicita al usuario que ingrese una contraseña. Luego, la clase \textit{Password} se encarga de validar y ocultar esta contraseña. La validación se basa en varios criterios, como la longitud mínima, la presencia de caracteres especiales, números y letras mayúsculas/minúsculas.
 
+  En el método \textit{main()} de la clase \textit{Password}, se inicia el proceso recopilando la contraseña del usuario utilizando la clase \textit{PasswordInput}. Luego, se crea una instancia de la clase \textit{Password} con la contraseña obtenida y se utiliza su método \textit{hidePassword()} para ocultar la contraseña original. Finalmente, se llama al método \textit{validate()} para verificar si la contraseña cumple con los criterios de seguridad y se muestra en la consola un mensaje que indica si la contraseña es ``Fuerte'', ``Media'' o ``Débil'' en función de los resultados de la validación.
 
   \textbf{Clase \textit{PasswordInput}}
   \begin{lstlisting}
@@ -560,6 +719,7 @@ public class Main {
 }    
   \end{lstlisting}
   
+  \newpage
   \textbf{Ejecución}
   \begin{figure}[ht]
     \includegraphics[width=0.6\columnwidth, center]{P3.png}
