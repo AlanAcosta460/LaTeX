@@ -84,14 +84,33 @@
   \fancyfoot{}
 
   \section*{Resumen}
-
+  Esta práctica se enfoca en comprender las características y funciones principales de un objeto y examinar cómo utilizar diferentes niveles de acceso a estas características. Se investigará a fondo el objeto y se evaluará su versatilidad en función de los diferentes niveles de acceso. Los resultados proporcionarán información valiosa sobre la importancia de comprender un objeto a fondo y cómo esto puede afectar su utilidad y diseño.
 
   \section*{Introducción}
-  
+  La abstracción y el encapsulamiento son dos conceptos fundamentales en la programación orientada a objetos que permiten simplificar y proteger la complejidad de los sistemas. La abstracción se enfoca en centrarse en lo que un objeto hace sin preocuparse por cómo lo hace, lo que facilita la comprensión y el uso de objetos complejos. Por otro lado, el encapsulamiento implica ocultar los detalles internos de un objeto y proporcionar acceso controlado a sus datos y operaciones a través de métodos.
+
+  \subsection*{Abstracción}
+  La abstracción se refiere a la capacidad de enfocarse en los aspectos más significativos de un problema y expresar una solución en términos simplificados. Esto permite manejar la complejidad de los sistemas del mundo real al analizar "qué hace" un objeto en lugar de "cómo lo hace". La abstracción se ilustra con un ejemplo común: la televisión, cuyos usuarios pueden interactuar con sus funciones sin necesidad de conocer su funcionamiento interno.
+
+  \subsection*{Encapsulamiento}
+  El encapsulamiento implica agrupar datos y operaciones relacionadas dentro de una unidad de programación, protegiendo así la información interna de un objeto. Esto se logra mediante el ocultamiento de datos, lo que significa que el acceso a los atributos de un objeto se realiza a través de métodos específicos. Los niveles de visibilidad, como público, protegido y privado, controlan qué partes del programa pueden acceder a estos atributos, proporcionando una interfaz clara para interactuar con el objeto.
+
+  \subsection*{Modificadores de Acceso}
+  Los modificadores de acceso, como público, protegido y privado, definen la visibilidad de los miembros de una clase (atributos y métodos). Estos modificadores permiten controlar quién puede acceder y modificar los atributos de un objeto. El uso adecuado de estos modificadores garantiza la integridad de los datos y facilita futuros cambios en la implementación sin afectar a otras partes del programa.
+
+  \subsection*{Acceso a Miembros}
+  Los métodos de acceso, como getters y setters, son métodos públicos que permiten leer y modificar los atributos privados de un objeto. Los métodos consultores (getters) proporcionan información sin cambiar los valores de los atributos, mientras que los métodos modificadores (setters) permiten cambiar esos valores. Esta separación de acceso controlado a los datos internos mejora la modularidad y la seguridad del código.
+
+  \subsection*{Composición}
+  La composición es la capacidad de una clase de tener referencias a objetos de otras clases como miembros. Esto refleja las relaciones "tiene un" en sistemas complejos. Por ejemplo, un cuerpo humano tiene un cerebro y un corazón. La composición facilita la reutilización de software y la construcción de sistemas jerárquicos y modularizados.
+
+  En conjunto, la abstracción y el encapsulamiento son principios clave para crear sistemas de software eficientes y mantenibles, permitiendo una comprensión más clara de objetos complejos y protegiendo la integridad de los datos y la funcionalidad del programa.
 
   \section*{Objetivos}
   \begin{itemize}
-    \item 
+    \item Aplicar el concepto de abstracción para el diseño de clases que integran una solución, utilizando el encapsulamiento para proteger la información y ocultar la implementación.
+    \item Crear clases que representen abstracciones significativas de componentes o entidades del sistema, centrándose en sus características clave y funcionalidades sin preocuparse por los detalles de implementación.
+    \item Implementar el encapsulamiento en las clases, asegurando que los datos internos estén protegidos de modificaciones no autorizadas, y permitiendo el acceso controlado a través 
   \end{itemize}
 
   \section*{Metodología} 
@@ -550,7 +569,10 @@ public class Problema4 {
   \end{figure}
 
   \section*{Conclusiones}
-  
+  La aplicación efectiva de los principios de abstracción y encapsulamiento en el diseño de clases y sistemas de software es esencial para crear soluciones sólidas y mantenibles. La abstracción nos permite centrarnos en lo que hace una clase sin preocuparnos por cómo lo hace, simplificando así la comprensión y el uso de objetos complejos. Por otro lado, el encapsulamiento protege la información interna de una clase y oculta su implementación, lo que garantiza la integridad de los datos y reduce la complejidad del código.
+
+  Estos principios también promueven la modularidad, la reutilización de código y la colaboración efectiva en proyectos de desarrollo de software. Además, mejoran la seguridad al restringir el acceso a datos sensibles y permiten cambios en la implementación sin afectar a otras partes del sistema.
+
 
   \section*{Referencias}
   \small
