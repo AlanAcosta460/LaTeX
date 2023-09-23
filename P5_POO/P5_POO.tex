@@ -296,7 +296,7 @@ public class TicTacToe implements Board {
   \textbf{Explicación} \\
 
 
-  \textbf{Clase \textit{Password}}
+  \textbf{Clase \textit{PasswordInput}}
   \begin{lstlisting}
 import java.io.Console;
 
@@ -315,7 +315,7 @@ class PasswordInput {
 }
   \end{lstlisting}
 
-  \textbf{Clase \textit{PasswordInput}}
+  \textbf{Clase \textit{Password}}
   \begin{lstlisting}
 import java.io.IOException;
 
@@ -361,12 +361,12 @@ public class Password {
       }
     }
 
-    if (length <= MAX_LENGTH && length > MIN_LENGTH && hasSpecialChar && hasNumber
-          && hasUppercase && hasLowercase) {
+    if (length <= MAX_LENGTH && length > MIN_LENGTH && 
+          hasSpecialChar && hasNumber && hasUppercase && hasLowercase) {
       return "Fuerte";
     } else if (length >= 8
-          && ((hasUppercase && hasLowercase) || (hasUppercase || hasLowercase) && hasNumber)
-          && hasSpecialChar) {
+          && ((hasUppercase && hasLowercase) || 
+          (hasUppercase || hasLowercase) && hasNumber) && hasSpecialChar) {
       return "Media";
     } else {
       return "Debil";
