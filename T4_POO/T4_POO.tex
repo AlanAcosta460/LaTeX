@@ -1,0 +1,273 @@
+\documentclass[12pt]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[none]{hyphenat}
+\usepackage[left=1.5cm, right=1.5cm, top = 2cm, bottom=2.5cm]{geometry}
+\usepackage{parskip}
+\usepackage[export]{adjustbox}
+\usepackage{enumitem}[shortlabels]
+\usepackage{listings} 
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{caption} 
+% \usepackage{subcaption}
+% \usepackage{wrapfig}
+% \usepackage{longtable}
+% \usepackage{multirow, makecell}
+% \usepackage{amsmath} 
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+
+\newcommand{\linejump}{\hfill \break}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+% \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\tiny\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\sloppy
+\setlength{\parindent}{0cm}
+\setlength{\columnsep}{0.5cm}
+\decimalpoint
+\graphicspath{{img/}}
+
+\hypersetup{colorlinks=true, urlcolor=blue, citecolor=blue}
+\urlstyle{same}
+
+\pagestyle{fancyplain}
+\fancyhf{}
+\fancyhead[L]{\scriptsize 
+  Universidad Nacional Autónoma de México \\
+  Laboratorio de Programación Orientada a Objetos \\
+  M.C. Leonardo Ledesma Dominguez
+}
+\fancyhead[R]{\thepage}
+
+
+\begin{document}
+  \begin{center}
+    Acosta Porcayo Alan Omar, Gutiérrez Grimaldo Alejandro, Medina Villa Samuel
+
+    \LARGE \textbf{Tarea 4. Herencia y Polimorfismo}
+  \end{center}
+
+  \linejump
+  \begin{enumerate}[label = \arabic{enumi}]
+    \item Investigue y expliqué los tipos de diagrama UML estático.
+    \begin{enumerate}[label=\arabic{enumi}.\arabic{enumii}]
+      \item \textbf{Diagrama de clases:} Este diagrama se utiliza para representar los elementos que componen un sistema de información desde el punto de vista estático. Esta orientado al modelo de programación orientado a objetos.
+      
+      En este diagrama se definen las clases que se utilizaran cuando se pase a la fase de construcción.
+      
+      Esta formado por clases, relaciones e interfaces.
+      
+      Para encontrar clases sobre un enunciado, sobre una idea o, en general, sobre un tema concreto es buscar los sustantivos que aparecen.
+
+      \begin{figure*}[ht]
+        \includegraphics[width = 0.25\textwidth, center]{clase.jpg}
+      \end{figure*}
+      
+      Las relaciones identifican dependencia, esta puede ser entre dos o mas clases. Las relaciones se representan con una línea que une las clases, depende de cada tipo de relación.
+
+      Las interfaces declaran una serie de atributos y métodos, como son declaraciones no pueden ser instancias.
+
+      \begin{figure*}[ht]
+        \includegraphics[width = 0.25\textwidth, center]{interface.jpg}
+      \end{figure*}
+
+      \item \textbf{Diagrama de objetos:} Los diagramas de objetos muestran un instante en el sistema y las relaciones entre las distintas instancias. 
+      
+      Estos diagramas se utilizan para modelar los elementos que están presentes en el diagrama de clases. Un diagrama de objetos se puede instanciar como un diagrama de clases.
+      
+      Los elementos que componen a este diagrama son los objetos, atributos y vínculos.
+      
+      Los vínculos son asociaciones entre dos objetos, se representan con los mismos elementos que en el diagrama de clases.
+
+      \begin{figure*}[ht]
+        \includegraphics[width = 0.75\textwidth, center]{objeto.jpg}
+      \end{figure*}
+      
+      \item \textbf{Diagrama de componentes:} Los diagramas de componentes representan las relaciones entre los elementos individuales del sistema, pueden ilustrar aspectos de modelado lógico y físico. Los componentes son autocontenidos y encapsulan estructuras de cualquier grado de complejidad.
+      
+      El diagrama de componentes esta conformado por interfaz, componente y puerto. Este ultimo es un punto de interacción entre un clasificador y un entorno externo. Agrupa un conjunto semánticamente cohesivo de interfaces proporcionadas y requeridas.
+
+      \begin{figure*}[ht]
+        \includegraphics[width = 0.5\textwidth, center]{componente.jpg}
+      \end{figure*}
+      
+      \item \textbf{Diagrama de paquetes:} Este diagrama es utilizado para definir los distintos paquetes a nivel lógico. Su principal objetivo es maximizar la cohesión y minimizar el acoplamiento.
+      
+      Está conformado por dos elementos: los paquetes y las dependencias.
+      Un paquete es un conjunto de elementos. En concreto puede ser un conjunto de clases, casos de uso, componentes u otros paquetes. No obstante, lo más común es que incluya otros paquetes.
+
+      \begin{figure*}[ht]
+        \includegraphics[width = 0.4\textwidth, center]{paquete1.jpg}
+      \end{figure*}
+
+      Una dependencia entre paquetes representa que un paquete necesita de los elementos de otro paquete para poder funcionar con normalidad.
+
+      \begin{figure*}[ht]
+        \includegraphics[width = 0.7\textwidth, center]{paquete2.jpg}
+      \end{figure*}
+    \end{enumerate}
+
+    \linejump
+    \item Investigué y expliqué los tipos de diagrama UML dinámico.
+    \begin{enumerate}[label=\arabic{enumi}.\arabic{enumii}]
+      \item \textbf{Diagrama de actividades:} Son utilizados para representar la forma en la que un sistema hace una implementación.
+      
+      También son utilizados para modelar el flujo de trabajo entre actividades o/y entre subsistemas. La actividad es una conducta parametrizada representada como flujo coordinado de acciones.  Las actividades pueden formar jerarquías de invocación invocando otras actividades y en última instancia resolviendo acciones individuales. 
+      
+      \begin{figure*}[ht]
+        \includegraphics[width = 0.1\textwidth, center]{actividad.jpg}
+      \end{figure*}
+
+      \item \textbf{Diagrama de casos de uso:} Representa la forma en como un Cliente (Actor) opera con el sistema en desarrollo, además de la forma, tipo y orden en como los elementos interactúan (operaciones o casos de uso). Un diagrama de casos de uso consta de los siguientes elementos: actor, casos de uso, relaciones de uso, herencia y comunicación. Un Actor es un rol que un usuario juega con respecto al sistema.
+      
+      Un caso de uso representa una funcionalidad o una unidad de trabajo específica que el sistema debe realizar en respuesta a una solicitud de un actor. Los casos de uso describen cómo el sistema reacciona a una acción del usuario o de otro actor.
+
+      \begin{figure*}[ht]
+        \includegraphics[width = 0.5\textwidth, center]{uso.jpg}
+      \end{figure*}
+      
+      \item \textbf{Diagrama de estados:} Es usado para especificar el comportamiento de una parte del sistema diseñado a través de transiciones de estados finitos.  El comportamiento se modela utilizando una serie de nodos que representan estados y que están conectados a través de las llamadas transiciones.
+      
+      El estado modela una situación durante la cual se cumple alguna condición invariante (generalmente implícita). Esta situación invariante puede representar una situación estática tal como un objeto que espera que ocurra algún evento externo o cualquier otra situación.
+      
+      Tenemos diferentes tipos de estados: simple, compuesto y de submáquina.
+      
+      El diagrama de estados está formado por tres elementos: estados, pseudoestados y transiciones.
+      
+      \begin{figure*}[ht]
+        \includegraphics[width = 0.1\textwidth, center]{estados.jpg}
+      \end{figure*}
+
+      \item \textbf{Diagrama de interacción:} Es una representación gráfica que se utiliza para visualizar y modelar cómo interactúan los objetos en un sistema durante un proceso o escenario específico. Se centran en mostrar la comunicación y la colaboración entre los objetos y las clases que participan en una secuencia de acciones.
+      
+      Existen dos tipos principales de diagramas de interacción: los diagramas de secuencia y los diagramas de colaboración. 
+      
+      Los diagramas de secuencia son particularmente útiles para representar la lógica de flujo de un proceso o la ejecución de un caso de uso en un sistema. Los diagramas de colaboración se utilizan para mostrar las relaciones y las interacciones entre objetos en un sistema, pero no se centran en la secuencia temporal como lo hacen los diagramas de secuencia. En su lugar, muestran cómo los objetos se comunican entre sí, incluyendo los mensajes que se envían y las asociaciones entre los objetos.
+
+      \begin{figure*}[ht]
+        \includegraphics[width = 0.6\textwidth, center]{interaccion.jpg}
+      \end{figure*}
+      
+      \item \textbf{Diagrama de secuencia:} Se utilizan para visualizar y modelar la interacción entre objetos en un sistema a lo largo del tiempo. Estos diagramas representan la secuencia de mensajes que se intercambian entre objetos en un escenario específico o durante la ejecución de un caso de uso en un sistema. 
+      
+      Algunos elementos clave de este diagrama son los objetos, mensajes, activaciones y notas.
+      
+      Son herramientas valiosas para comprender y modelar el comportamiento dinámico de un sistema y son ampliamente utilizados durante la fase de análisis y diseño en el desarrollo de software.
+
+      \begin{figure*}[ht]
+        \includegraphics[width = 0.75\textwidth, center]{secuencia.jpg}
+      \end{figure*}
+      
+      \item \textbf{Diagrama de tiempos:} Se emplea para representar el funcionamiento del sistema, con un enfoque particular en la dimensión temporal. Los diagramas temporales se concentran en las variaciones que ocurren tanto dentro como entre las líneas de vida a lo largo de un eje temporal secuencial. Estos diagramas sirven para detallar cómo se comportan los componentes individuales y cómo interactúan entre sí, poniendo énfasis en la cronología de los eventos que provocan cambios en las condiciones de las líneas de vida.
+      
+      Este diagrama incluye los siguientes elementos: Líneas de vida, Estados, Restricciones de duración y Restricciones de tiempo.
+      
+      La línea de vida representa a un único participante en la interacción, a pesar de que las partes y las características estructurales puedan tener una multiplicidad mayor que 1.
+      
+      El diagrama de tiempo tiene la capacidad de mostrar los estados del clasificador o atributo participante, además de condiciones comprobables, como valores discretos de atributos.
+      
+      La restricción de duración es una limitación temporal que se refiere a un intervalo de duración específico. Este intervalo de duración se utiliza para evaluar si se cumple la restricción en cuestión.
+      
+      La restricción de tiempo es otra restricción de intervalo, pero en este caso, se relaciona con un período temporal particular.
+      
+      \begin{figure*}[ht]
+        \includegraphics[width = 0.6\textwidth, center]{tiempos.jpg}
+      \end{figure*}
+    \end{enumerate}
+
+    \newpage \linejump
+    \item Programe la simulación de batallas de Transformers
+    
+    \textbf{Descripción:} 
+    \begin{itemize}
+      \item Cada transformer tiene su nombre y su raza, un mundo de origen, así como un valor de resistencia, y de uno a dos ataques especiales.
+      \item Los ataques / defensas especiales disminuyen de 5 a 10 puntos la resistencia del contrincante o detienen los golpes especiales o básicos de otro contrincante respectivamente. Los ataques especiales son gracias al uso de armas que pueden tener los Transformers.
+      \item Las armas tienen un nombre y tipo (defensa o ataque), y en caso de ser de ataque el valor de uso.
+      \item Todos tienen ataques básicos: golpe alto 2 puntos y patada 3 puntos.
+      \item Además, cada raza tiene un líder y es posible la fusión de dos o mas transformer para hacer uno más grande, dando como resultado la multiplicación de sus resistencias. A esta fusión se les llaman MEGA TRANSFORMER y pueden usar cualquier arma de los transformes que conforman la fusión.
+      \item Es posible formar alianzas entre diferentes razas.
+      \item Existe el artefacto especial, la matriz de liderazgo que sólo puede ser usada por un líder, al usarla el líder recupera su resistencia inicial y sus golpes especiales aumentan el doble de daño.
+    \end{itemize}
+
+    \textbf{Programación}
+    \begin{itemize}
+      \item Simule una batalla entre dos bandos rivales, cada bando puede estar conformado por una raza o varias. Considere el uso de \textit{ArrayList} para formar los bandos.
+      \item Utilice el concepto de Herencia para modelar los tipos de raza de transformer, considere la clase base Transformer y como clases derivadas los tipos de razas.
+      \item Considere el uso de una interfaz para modelar MEGA TRANSFORMERS, cabe mencionar que solo algunas razas se pueden fusionar como el caso de los maximals o predacons.
+      \item Considere el uso de una clase abstracta para modelar las diferentes armas y tipos de defensa y ataque.
+      \item Realice una batalla síncrona (es decir en orden) considerando números aleatorios para simular la batalla:
+      \begin{itemize}
+        \item Dos números aleatorios entre los índices del \textit{ArrayList} para ver quien ataca y conta quien lanza el ataque del otro bando (del otro \textit{ArrayList}).
+
+        bandoA[i] $\Longrightarrow$ bandoB[j]
+
+        \item Dos números aleatorios, uno en ataque y otro en defensa, en un rango de 1 al 100:
+        \begin{itemize}
+          \item En ataque: 60 números sean para ataques básicos, 35 números para uso de armas especiales y 5 números especiales (indican el combo de tres golpes básicos)
+          \item En defensa: sólo 10 números indican uso de armas especiales de defensa y dos números especiales que son unidades energón que ayudan a reducir el golpe del rival a la mitad. Los 88 números restantes no hacen nada.
+        \end{itemize}
+      \end{itemize}
+
+      \item Cuando un transformer de cualquier bando tiene menos de la mitad de su resistencia vital, ya no puede continuar seguir peleando y queda derrotado.
+      \item Para el jugador líder considere su instanciamiento realizando un upcasting de la superclase con la subclase. Además, utilice downcasting para que la matriz de liderazgo sea un Arma de ataque, pero con las bondades de la superclase y con el método constructor y métodos de la subclase (Arma de ataque).
+      \item Use la composición de objetos para simular toda la batalla, y utilice un método estático privado de la superclase Transformer, cuyo método revise en cada momento de la batalla que:
+      \begin{itemize}
+        \item Haya al menos un derrotado en cualquier bando
+        \item Y que todos los jugadores tengan al menos $75\%$ de su resistencia original.
+        \item Dicho método solo es invocado por un líderTransformer.
+      \end{itemize}
+      De ser así otorgue la matriz de liderazgo de manera aleatoria a cualquier bando.
+
+      \item Empaquete el programa realizado de la siguiente manera:
+      \begin{itemize}
+        \item src/
+        \begin{itemize}
+          \item battle
+          \begin{itemize}
+            \item Todos los programas Java
+          \end{itemize}
+          \item Battle.java (programa que tiene la función \textit{main})
+        \end{itemize}
+      \end{itemize}
+
+      \item Considere el uso de variables privadas así como sus \textit{getters} \& \textit{setters}.
+      \item Aplique el polimorfismo estático y dinámico al menos una vez.Y haga uso al menos una vez del operador \textit{instanceof}.
+      \item Al finalizar el programa deberá indicar el bando ganador y el estado de todos los jugadores participantes usando el método \textit{toString}.
+    \end{itemize}
+  \end{enumerate}
+
+
+
+  \section*{Referencias}
+  Diagrama de clases. Teoria y ejemplos. (2023, 28 marzo). DiagramasUML.com. \url{https://diagramasuml.com/diagrama-de-clases/} \\
+
+  Diagrama de objetos. (2019, 8 diciembre). DiagramasUML.com. \url{https://diagramasuml.com/objetos/} \\
+
+  Introducing EDrawMax 10. (s. f.). Edrawsoft. \url{https://www.edrawsoft.com/es/article/component-diagram-uml.html} \\
+
+  Diagrama de paquetes. (2019, 8 diciembre). DiagramasUML.com. \url{https://diagramasuml.com/paquetes/} \\
+
+  Manzanares, N. A. F. (s. f.). Diagramas de casos de uso | LENGUAJE DE MODELADO UNIFICADO UML. \url{https://unadzsurlab.com/UML/U1/diagramas_de_casos_de_uso.html}
+\end{document}
