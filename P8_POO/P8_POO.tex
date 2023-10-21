@@ -2,19 +2,20 @@
 
 \usepackage[spanish]{babel}
 \usepackage[none]{hyphenat}
-\usepackage[left=1.5cm, right=1.5cm, top = 2cm, bottom=2.5cm]{geometry}
+\usepackage[left=1.2cm, right=1.2cm, top = 2cm, bottom=2.5cm]{geometry}
 \usepackage{parskip}
 \usepackage[export]{adjustbox}
 \usepackage{enumitem}
-\usepackage{listings}
-\usepackage{color}
+\usepackage{listingsutf8}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{caption}
 % \usepackage{subcaption}
 % \usepackage{wrapfig}
-\usepackage{longtable}
+% \usepackage{longtable}
 \usepackage{multirow, makecell}
+\usepackage{float}
 % \usepackage{amsmath} 
 % \usepackage{amsfonts}
 \usepackage[hidelinks]{hyperref}
@@ -42,6 +43,23 @@
   breaklines=true,
   breakatwhitespace=true,
   tabsize=2
+}
+
+\lstdefinelanguage{Kotlin}{
+  comment=[l]{//},
+  commentstyle={\color{gray}\ttfamily},
+  emph={filter, first, firstOrNull, forEach, lazy, map, mapNotNull, println},
+  emphstyle={\color{OrangeRed}},
+  identifierstyle=\color{black},
+  keywords={!in, !is, abstract, actual, annotation, as, as?, break, by, catch, class, companion, const, constructor, continue, crossinline, data, delegate, do, dynamic, else, enum, expect, external, false, field, file, final, finally, for, fun, get, if, import, in, infix, init, inline, inner, interface, internal, is, lateinit, noinline, null, object, open, operator, out, override, package, param, private, property, protected, public, receiveris, reified, return, return@, sealed, set, setparam, super, suspend, tailrec, this, throw, true, try, typealias, typeof, val, var, vararg, when, where, while},
+  keywordstyle={\color{NavyBlue}\bfseries},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[s]{"""*}{*"""},
+  ndkeywords={@Deprecated, @JvmField, @JvmName, @JvmOverloads, @JvmStatic, @JvmSynthetic, Array, Byte, Double, Float, Int, Integer, Iterable, Long, Runnable, Short, String, Any, Unit, Nothing},
+  ndkeywordstyle={\color{BurntOrange}\bfseries},
+  sensitive=true,
+  stringstyle={\color{ForestGreen}\ttfamily},
 }
 
 \sloppy
@@ -138,11 +156,200 @@
 
   \section*{Metodología} 
   \subsection*{Ejemplo de Polimorfismo}
-  \textbf{Clase \textit{}} 
-  \begin{lstlisting}
+  \textbf{Interfaz \textit{LifeForm}} 
+  \begin{lstlisting}[language=Java]
+public interface LifeForm {
+  void eat(int quantity);
 
+  int getHunger();
+
+  int getYear();
+
+  String move();
+  String breathe();
+  String reproduce();
+}  
   \end{lstlisting}
 
+  \textbf{Clase abstracta \textit{AbstractAnimal}}
+  \begin{lstlisting}[language=Java]
+public abstract class AbstractAnimal implements LifeForm{
+  static private int maxId = 0;
+  private int hunger;
+  private String name;
+  private int id;
+  private int year;
+
+  AbstractAnimal(String name, int year, int hunger) {
+    maxId++;
+    this.id = maxId;
+    this.hunger = hunger;
+    this.year = year;
+    this.name = name;
+  }
+
+  AbstractAnimal(String name, int year) {
+    this(name, year, 0);
+  }
+
+  public void eat(int quantity) {
+    hunger -= quantity;
+    hunger = hunger < 0 ? 0 : hunger;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public int getHunger() {
+    return hunger;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public int getYear() {
+    return year;
+  }
+
+  abstract public String move();
+  abstract public String breathe();
+  abstract public String reproduce();
+}  
+  \end{lstlisting}
+
+  \textbf{Clase \textit{Mammal}}
+  \begin{lstlisting}[language=Java]
+public class Mammal extends AbstractAnimal {
+  Mammal(String name, int year) {
+    super(name, year);
+  }
+
+  public String move() {
+    return "walk";
+  }
+
+  public String breathe() {
+    return "lungs";
+  }
+
+  public String reproduce() {
+    return "live births";
+  }
+}  
+  \end{lstlisting}
+
+  \textbf{Clase \textit{Bird}}
+  \begin{lstlisting}[language=Java]
+public class Bird extends AbstractAnimal {
+  Bird (String name, int year) {
+    super(name, year, 3);
+  }
+
+  public String move() {
+    return "fly";
+  }
+
+  public String breathe() {
+    return "lungs";
+  }
+
+  public String reproduce() {
+    return "eggs";
+  }
+}  
+  \end{lstlisting}
+
+  \textbf{Clase \textit{Fish}}
+  \begin{lstlisting}[language=Java]
+public class Fish extends AbstractAnimal {
+  Fish (String name, int year) {
+    super(name, year);
+  }
+
+  public String move() {
+    return "swim";
+  }
+
+  public String breathe() {
+    return "gills";
+  }
+
+  public String reproduce() {
+    return "eggs";
+  }
+}  
+  \end{lstlisting}
+
+  \textbf{\textit{Main}}
+  \begin{lstlisting}[language=Java]
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+  @SuppressWarnings("ComparatorCombinators")
+  public static void main(String[] args) {
+    List<AbstractAnimal> animals = new ArrayList<>();
+    animals.add(new Mammal("Panda", 1869));
+    animals.add(new Mammal("Zebra",1778));
+    animals.add(new Mammal("Koala",1816));
+    animals.add(new Mammal("Sloth",1804));
+    animals.add(new Mammal("Armadillo",1758));
+    animals.add(new Mammal("Raccoon",1758));
+    animals.add(new Mammal("Bigfoot",2021));
+
+    animals.add(new Bird("Pigeon", 1837));
+    animals.add(new Bird("Peacock",1821));
+    animals.add(new Bird("Toucan",1758));
+    animals.add(new Bird("Parrot",1824));
+    animals.add(new Bird("Swan",1758));
+
+    animals.add(new Fish("Salmon", 1758));
+    animals.add(new Fish("Catfish", 1817));
+    animals.add(new Fish("Perch", 1758));
+
+    animals.sort((animal1, animal2) -> animal2.getYear() - animal1.getYear());
+    animals.forEach(animal -> {
+      System.out.println(animal.getName() + " " + animal.getYear());
+    });
+
+    System.out.println("\n-------Alphabetical-----------");
+    animals.sort((animal1, animal2) -> animal1.getName().compareTo(animal2.getName()));
+    animals.forEach(animal -> {
+      System.out.println(animal.getName());
+    });
+
+    System.out.println("\n-------Movement-----------");
+    animals.sort((animal1, animal2) -> animal1.move().compareTo(animal2.move()));
+    animals.forEach(animal -> {
+      System.out.println(animal.getName() + " " + animal.move());
+    });
+
+    System.out.println("\n-------Breathers-----------");
+    animals.forEach(animal -> {
+      if (animal.breathe().equals("lungs")) {
+        System.out.println(animal.getName() + " " + animal.breathe());
+      }
+    });
+
+    System.out.println("\n-------Breathers in 1758-----------");
+    animals.forEach(animal -> {
+      if (animal.breathe().equals("lungs") && animal.getYear() == 1758) {
+        System.out.println(animal.getName() + " " + animal.breathe());
+      }
+    });
+  }
+}
+  \end{lstlisting}
+  
+  \newpage
+  \textbf{Ejecución}
+  \begin{figure}[h!]
+    \includegraphics[width = 0.58\columnwidth, center]{lab.png}
+  \end{figure}
+
+  \newpage
   \section*{Resultados}
   \subsection*{Problema 1}
   Existen otros lenguajes de programación orientados objetos tales como:
@@ -167,19 +374,26 @@
   \end{enumerate}
 
   \textbf{Clase \textit{}}
-  \begin{lstlisting}
+  \begin{lstlisting}[language=Java]
 
   \end{lstlisting}  
   
   \textbf{Ejecución}
-  % \begin{figure}[ht]
+  % \begin{figure}[h!]
   %   \includegraphics[width=\columnwidth, center]{P2.jpg}
   % \end{figure}
 
   \subsection*{Problema 3}
   Realice una tabla comparativa de desventajas y ventajas de la sobreescritura y sobrecarga de métodos y concluya desde su punto de vista cuál de las dos maneras de polimorfismo es más útil y porqué.
 
+  \textbf{Sobreescritura}
+
   
+
+  \textbf{Sobrecarga}
+
+  
+
   \subsection*{Problema 4}
   Implemente la solución del siguiente problema: \url{https://edabit.com/challenge/6RStzK9uub9vHDt53}
 
@@ -191,14 +405,98 @@
   \end{enumerate}
 
   \textbf{Solución}
-  \begin{lstlisting}
+  \begin{lstlisting}[language=Java]
+public class Problema4{
+  public class Sort{
+    public static String sortByLength(String s, String a){
+      String[] words = s.split(" ");
 
+      for (int i = 0; i < words.length; i++) {
+        for (int j = 0; j < words.length - 1; j++) {
+          if (words[j].length() > words[j + 1].length())
+              swap(words, j, j + 1);
+        }
+      }
+
+      return append(words);
+    }
+
+    public static String sortByLength(String s, char a){
+      String[] words = s.split(" ");
+
+      for (int i = 0; i < words.length; i++) {
+        for (int j = 0; j < words.length - 1; j++) {
+          if (words[j].length() < words[j + 1].length())
+            swap(words, j, j + 1);
+        }
+      }
+
+      return append(words);
+    }
+
+    public static String sortByAlphabet(String s, String a){
+      String[] words = s.split(" ");
+
+      for (int i = 0; i < words.length; i++) {
+        for (int j = 0; j < words.length - 1; j++) {
+          if (words[j].toLowerCase().charAt(0) 
+              > words[j + 1].toLowerCase().charAt(0))
+            swap(words, j, j + 1);
+        }
+      }
+
+      return append(words);
+    }
+
+    public static String sortByAlphabet(String s, char a){
+      String[] words = s.split(" ");
+
+      for (int i = 0; i < words.length; i++) {
+        for (int j = 0; j < words.length - 1; j++) {
+          if (words[j].toLowerCase().charAt(0) 
+              < words[j + 1].toLowerCase().charAt(0))
+            swap(words, j, j + 1);
+        }
+      }
+
+      return append(words);
+    }
+
+    private static void swap(String[] words, int i, int j){
+      String temp = words[i];
+      words[i] = words[j];
+      words[j] = temp;
+    }
+
+    private static String append(String[] words){
+      String result = "";
+      for (int i = 0; i < words.length; i++)
+        result += words[i] + " ";
+
+      return result;
+    }
+  }
+
+  public static void main(String[] args) {
+    String s = "Hello World in Java";
+
+    System.out.println("String: " + s);
+    
+    System.out.println("\n- Ordenacion por longitud -");
+    System.out.println("Ascendente: " + Sort.sortByLength(s, "s"));
+    System.out.println("Descendente: " + Sort.sortByLength(s, 's'));
+    
+    System.out.println("\n- Ordenacion alfabetica -");
+    System.out.println("a-z: " + Sort.sortByAlphabet(s, "s"));
+    System.out.println("z-a: " + Sort.sortByAlphabet(s, 's'));
+  }
+}  
   \end{lstlisting}
 
   \textbf{Ejecución}
-  % \begin{figure}[ht]
-  %   \includegraphics[width=\columnwidth, center]{P4.jpg}
-  % \end{figure}
+  \begin{figure}[h!]
+    \includegraphics[width=0.6\columnwidth, center]{P4.png}
+  \end{figure}
 
   \section*{Conclusiones}
   El polimorfismo es un concepto fundamental en la programación orientada a objetos que permite que objetos de diferentes tipos puedan interactuar de manera uniforme y eficiente. A lo largo de la información proporcionada, hemos explorado en profundidad el polimorfismo, sus tipos (dinámico y estático) y su aplicación en diferentes contextos
