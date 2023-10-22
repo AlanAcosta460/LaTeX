@@ -3,6 +3,7 @@
 \usepackage[spanish]{babel}
 \usepackage[none]{hyphenat}
 \usepackage[left=1.2cm, right=1.2cm, top = 2cm, bottom=2.5cm]{geometry}
+% \usepackage{setspace}
 \usepackage{parskip}
 \usepackage[export]{adjustbox}
 \usepackage{enumitem}
@@ -13,9 +14,8 @@
 \usepackage{caption}
 % \usepackage{subcaption}
 % \usepackage{wrapfig}
-% \usepackage{longtable}
-\usepackage{multirow, makecell}
-\usepackage{float}
+% \usepackage{multirow, makecell}
+% \usepackage{float}
 % \usepackage{amsmath} 
 % \usepackage{amsfonts}
 \usepackage[hidelinks]{hyperref}
@@ -385,14 +385,38 @@ public class Main {
 
   \subsection*{Problema 3}
   Realice una tabla comparativa de desventajas y ventajas de la sobreescritura y sobrecarga de métodos y concluya desde su punto de vista cuál de las dos maneras de polimorfismo es más útil y porqué.
-
-  \textbf{Sobreescritura}
-
   
+  \newpage
+  \textbf{Sobreescritura}
+  \begin{table}[h!]
+    \footnotesize	
+    \begin{tabular}{|p{0.45\columnwidth}|p{0.45\columnwidth}|}
+      \hline
+      \textbf{Ventajas} & \textbf{Desventajas} \\ \hline
+      La capacidad de sobrescribir habilita el polimorfismo, lo que implica que es posible invocar tanto el método de la superclase como el de la subclase de forma consistente, simplificando así la creación de código genérico. & La sobreescritura se encuentra ligada a la herencia, lo que puede dar lugar a una estrecha interconexión entre las clases, lo cual no siempre es la elección ideal en el diseño de software. \\ \hline
+      
+      Simplifica la tarea de mantener el código, puesto que posibilita la modificación de la forma en que se ejecuta un método en una clase hija sin que ello tenga repercusiones en las demás secciones del código que hacen uso de la clase base. & Se necesita mantener las firmas de los métodos idénticas, lo que implica que no tienes la libertad de alterar la cantidad o tipo de parámetros, ni el tipo de valor de retorno. \\ \hline
+      
+      La capacidad de sobreescritura permite que las subclases sustituyan la funcionalidad heredada de la superclase, lo que resulta esencial para adaptar el comportamiento de las clases según las necesidades específicas. & \\ \hline
+    \end{tabular}
+  \end{table}
 
   \textbf{Sobrecarga}
+  \begin{table}[h!]
+    \footnotesize	
+    \begin{tabular}{|p{0.45\columnwidth}|p{0.45\columnwidth}|}
+      \hline
+      \textbf{Ventajas} & \textbf{Desventajas} \\ \hline
+      Habilita la creación de métodos que comparten el mismo nombre, pero poseen diferentes conjuntos de parámetros, lo que simplifica la creación de métodos con funcionalidades afines. & En situaciones particulares, la sobrecarga puede generar confusión si los argumentos no son lo bastante diferentes entre sí, lo que podría dar lugar a errores de compilación. \\ \hline
 
-  
+      Los nombres de los métodos sobrecargados pueden ser formulados de manera más intuitiva y descriptiva por sí mismos, lo que hace que el código sea más comprensible y fácil de emplear. & El exceso de sobrecarga puede dar lugar a un código enredado y de complicada comprensión, especialmente cuando las diferencias entre las versiones sobrecargadas no son evidentes. \\ \hline
+
+
+      No se encuentra restringido por las mismas firmas de método que en la sobreescritura, lo que brinda una mayor libertad y flexibilidad en la definición de los métodos. & \\ \hline
+    \end{tabular}
+  \end{table}
+
+  La decisión entre utilizar la sobreescritura o la sobrecarga se basa en los requisitos de tu programa y la organización de tus clases. Ambos tipos de polimorfismo tienen su utilidad y se aplican en contextos diversos. En general, la sobreescritura es más útil cuando se trabaja con clases relacionadas entre sí, mientras que la sobrecarga es más útil cuando se trabaja con clases que no están relacionadas entre sí.
 
   \subsection*{Problema 4}
   Implemente la solución del siguiente problema: \url{https://edabit.com/challenge/6RStzK9uub9vHDt53}
