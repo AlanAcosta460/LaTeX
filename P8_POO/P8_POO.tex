@@ -368,20 +368,402 @@ public class Main {
   Traduzca el código del Reino Animal visto en clase al lenguaje seleccionado en el punto anterior y conteste las siguientes preguntas en conclusiones:
 
   \begin{enumerate}[label=\alph*.]
-    \item ¿Qué tan transparente fue realizar dicha traducción?
+    \item ¿Qué tan transparente fue realizar dicha traducción? 
+    La traducción del código de Java a Dart fue relativamente transparente en términos de lógica y estructura. La mayor parte de la lógica se mantuvo, pero hubo ajustes necesarios debido a diferencias en sintaxis, tipos de datos y manejo de nulos entre los dos lenguajes. En general, la similitud en la orientación a objetos facilitó la traducción, pero se requirió una adaptación para que el código funcionara en el nuevo entorno.
+
+    Mientras que la traducción del código de Java a Kotlin fue altamente transparente y fluida. Kotlin está diseñado para ser compatible con Java, lo que hace que la mayoría de la lógica y estructura del código se traduzcan de manera directa. Kotlin ofrece una sintaxis más concisa y características adicionales que pueden mejorar la legibilidad y el mantenimiento del código.
+
     \item ¿El concepto de polimorfismo se aplica de la misma manera?
+    El concepto de polimorfismo se aplica de manera similar en Java, Dart y Kotlin, ya que todos son lenguajes orientados a objetos que admiten herencia y anulación de métodos. Sin embargo, cada lenguaje tiene su propia sintaxis y características específicas para lograr el polimorfismo. En Java, se utiliza la palabra clave ``extends'' para la herencia y ``@Override'' para anular métodos. En Dart, se hereda de manera implícita y se pueden anular métodos por defecto. En Kotlin, se utiliza ``override'' para anular métodos y se pueden usar ``clases selladas'' para limitar las subclases. A pesar de las diferencias en la implementación, el concepto subyacente de polimorfismo es una característica común en estos lenguajes orientados a objetos.
+
     \item ¿Se consideraría Java como el padre de estos lenguajes?
+    Java no es el ``padre'' de Kotlin y Dart en el sentido de herencia de lenguajes, pero ha influido en su desarrollo. Kotlin se diseñó como una extensión de Java con interoperabilidad completa, mientras que Dart comparte similitudes en programación orientada a objetos. Estos lenguajes se inspiraron en Java y buscan mejorar sus capacidades en áreas específicas. Java influyó en su evolución, pero no son descendientes directos.
   \end{enumerate}
 
-  \textbf{Clase \textit{}}
-  \begin{lstlisting}[language=Java]
+  \textbf{Dart}
 
+  \textbf{Clase \textit{LifeForm}}
+  \begin{lstlisting}
+abstract class LifeForm {
+  void eat(int quantity);
+
+  int getHunger();
+
+  int getYear();
+
+  String move();
+  String breathe();
+  String reproduce();
+}    
   \end{lstlisting}  
+
+  \textbf{Clase \textit{AbstractAnimal}}
+  \begin{lstlisting}
+import 'LifeForm.dart';
+
+abstract class AbstractAnimal implements LifeForm {
+  static int maxId = 0;
+  late int hunger;
+  late String name;
+  late int id;
+  late int year;
+
+  AbstractAnimal(String name, int year, int hunger) {
+    this.hunger = hunger;
+    this.name = name;
+    this.year = year;
+    maxId++;
+    id = maxId;
+  }
+
+  AbstractAnimal.namedYear(String name, int year) : this(name, year, 0);
+
+  void eat(int quantity) {
+    hunger -= quantity;
+    hunger = hunger < 0 ? 0 : hunger;
+  }
+
+  String getName() {
+    return name;
+  }
+
+  int getHunger() {
+    return hunger;
+  }
+
+  int getId() {
+    return id;
+  }
+
+  int getYear() {
+    return year;
+  }
+
+  String move();
+  String breathe();
+  String reproduce();
+}    
+  \end{lstlisting}
   
-  \textbf{Ejecución}
-  % \begin{figure}[h!]
-  %   \includegraphics[width=\columnwidth, center]{P2.jpg}
-  % \end{figure}
+  \textbf{Clase \textit{Mammal}}
+  \begin{lstlisting}
+import 'AbstractAnimal.dart';
+
+class Mammal extends AbstractAnimal {
+  Mammal(String name, int year) : super.namedYear(name, year);
+
+  @override
+  String move() {
+    return "walk";
+  }
+
+  @override
+  String breathe() {
+    return "lungs";
+  }
+
+  @override
+  String reproduce() {
+    return "live births";
+  }
+}    
+  \end{lstlisting}
+
+  \textbf{Clase \textit{Bird}}
+  \begin{lstlisting}
+import 'AbstractAnimal.dart';
+
+class Bird extends AbstractAnimal {
+  Bird(String name, int year) : super(name, year, 3);
+
+  @override
+  String move() {
+    return "fly";
+  }
+
+  @override
+  String breathe() {
+    return "lungs";
+  }
+
+  @override
+  String reproduce() {
+    return "eggs";
+  }
+}    
+  \end{lstlisting}
+
+  \textbf{Clase \textit{Fish}}
+  \begin{lstlisting}
+import 'AbstractAnimal.dart';
+
+class Fish extends AbstractAnimal {
+  Fish(String name, int year) : super.namedYear(name, year);
+
+  @override
+  String move() {
+    return "swim";
+  }
+
+  @override
+  String breathe() {
+    return "gills";
+  }
+
+  @override
+  String reproduce() {
+    return "eggs";
+  }
+}    
+  \end{lstlisting}
+
+  \textbf{\textit{Main}}
+  \begin{lstlisting}
+import 'AbstractAnimal.dart';
+import 'Bird.dart';
+import 'Fish.dart';
+import 'Mammal.dart';
+
+void main() {
+  List<AbstractAnimal> animals = [];
+  animals.add(Mammal("Panda", 1869));
+  animals.add(Mammal("Zebra", 1778));
+  animals.add(Mammal("Koala", 1816));
+  animals.add(Mammal("Sloth", 1804));
+  animals.add(Mammal("Armadillo", 1758));
+  animals.add(Mammal("Raccoon", 1758));
+  animals.add(Mammal("Bigfoot", 2021));
+
+  animals.add(Bird("Pigeon", 1837));
+  animals.add(Bird("Peacock", 1821));
+  animals.add(Bird("Toucan", 1758));
+  animals.add(Bird("Parrot", 1824));
+  animals.add(Bird("Swan", 1758));
+
+  animals.add(Fish("Salmon", 1758));
+  animals.add(Fish("Catfish", 1817));
+  animals.add(Fish("Perch", 1758));
+
+  animals.sort((animal1, animal2) => animal2.getYear() - animal1.getYear());
+  animals.forEach((animal) {
+    print('${animal.getName()} ${animal.getYear()}');
+  });
+  print("\n-------Alphabetical-----------");
+  animals.sort(
+      (animal1, animal2) => animal1.getName().compareTo(animal2.getName()));
+  animals.forEach((animal) {
+    print('${animal.getName()}');
+  });
+
+  print("\n-------Movement-----------");
+  animals.sort((animal1, animal2) => animal1.move().compareTo(animal2.move()));
+  animals.forEach((animal) {
+    print('${animal.getName()} ${animal.move()}');
+  });
+
+  print("\n-------Breathers-----------");
+  animals.forEach((animal) {
+    if (animal.breathe() == "lungs") {
+      print('${animal.getName()} ${animal.breathe()}');
+    }
+  });
+
+  print("\n-------Breathers in 1758-----------");
+  animals.forEach((animal) {
+    if (animal.breathe() == "lungs" && animal.getYear() == 1758) {
+      print('${animal.getName()} ${animal.breathe()}');
+    }
+  });
+}    
+  \end{lstlisting}
+
+  \textbf{Kotlin}
+
+  \textbf{Clase \textit{LifeForm}}
+  \begin{lstlisting}[language=Kotlin]
+interface LifeForm {
+  fun eat(quantity: Int)
+  fun getHunger(): Int
+  fun getYear(): Int
+  fun move(): String
+  fun breathe(): String
+  fun reproduce(): String
+}
+  \end{lstlisting}
+
+  \textbf{Clase \textit{AbstractAnimal}}
+  \begin{lstlisting}[language=Kotlin]
+import LifeForm
+
+abstract class AbstractAnimal : LifeForm {
+  companion object {
+    private var maxId = 0
+  }
+
+  private var hunger = 0
+  private val name: String
+  private val id: Int
+  private val year: Int
+
+  constructor(name: String, year: Int, hunger: Int) {
+    maxId++
+    this.id = maxId
+    this.hunger = hunger
+    this.year = year
+    this.name = name
+  }
+
+  constructor(name: String, year: Int) : this(name, year, 0)
+  
+  override fun eat(quantity: Int) {
+    hunger -= quantity
+    hunger = if (hunger < 0) 0 else hunger
+  }
+
+  override fun getHunger(): Int {
+    return hunger
+  }
+
+  override fun getYear(): Int {
+    return year 
+  }
+
+  override fun getName(): String {
+    return name
+  }
+  
+  abstract override fun move(): String
+  abstract override fun breathe(): String
+  abstract override fun reproduce(): String
+}    
+  \end{lstlisting}
+
+  \textbf{Clase \textit{Mammal}}
+  \begin{lstlisting}[language=Kotlin]
+import AbstractAnimal
+
+class Mammal(name: String, year: Int) : AbstractAnimal(name, year) {
+  override fun move(): String {
+    return "walk"
+  }
+
+  override fun breathe(): String {
+    return "lungs"
+  }
+
+  override fun reproduce(): String {
+    return "live births"
+  }
+
+  override fun getName(): String {
+    return super.getName()
+  }
+}    
+  \end{lstlisting}
+
+  \textbf{Clase \textit{Bird}}
+  \begin{lstlisting}[language=Kotlin]
+import AbstractAnimal
+
+class Bird(name: String, year: Int) : AbstractAnimal(name, year, 3) {
+  override fun move(): String {
+    return "fly"
+  }
+
+  override fun breathe(): String {
+    return "lungs"
+  }
+
+  override fun reproduce(): String {
+    return "eggs"
+  }
+
+  override fun getName(): String {
+    return super.getName()
+  }    
+}    
+  \end{lstlisting}  
+
+  \textbf{Clase \textit{Fish}}
+  \begin{lstlisting}[language=Kotlin]
+import AbstractAnimal
+
+class Fish(name: String, year: Int) : AbstractAnimal(name, year) {
+  override fun move(): String {
+    return "swim"
+  }
+
+  override fun breathe(): String {
+    return "gills"
+  }
+
+  override fun reproduce(): String {
+    return "eggs"
+  }
+
+  override fun getName(): String {
+    return super.getName()
+  }
+}
+  \end{lstlisting}
+
+  \textbf{\textit{Main}}
+  \begin{lstlisting}[language=Kotlin]
+import Mammal
+import Bird
+import Fish
+import AbstractAnimal
+import LifeForm
+
+fun main() {
+  val animals: MutableList<AbstractAnimal> = mutableListOf()
+
+  animals.add(Mammal("Panda", 1869))
+  animals.add(Mammal("Zebra", 1778))
+  animals.add(Mammal("Koala", 1816))
+  animals.add(Mammal("Sloth", 1804))
+  animals.add(Mammal("Armadillo", 1758))
+  animals.add(Mammal("Raccoon", 1758))
+  animals.add(Mammal("Bigfoot", 2021))
+
+  animals.add(Bird("Pigeon", 1837))
+  animals.add(Bird("Peacock", 1821))
+  animals.add(Bird("Toucan", 1758))
+  animals.add(Bird("Parrot", 1824))
+  animals.add(Bird("Swan", 1758))
+
+  animals.add(Fish("Salmon", 1758))
+  animals.add(Fish("Catfish", 1817))
+  animals.add(Fish("Perch", 1758))
+
+  animals.sortByDescending { it.getYear() }
+  animals.forEach { animal ->
+    println("${animal.getName()} ${animal.getYear()}")
+  }
+
+  println("-------Alphabetical-----------")
+  animals.sortBy { it.getName() }
+  animals.forEach { animal ->
+    println(animal.getName())
+  }
+
+  println("-------Movement-----------")
+  animals.sortBy { it.move() }
+  animals.forEach { animal ->
+    println("${animal.getName()} ${animal.move()}")
+  }
+
+  println("-------Breathers-----------")
+  animals.filter { it.breathe() == "lungs" }.forEach { animal ->
+    println("${animal.getName()} ${animal.breathe()}")
+  }
+
+  println("-------Breathers in 1758-----------")
+  animals.filter { it.breathe() == "lungs" && it.getYear() == 1758 }.forEach { animal ->
+    println("${animal.getName()} ${animal.breathe()}")
+  }
+}    
+  \end{lstlisting}
 
   \subsection*{Problema 3}
   Realice una tabla comparativa de desventajas y ventajas de la sobreescritura y sobrecarga de métodos y concluya desde su punto de vista cuál de las dos maneras de polimorfismo es más útil y porqué.
