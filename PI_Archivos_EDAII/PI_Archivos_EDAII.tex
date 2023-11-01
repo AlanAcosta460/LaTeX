@@ -1,0 +1,85 @@
+\documentclass[11pt, twocolumn]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[none]{hyphenat}
+\usepackage[
+  left=2.5cm,
+  right=2.5cm,
+  top=2.5cm,
+  bottom=2.5cm,
+  paperwidth=21cm,
+  paperheight=29.7cm, 
+]{geometry}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage[export]{adjustbox}
+\usepackage{enumitem}
+\usepackage{listingsutf8}
+% \usepackage[dvipsnames]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{caption}
+% \usepackage{subcaption}
+% \usepackage{wrapfig}
+% \usepackage{multirow, makecell}
+% \usepackage{float}
+% \usepackage{amsmath} 
+% \usepackage{amsfonts}
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+\usepackage{lipsum}
+\usepackage{fontspec}
+
+\newcommand{\linejump}{\hfill \break}
+% \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand\thesubsection{\Roman{subsection}}
+
+\sloppy
+\onehalfspacing
+\setmainfont{Georgia}
+\setlength{\parindent}{0.5cm}
+\setlength{\columnsep}{0.5cm}
+\decimalpoint
+\graphicspath{{img/}}
+\hypersetup{colorlinks=true, urlcolor=blue, citecolor=blue}
+\urlstyle{same}
+
+\begin{document}
+  \twocolumn[
+    \centering
+    \textbf{\huge{Archivos}} \\
+
+    \linejump
+
+    A. O. Acosta Porcayo, A. Gutiérrez Grimaldo, S. Medina Villa, A. A. Uribe Urieta
+
+    \linejump
+  ]
+  
+  \textbf{Resumen.} \lipsum[1]
+
+  \textbf{Palabras Clave.} \textit{Archivos, Organización de archivos, Acceso a archivos, Sistema de archivos.}
+
+  \section{INTRODUCCIÓN}
+  \lipsum[1-3]
+
+  \section{CONTENIDO}
+  \subsection{Definición y operaciones}
+  \lipsum[4-5]
+
+  \subsection{Organización de archivos (Físico y lógico)}
+  \lipsum[6-7]
+
+  \subsection{Acceso a archivos (Físico y lógico)}
+  \lipsum[8-9]
+
+  \subsection{Sistema de archivos}
+  \lipsum[10-11]
+
+  \section{CONCLUSIONES}
+  \lipsum[12-13]
+
+  \section{REFERENCIAS}
+  \lipsum[14-15]
+\end{document}
