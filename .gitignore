@@ -5,3 +5,9 @@
 *.log
 *.gz
 *.out
+*.idx
+*.ilg
+*.ind
+*.lof
+*.toc
+*.xdv
