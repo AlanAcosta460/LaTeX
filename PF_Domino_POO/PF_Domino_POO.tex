@@ -47,10 +47,10 @@
 \sloppy
 \setlength{\parindent}{0cm}
 \setlength{\columnsep}{0.5cm}
-\setlength{\cftbeforesecskip}{0.5cm}
-\setlength{\cftbeforesubsecskip}{0.25cm}
-\setlength{\cftbeforesubsubsecskip}{0.2cm}
-\setlength{\cftbeforefigskip}{0.25cm}
+\setlength{\cftbeforesecskip}{0.3cm}
+\setlength{\cftbeforesubsecskip}{0.2cm}
+\setlength{\cftbeforesubsubsecskip}{0.18cm}
+\setlength{\cftbeforefigskip}{0.2cm}
 \decimalpoint
 \graphicspath{{img/}}
 
@@ -345,9 +345,52 @@ if (!mesa.getJugadores().get(0).puedeJugar() &&
 
   Solano, J. (2017, 20 enero). \textit{Manual de prácticas de Programación Orientada a Objetos}. Laboratorio de Computación Salas A y B. \url{http://lcp02.fi-b.unam.mx/} 
 
+  \newpage
   \section{Apéndice}
   \subsection{Diagramas UML de clases}
+  \begin{figure}[h!]
+    \centering
+    \begin{minipage}[l]{0.45\textwidth}
+      \centering
+      \includegraphics[height=5.5cm]{uml1.png}
+      \caption{UML de clase \textit{Ficha}}
+    \end{minipage}
+    \begin{minipage}[r]{0.45\textwidth}
+      \centering
+      \includegraphics[height=5.5cm]{uml2.png}
+      \caption{UML de clase \textit{Jugador}}
+    \end{minipage}
+  \end{figure}
 
+  \begin{figure}[h!]
+    \centering
+    \begin{minipage}[l]{0.45\textwidth}
+      \centering
+      \includegraphics[height=5.5cm]{uml3.png}
+      \caption{UML de clase \textit{Humano}}
+    \end{minipage}
+    \begin{minipage}[r]{0.45\textwidth}
+      \centering
+      \includegraphics[height=5.5cm]{uml4.png}
+      \caption{UML de clase \textit{Bot}}
+    \end{minipage}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \centering
+    \begin{minipage}[l]{0.45\textwidth}
+      \centering
+      \includegraphics[height=5.5cm]{uml5.png}
+      \caption{UML de clase \textit{Mesa}}
+    \end{minipage}
+    \begin{minipage}[r]{0.45\textwidth}
+      \centering
+      \includegraphics[height=5.5cm]{uml6.png}
+      \caption{UML de clase \textit{Domino}} 
+    \end{minipage}
+  \end{figure}
+
+  \linejump
 
   \subsection{Diagramas UML de objetos}
 
@@ -1066,7 +1109,7 @@ public class Domino {
 
   \begin{figure}[h!]
     \centering
-    \includegraphics{pf1.png}
+    \includegraphics[]{pf1.png}
     \caption{Menú de opciones de juego}
   \end{figure}
 
