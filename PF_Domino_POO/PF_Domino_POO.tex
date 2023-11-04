@@ -80,7 +80,6 @@
   \end{flushright}
 
   \tableofcontents
-  \listoffigures
   \newpage
 
   \section{Antecedentes históricos}
@@ -192,9 +191,6 @@
     \item \textit{ArrayList$<$Ficha$>$.} Colección de objetos de tipo \textit{Ficha}. Se crea en las clases \textit{Mesa}, \textit{Humano} y \textit{Bot} para almacenar las fichas de la mesa, las fichas del jugador y las fichas que puede jugar el bot respectivamente.
     \item \textit{List$<$Jugador$>$.} Colección de objetos de tipo \textit{Jugador}. En ella se almacenan objetos de tipo \textit{Humano} y \textit{Bot} que representan a los jugadores del juego. Se crea en la clase \textit{Mesa}.
     \item \textit{Mesa.} Objeto de tipo \textit{Mesa} que contiene la configuración inicial del juego. Se crea en la clase \textit{Domino}.
-    \item \textit{Scanner.} Objeto de tipo \textit{Scanner} que permite la entrada de datos por parte del usuario. Se crea en la clase \textit{Humano} y \textit{Domino}.
-    \item \textit{Clip.} Objeto de tipo \textit{Clip} que la utilización de clips de audio. Se crea en la clase \textit{Domino}.
-    \item \textit{ProcessBuilder.} Objeto de tipo \textit{ProcessBuilder} que permite la ejecución de comandos en la terminal. Se crea en la clase \textit{Domino}.
   \end{itemize}
 
   \section{Algoritmo}
@@ -330,7 +326,11 @@ if (!mesa.getJugadores().get(0).puedeJugar() &&
   La única herencia que realiza es de la clase abstracta \textit{Jugador} a las clases \textit{Humano} y \textit{Bot}. La definición de \textit{Jugador} contiene dos métodos abstractos que son \textit{primerTurno} y \textit{turno} que son implementados en las clases \textit{Humano} y \textit{Bot} respectivamente.
 
   \section{Conclusiones}
+  Este proyecto de implementación de un juego de dominó en Java ha abordado varios aspectos esenciales de la programación orientada a objetos y la interacción con el usuario. El diseño se basa en la encapsulación de fichas, jugadores y la mesa en clases independientes, lo que promueve la organización eficiente y el mantenimiento del código.
+  
+  La simulación del juego sigue las reglas auténticas del dominó, con atención al detalle para determinar la jugabilidad de las fichas en función de las reglas del juego. Se gestionan situaciones como el robo de fichas y el cambio de turno de manera efectiva, demostrando una comprensión profunda de las dinámicas del dominó. Esto se logra mediante el uso de la herencia y la implementación de métodos abstractos en las clases de jugadores. La implementación también aborda la gestión de excepciones, garantizando que el juego sea robusto y confiable en diversas circunstancias.
 
+  Al realizar este tipo de trabajo promueve a utilizar nuestras habilidades que hemos estado adquiriendo durante el curso y también promueve a la investigación y al trabajo colectivo.
 
   \section{Referencias}
   De Tenis De Huelva, R. C. R. (s. f.). \textit{Dominó} | \url{https://rcrtenishuelva1889.com/page/9/domino#:~:text=El%20domin%C3%B3%20surgi%C3%B3%20hace%20mil,los%20italianos%20por%20todas%20partes} \\
@@ -393,7 +393,47 @@ if (!mesa.getJugadores().get(0).puedeJugar() &&
   \linejump
 
   \subsection{Diagramas UML de objetos}
+  \begin{figure}[h!]
+    \centering
+    \begin{minipage}[l]{0.45\textwidth}
+      \centering
+      \includegraphics[height=6cm]{umlo1.png}
+      \caption{UML de objeto \textit{Ficha1}}
+    \end{minipage}
+    \begin{minipage}[r]{0.45\textwidth}
+      \centering
+      \includegraphics[height=6cm]{umlo2.png}
+      \caption{UML de objeto \textit{Ficha2}}
+    \end{minipage}
+  \end{figure}
 
+  \begin{figure}[h!]
+    \centering
+    \begin{minipage}[l]{0.45\textwidth}
+      \centering
+      \includegraphics[height=6cm]{umlo3.png}
+      \caption{UML de objeto \textit{Jugador1}}
+    \end{minipage}
+    \begin{minipage}[r]{0.45\textwidth} 
+      \centering
+      \includegraphics[height=6cm]{umlo4.png}
+      \caption{UML de objeto \textit{Jugador1}}
+    \end{minipage}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \centering
+    \begin{minipage}[l]{0.45\textwidth}
+      \centering
+      \includegraphics[height=6cm]{umlo5.png}
+      \caption{UML de objeto \textit{Jugador1}}
+    \end{minipage}
+    \begin{minipage}[r]{0.45\textwidth}
+      \centering
+      \includegraphics[height=6cm]{umlo6.png}
+      \caption{UML de objeto \textit{Mesa}} 
+    \end{minipage}
+  \end{figure}
 
   \subsection{Diagrama UML de casos de uso}
 
@@ -1124,7 +1164,7 @@ public class Domino {
   Los siguientes turnos son diferentes dependiendo del tipo de jugador. En caso de que sea un bot se espera 3 segundos antes de que juegue su ficha. En caso de que sea un jugador humano se le pide que seleccione la ficha que quiere jugar y el lado donde la quiere jugar.
 
   \begin{figure}[h!]
-    \centering
+    \centering 
     \includegraphics{pf3.png}
     \caption{Turno de jugador Humano}
   \end{figure}
@@ -1135,7 +1175,7 @@ public class Domino {
     \caption{Turno de jugador Bot}
   \end{figure}
 
-  En caso de que un jugador necesite robar una ficha se muestra un mensaje diciendo y se vuelven a imprimir sus fichas.
+  En caso de que un jugador necesite robar una ficha se muestra un mensaje indicandolo y se vuelven a imprimir sus fichas.
 
   \begin{figure}[h!]
     \centering
