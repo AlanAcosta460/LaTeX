@@ -1,0 +1,173 @@
+\documentclass[11pt, twocolumn]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[none]{hyphenat}
+\usepackage[left=1.2cm, right=1.2cm, top = 2cm, bottom=2.5cm]{geometry}
+% \usepackage{setspace}
+\usepackage{parskip}
+\usepackage[export]{adjustbox}
+\usepackage{enumitem}
+\usepackage{listingsutf8}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{caption}
+% \usepackage{subcaption}
+% \usepackage{wrapfig}
+% \usepackage{multirow, makecell}
+% \usepackage{float}
+% \usepackage{amsmath} 
+% \usepackage{amsfonts}
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+
+\newcommand{\linejump}{\hfill \break}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+% \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\tiny\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\sloppy
+\setlength{\parindent}{0cm}
+\setlength{\columnsep}{0.5cm}
+\decimalpoint
+\graphicspath{{img/}}
+
+\hypersetup{colorlinks=true, urlcolor=blue, citecolor=blue}
+\urlstyle{same}
+
+\pagestyle{fancyplain}
+\fancyhf{}
+\fancyhead[L]{\scriptsize 
+  Universidad Nacional Autónoma de México \\
+  Laboratorio de Programación Orientada a Objetos \\
+  M.C. Leonardo Ledesma Dominguez
+}
+\fancyhead[R]{\thepage}
+
+\begin{document}
+  \twocolumn[
+    \centering
+    Acosta Porcayo Alan Omar, Gutiérrez Grimaldo Alejandro, Medina Villa Samuel
+
+    \linejump
+
+    \textbf{\LARGE{Práctica 9. UML}} \\
+    
+    \linejump
+  ]
+      
+  \footnotetext{
+    \scriptsize 
+    Acosta Porcayo Alan Omar Ing. en Computación 320206102 \\
+    Gutiérrez Grimaldo Alejandro Ing. en Computación 320282098 \\
+    Medina Villa Samuel Ing. en Computación 320249538
+  }
+        
+  \fancyfoot{}
+
+  \section*{Resumen}
+  
+
+  \section*{Introducción}
+
+
+  \section*{Objetivos}
+  \begin{itemize}
+    \item 
+  \end{itemize}
+
+  \section*{Resultados}
+  \subsection*{Problema 1}
+  Agregue el esquema UML que le tocó realizar en la práctica 9 de laboratorio y de una breve explicación.
+
+
+  \subsection*{Problema 2}
+  Seleccione un diagrama UML de otro equipo de laboratorio, anéxelo a su reporte y de una breve explicación.
+
+
+  \section*{Conclusiones}
+
+
+  \twocolumn[
+    \centering
+    Acosta Porcayo Alan Omar, Gutiérrez Grimaldo Alejandro, Medina Villa Samuel
+
+    \linejump
+    
+    \textbf{\LARGE{Práctica 10. Excepciones y errores}} \\
+
+    \linejump
+  ]
+
+  \section*{Resumen}
+  
+
+  \section*{Introducción}
+
+
+  \section*{Objetivos}
+  \begin{itemize}
+    \item 
+  \end{itemize}
+
+  \section*{Metodología}
+
+
+  \section*{Resultados}
+  \subsection*{Problema 1}
+  Modifique el programa visto durante la práctica para construir objetos ``Persona'' desde consola solicitando nombre, edad, nacionalidad y sexo, la llave CURP.
+
+
+  \subsection*{Problema 2}
+  Revise el siguiente código ubicado en: \url{https://howtodoinjava.com/java/exception-handling/best-practices-for-for-exception-handling/}
+
+  Implemente el punto 2 del blog utilizando la misma lógica para controlar excepciones:
+
+  \begin{enumerate}[label=\alph*)]
+    \item Un extranjero no puede ser mexicano, al momento de ser creado.
+    \item Construya una excepción que no permita crear Personas con edad $<=$ 0 años.
+    \item Construya una excepción que permita jubilar a una Persona considere la edad de jubilación de $>=$ 64 años.
+  \end{enumerate}
+  
+
+  \subsection*{Problema 3}
+  Usando instrucciones \textit{try-catch} aplique la jerarquía de excepciones de la siguiente manera:
+
+  \begin{enumerate}
+    \item Es mexicano
+    \item Puede Votar
+    \item Puede ser presidente
+  \end{enumerate}
+
+  Considerando que la 1 es la de mas alta prioridad y podrá acceder al nivel 2 y así sucesivamente.
+
+
+  \section*{Conclusiones}
+
+
+  \section*{Referencias}
+  \begin{small}
+    Gupta, L., $\&$ Gupta, L. (2023, April 7). \textit{Effective approach for creating custom exceptions in Java}. HowToDoInJava. \url{https://howtodoinjava.com/java/exception-handling/best-practices-for-for-exception-handling/} \\
+
+    Solano, J. (2017, 20 enero). \textit{Manual de prácticas de Programación Orientada a Objetos}. Laboratorio de Computación Salas A y B. \url{http://lcp02.fi-b.unam.mx/} \\
+  \end{small}
+\end{document}
