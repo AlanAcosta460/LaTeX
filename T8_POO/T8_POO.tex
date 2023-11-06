@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[none]{hyphenat}
+\usepackage[left=1.5cm, right=1.5cm, top = 2cm, bottom=2.5cm]{geometry}
+\usepackage{parskip}
+\usepackage[export]{adjustbox}
+\usepackage{enumitem}[shortlabels]
+\usepackage{listings} 
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{caption} 
+% \usepackage{subcaption}
+\usepackage{wrapfig}
+% \usepackage{longtable}
+% \usepackage{multirow, makecell}
+% \usepackage{amsmath} 
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+% \usepackage{tocloft}
+
+\newcommand{\linejump}{\hfill \break}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+% \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\scriptsize\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\sloppy
+\setlength{\parindent}{0cm}
+\setlength{\columnsep}{0.5cm}
+\decimalpoint
+\graphicspath{{img/}}
+
+\hypersetup{colorlinks=true, urlcolor=blue, citecolor=blue}
+\urlstyle{same}
+
+\pagestyle{fancyplain}
+\fancyhf{}
+\fancyhead[L]{\scriptsize 
+  Universidad Nacional Autónoma de México \\
+  Programación Orientada a Objetos \\
+  M.C. Leonardo Ledesma Dominguez
+}
+\fancyhead[R]{\thepage}
+
+
+\begin{document}
+  \begin{center}
+    Acosta Porcayo Alan Omar, Gutiérrez Grimaldo Alejandro, Medina Villa Samuel
+
+    \linejump
+    \LARGE \textbf{Tarea 8. Manejo de archivos y seralización}
+  \end{center}
+  
+  \linejump
+  \begin{enumerate}
+    \item Estudie el programa que se vio en clase ubicado en: \url{https://github.com/LeonardoLed/POO/blob/main/TemaVI.ManejoArchivos/Principal.java}
+    
+    Modifique al programa para aumentar la funcionalidad de dicho programa, para que realice:
+    \begin{enumerate}[label=\alph*)]
+      \item Solicite de manera separada nombre, apellido paterno, apellido materno y edad que se escriba en un archivo datos.txt.
+      \item Ocupe serialización/deserialización para reconstruir los objetos creados anteriormente que provengan del archivo datos.txt
+    \end{enumerate}
+
+
+    \item Modifique el programa de Snake realizado en la práctica 4 para que guarde en un archivo los llamados High Scores imprimiendo en un archivo hs.txt el nombre del usuario y puntos obtenidos.
+    
+    Considere la diferencia de puntuación según el nivel de juego:
+    \begin{enumerate}[label=\alph*.]
+      \item Babosa 1 pt.
+      \item Gusano 1.5 pt.
+      \item Anaconda 2 pts.
+    \end{enumerate}
+
+    
+    \item Vea el episodio 4 de la serie IA y de su opinión al respecto: \url{https://youtu.be/Kr1fmKVY3cA?list=PLjq6DwYksrzz_fsWIpPcf6V7p2RNAneKc}
+    
+
+    \item Estudie el tema de \textit{Externalizable} ubicado en: \url{https://www.geeksforgeeks.org/externalizable-interface-java/}
+    
+    Explique cual serian las diferencias con Serializable con sus propias palabras.
+
+
+  \end{enumerate}
+
+  \section*{Referencias}
+  \textit{Externalizable interface in Java.} (2017, October 16). GeeksforGeeks; GeeksforGeeks. \url{https://www.geeksforgeeks.org/externalizable-interface-java/} \\
+
+  \textit{POO/TemaVI.ManejoArchivos/Principal.java at main · LeonardoLed/POO.} (2023). GitHub. \url{https://github.com/LeonardoLed/POO/blob/main/TemaVI.ManejoArchivos/Principal.java} \\
+
+  YouTube Originals. (2019, December 18). \textit{Love, art and stories: decoded | The Age of A.I.} [Video]. YouTube. \url{https://www.youtube.com/watch?v=Kr1fmKVY3cA}
+\end{document}
