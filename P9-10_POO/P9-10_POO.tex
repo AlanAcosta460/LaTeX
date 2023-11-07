@@ -162,10 +162,27 @@
   \subsection*{Problema 1}
   Agregue el esquema UML que le tocó realizar en la práctica 9 de laboratorio y de una breve explicación.
 
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.56\linewidth]{9P1.jpg}
+  \end{figure}
+
+  En el diagrama de objetos hay cuatro objetos: Avión, Barco, Automóvil y Auto Eléctrico. Todos heredan métodos y atributos de la clase Vehículo.
+
+  Hay un objeto llamado Auto Eléctrico que hereda de la clase Automóvil y agrega funcionalidad específica para automóviles eléctricos. El objeto Automóvil hereda métodos y atributos de la clase Vehículo
+
 
   \subsection*{Problema 2}
   Seleccione un diagrama UML de otro equipo de laboratorio, anéxelo a su reporte y de una breve explicación.
 
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{9P2.jpg}
+  \end{figure}
+
+  En el diagrama de actividades es el flujo para poder realizar un cita médica, donde las actividades son: AgendarCita $\longrightarrow$ RegistrarDatosPersonales $\longrightarrow$ SeleccionarDiayHora $\longrightarrow$ , etc.
+
+  Este diagrama de actividades se utiliza para representar visualmente el flujo de actividades, acciones y decisiones, en este caso una cita médica, lo que facilita la comprensión, la comunicación y procesos.
 
   \section*{Conclusiones}
   Los diagramas UML, conocidos como el Lenguaje de Modelado Unificado, juegan un rol crucial en el proceso de diseño y desarrollo de \textit{software} orientado a objetos. Estas representaciones gráficas desempeñan un papel fundamental al permitirnos visualizar, detallar, registrar y comunicar de manera altamente efectiva tanto los aspectos estructurales como los comportamentales de un sistema.
@@ -226,12 +243,278 @@
   \end{itemize}
 
   \section*{Metodología}
+  \textbf{Enumeración \textit{Sx}}
+  \begin{lstlisting}
+public enum Sx {
+  FEMENINO, 
+  MASCULINO, 
+  INDETERMINADO
+};
+  \end{lstlisting}
 
+  \textbf{Clase Abstracta \textit{Persona}}
+  \begin{lstlisting}
+abstract class Persona{
+  String nombre;
+  int edad;
+  Sx sexo;
+  String nacionalidad;
+
+  public String getNombre() {
+    return this.nombre;
+  }
+
+  public int getEdad() {
+    return this.edad;
+  }
+
+  public Sx getSexo() {
+    return this.sexo;
+  }
+
+  public String getNacionalidad() {
+    return this.nacionalidad;
+  }
+
+  abstract boolean votar();
+  abstract boolean servicioMilitar();
+  abstract boolean serPresidente();
+}
+  \end{lstlisting}
+
+  \textbf{Clase \textit{Mexicano}}
+  \begin{lstlisting}
+class Mexicano extends Persona {
+  String curp; //Variable polimorfica
+  Mexicano(String nombre, int edad, Sx sexo, String curp) {
+    this.nombre=nombre;
+    this.sexo=sexo;
+    this.edad=edad;
+    this.curp=curp;
+    this.nacionalidad="Mexicano";
+  }
+
+  @Override
+  boolean votar(){
+    return (this.edad >=18) ?  true : false;
+  }
+
+  @Override
+  boolean servicioMilitar() {
+    /*
+    boolean bandera = false;
+    if(this.edad >= 17 && this.sexo == Sx.MASCULINO) {
+      bandera= true; 
+    }
+    return bandera;
+    */
+    // el siguiente codigo es equivalente al comentado de arriba
+    
+    return (this.edad >=17 && this.sexo == Sx.MASCULINO) ?  true : false;
+  }
+
+  @Override
+  boolean serPresidente() {
+    return (this.edad >=35) ?  true : false;
+  }
+}
+  \end{lstlisting}
+
+  \textbf{Clase \textit{Extranjero}}
+  \begin{lstlisting}
+class Extranjero extends Persona {
+  Extranjero(String nombre, int edad, Sx sexo) {
+    this.nombre=nombre;
+    this.sexo=sexo;
+    this.edad=edad;
+    this.nacionalidad="Extranjero";
+  }
+
+  @Override
+  boolean votar() {
+    return false;
+  }
+
+  @Override
+  boolean servicioMilitar() {
+    return false;
+  }
+
+  @Override
+  boolean serPresidente() {
+    return false;
+  }
+}
+  \end{lstlisting}
+
+  \section*{Clase \textit{OuterException}}
+  \begin{lstlisting}
+// OuterException verifica que una persona puede votar
+// InnerException verifica que ademas pueda ser presidente 
+class OuterException extends Exception {
+  OuterException(String s) {
+    super(s);
+  }
+  
+  // para mandar a llamar la inner clase local no estatica
+  OuterException(String s, boolean sth) {
+    InnerException2 local = new InnerException2(s);
+  }
+
+  //Inner class
+  //se puede nombrar una clase interna  de esta manera
+  //es necesario utilizar static porque de otra manera se necesitara
+  //crear un objeto de esta clase
+  static class InnerException extends Exception {
+    InnerException(String s) {
+      super(s);
+    }
+  }
+  
+  //usamos una inner class generica 
+  class InnerException2 extends Exception {
+    
+    InnerException2(String s) {
+      System.out.println(s);
+    }
+  }
+}    
+  \end{lstlisting}
+
+  \textbf{Clase \textit{Principal}}
+  \begin{lstlisting}
+import java.util.HashMap;
+//import 
+
+class Principal {
+  public static void main(String[] args) 
+      throws OuterException, OuterException.InnerException {
+    HashMap<String,Persona> gente = new HashMap<String,Persona>();
+
+    gente.put("ERZ123220PO",new Mexicano("Eric",19,Sx.MASCULINO, "ERZ123220PO"));
+    gente.put("AMZ453220LO",new Mexicano("Amir",19,Sx.INDETERMINADO, "AMZ453220LO"));
+    gente.put("ABN123980KO",new Mexicano("Abner",16,Sx.MASCULINO, "ABN123980KO"));
+    gente.put("SFN154620JO",new Mexicano("Sofia",19,Sx.FEMENINO, "SFN154620JO"));
+    gente.put("IRN135220GO",new Mexicano("Irandy",19,Sx.FEMENINO, "IRN135220GO"));
+
+    gente.forEach((k,p)-> {System.out.println(k + " : Nombre - " 
+        + p.getNombre() + " : Edad - " + p.getEdad() );});
+    
+    //levantar excepcion por no poder votar
+    gente.forEach((k, p) -> {
+      try {
+        if (!p.votar()) 
+          throw new OuterException("no puede votar : " + p.getNombre());
+      } catch (OuterException n) {
+        System.out.println(n);
+      }
+    });
+
+    // levantar excepcion por no poder ser presidente
+    gente.forEach((k, p) -> {
+      try {
+        if (!p.serPresidente()) 
+          throw new OuterException.InnerException
+              ("no puede ser presidente : " + p.getNombre());
+      } catch (OuterException.InnerException n) {
+        System.out.println(n);
+      }
+    });
+
+    // levantas excepcion para poder realizar servicio militar
+    gente.forEach((k, p) -> {
+        try {
+          if (!p.servicioMilitar()) 
+            throw new OuterException
+                ("no puede realizar su servicio militar : " + p.getNombre(), true);
+        } catch (OuterException n) {
+          return;
+        }
+    });
+  }
+}    
+  \end{lstlisting}
 
   \section*{Resultados}
   \subsection*{Problema 1}
   Modifique el programa visto durante la práctica para construir objetos ``Persona'' desde consola solicitando nombre, edad, nacionalidad y sexo, la llave CURP.
 
+  \textbf{Clase \textit{Principal}}
+  \begin{lstlisting}
+import java.util.HashMap;
+import java.util.Scanner;
+
+class Principal {
+	public static void main(String[] args) throws OuterException,
+      OuterException.InnerException {
+		HashMap<String,Persona> gente = new HashMap<String,Persona>();
+		Scanner sc = new Scanner(System.in);
+
+		while(true) {
+			System.out.print("Ingrese el nombre: ");
+			String nombre = sc.next();
+			System.out.print("Ingrese la edad: ");
+			int edad = sc.nextInt();
+			System.out.print("Ingrese el sexo: ");
+			Sx sexo = Sx.valueOf(sc.next().toUpperCase());
+			System.out.print("Ingrese el CURP: ");
+			String curp = sc.next();
+
+			gente.put(curp,new Mexicano(nombre,edad,sexo,curp));
+			
+			System.out.println("Desea agregar otra persona? (s/n)");
+			String resp = sc.next();
+			if(resp.equals("n")) 
+				break;
+			System.out.println(" ");
+		}
+
+		gente.forEach((k,p)-> {System.out.println(k + " : Nombre - " 
+        + p.getNombre() + " : Edad - " + p.getEdad() );});
+    
+		//levantar excepcion por no poder votar
+		gente.forEach((k, p) -> {
+		try {
+			if (!p.votar()) 
+			throw new OuterException("no puede votar : " + p.getNombre());
+		} catch (OuterException n) {
+			System.out.println(n);
+		}
+		});
+
+		// levantar excepcion por no poder ser presidente
+		gente.forEach((k, p) -> {
+		try {
+			if (!p.serPresidente()) 
+			throw new OuterException.InnerException
+				("no puede ser presidente : " + p.getNombre());
+		} catch (OuterException.InnerException n) {
+			System.out.println(n);
+		}
+		});
+
+		// levantas excepcion para poder realizar servicio militar
+		gente.forEach((k, p) -> {
+			try {
+				if (!p.servicioMilitar()) 
+				throw new OuterException
+					("no puede realizar su servicio militar : " + p.getNombre(), true);
+			} catch (OuterException n) {
+				return;
+			}
+		});
+
+		sc.close();
+	}
+}
+  \end{lstlisting}
+
+  \newpage
+  \textbf{Ejecución}
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\linewidth]{10P1.png}
+  \end{figure}
 
   \subsection*{Problema 2}
   Revise el siguiente código ubicado en: \url{https://howtodoinjava.com/java/exception-handling/best-practices-for-for-exception-handling/}
@@ -263,7 +546,7 @@
   \begin{enumerate}
     \item Sin modificar el programa original, dejaría de funcionar el programa si quitamos la instrucción \textit{throws} de la clase Principal. ¿si por qué o no por qué?
     
-    
+
 
     \item Indique cuál es la ventaja de usar \textit{inner class} genéricas y cuál es la ventaja de usar \textit{static inner class}.
     
