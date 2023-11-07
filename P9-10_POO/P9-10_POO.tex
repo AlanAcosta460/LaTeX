@@ -85,14 +85,77 @@
   \fancyfoot{}
 
   \section*{Resumen}
-  
+  En el desarrollo de esta práctica es utilizar UML como una herramienta de diseño para soluciones de \textit{software} en el contexto de programación orientada a objetos. Para lograrlo, se plantea la selección de los diagramas necesarios que mejor representen la solución a un problema dado, seguido por la creación de dichos diagramas UML. Lo que se busca es emplear UML como una herramienta efectiva para diseñar soluciones seleccionando y creando los diagramas apropiados para representar la solución de un problema específico.
+
+  Para esto se presentan los diferentes tipos de diagramas UML y sus características que lo conforman.
 
   \section*{Introducción}
+  El Lenguaje de Modelado Unificado (UML) es un lenguaje gráfico que permite visualizar, especificar y documentar cada parte del desarrollo de software. UML se compone de tres bloques generales: Elementos, Relaciones y Diagramas.
 
+  \subsection*{Diseño Estático o de Estructura}
+  En el diseño estático, se utilizan tres tipos de diagramas UML:
+  \begin{enumerate}
+    \item \textbf{Diagrama de Casos de Uso}
+    \begin{itemize}
+      \item Permite modelar la interacción entre usuarios y el sistema.
+      \item Define actores, casos de uso y relaciones (uso, herencia y comunicación).
+    \end{itemize}
+
+    \item \textbf{Diagrama de Clases}
+    \begin{itemize}
+      \item Modela las características de las clases del sistema.
+      \item Muestra atributos, métodos y relaciones entre las clases.
+    \end{itemize}
+
+    \item \textbf{Diagrama de Objetos}
+    \begin{itemize}
+      \item Describe instancias generadas a partir de las clases.
+      \item Representa objetos y sus relaciones en un momento específico.
+    \end{itemize}
+  \end{enumerate}
+
+  \subsection*{Diseño Dinámico o de Comportamiento}
+  En el diseño dinámico, se emplean tres tipos de diagramas UML:
+  \begin{enumerate}
+    \item \textbf{Diagrama de Estados}
+    \begin{itemize}
+      \item Describe las transiciones que un objeto experimenta a lo largo de su vida.
+      \item Incluye nodos de entrada y salida, estados y transiciones.
+    \end{itemize}
+
+    \item \textbf{Diagrama de Actividades}
+    \begin{itemize}
+      \item Muestra el flujo de acciones y objetos involucrados en tareas del sistema.
+      \item Contiene nodos de entrada y salida, actividades y transiciones.
+    \end{itemize}
+
+    \item \textbf{Diagrama de Interacción}
+    \begin{itemize}
+      \item Representa la comunicación entre objetos y actores en la ejecución de acciones.
+      \item Se divide en Diagrama de Secuencia y Diagrama de Comunicación.
+    \end{itemize}
+  \end{enumerate}
+
+  \subsection*{Diagrama de Secuencia}
+  \begin{itemize}
+    \item Muestra una interacción secuencial de eventos.
+    \item Visualiza objetos participantes y los mensajes intercambiados.
+  \end{itemize}
+
+  \subsection*{Diagrama de Comunicación}
+  \begin{itemize}
+    \item Muestra la interacción entre varios objetos y el orden en que ocurren.
+    \item Define la secuencia de mensajes y flujos de ejecución concurrentes.
+  \end{itemize}
+
+  Estos tipos de diagramas en UML permiten a los desarrolladores representar tanto los aspectos estructurales como los comportamentales de un sistema, brindando una herramienta integral para el diseño y la documentación en el desarrollo de \textit{software} orientado a objetos.
 
   \section*{Objetivos}
   \begin{itemize}
-    \item 
+    \item Utilizar diagramas de secuencia en UML para visualizar el flujo de datos y las interacciones entre objetos a lo largo de diferentes escenarios de uso, lo que facilita la detección de posibles problemas de diseño.
+    \item Utilizar UML para analizar y documentar los requisitos del \textit{software}, incluyendo la identificación de actores, casos de uso y sus relaciones, lo que permite una comprensión completa de las necesidades del sistema.
+    \item Utilizar UML como herramienta para diseñar soluciones de \textit{software} para un lenguaje de programación orientado a objetos.
+    
   \end{itemize}
 
   \section*{Resultados}
@@ -105,7 +168,9 @@
 
 
   \section*{Conclusiones}
+  Los diagramas UML, conocidos como el Lenguaje de Modelado Unificado, juegan un rol crucial en el proceso de diseño y desarrollo de \textit{software} orientado a objetos. Estas representaciones gráficas desempeñan un papel fundamental al permitirnos visualizar, detallar, registrar y comunicar de manera altamente efectiva tanto los aspectos estructurales como los comportamentales de un sistema.
 
+  A través de una variedad de tipos de diagramas, que incluyen aquellos de casos de uso, clases, objetos, estados, actividades y secuencia, los diseñadores y desarrolladores tienen la capacidad de abordar una amplia diversidad de aspectos en el ciclo de vida del \textit{software}, desde la fase inicial de concepción de requisitos hasta la etapa de implementación y mantenimiento. Estos diagramas no solo actúan como herramientas visuales que facilitan la planificación y el diseño, sino que también se erigen como componentes esenciales en la comunicación efectiva entre los equipos de desarrollo y las partes interesadas del proyecto.
 
   \twocolumn[
     \centering
@@ -119,14 +184,45 @@
   ]
 
   \section*{Resumen}
-  
+  El enfoque de esta práctica es mejorar la calidad y la robustez del código, identificando bloques de código propensos a generar errores y aplicando técnicas apropiadas para el manejo de situaciones excepcionales durante la ejecución. Esto implica la captura de excepciones y errores que puedan surgir en un bloque de código específico. Lo que se busca al realizar este trabajo es fortalecer la integridad del \textit{software} al identificar y gestionar adecuadamente las situaciones imprevistas que podrían afectar su funcionamiento.
 
   \section*{Introducción}
+  La Ley de Pareto, conocida como la regla 80/20, establece que el 80$\%$ de las consecuencias proviene del 20$\%$ de las causas. En el desarrollo de \textit{software}, esto se traduce en que el 80$\%$ del esfuerzo en tiempo y recursos produce el 20$\%$ del código. Además, en términos de calidad, el 80$\%$ de las fallas de una aplicación se generan a partir del 20$\%$ del código. Por lo tanto, la detección y el manejo de errores se convierten en un elemento crucial para asegurar la robustez del \textit{software}.
 
+  Los errores en una aplicación de \textit{software} se pueden clasificar en tres categorías principales:
+  \begin{enumerate}
+    \item \textbf{Errores Sintácticos:} Estos errores se producen al violar las normas de escritura del lenguaje de programación, como comas mal ubicadas, palabras reservadas escritas de forma incorrecta, entre otros. Por lo general, son detectados por el compilador o el intérprete al procesar el código fuente.
+    \item \textbf{Errores Semánticos (o Lógicos):} Los errores semánticos son más sutiles y se presentan cuando la sintaxis del código es correcta, pero la semántica o significado no se ajusta a lo que se pretendía. Estos errores pueden no ser evidentes de inmediato y pueden resultar en un comportamiento incorrecto del programa.
+    \item \textbf{Errores de Ejecución:} Estos errores se producen durante la ejecución de la aplicación y pueden deberse al uso incorrecto por parte del usuario (por ejemplo, ingresar una cadena en lugar de un número) o a errores de programación, como acceder a ubicaciones no permitidas en la memoria. Los errores de ejecución provocan la terminación abrupta del programa.
+  \end{enumerate}
+
+  Para manejar estos errores en tiempo de ejecución, se utilizan las excepciones. Las excepciones son condiciones excepcionales que alteran el flujo normal del programa y pueden ser generadas tanto por la lógica del programa como por objetos que informan sobre condiciones inesperadas o no manejables.
+  
+  Las excepciones se dividen en dos grandes grupos:
+  \begin{itemize}
+    \item \textbf{Excepciones Marcadas:} Estas excepciones requieren que se capturen de manera obligatoria mediante bloques catch en el código.
+    \item \textbf{Excepciones No Marcadas:} Las excepciones en tiempo de ejecución (\textit{RuntimeException} y sus subclases) no requieren una captura obligatoria.
+  \end{itemize}
+
+  Para manejar las excepciones, se utilizan bloques \textit{try} y \textit{catch}, donde el bloque \textit{try} define la sección del código en la que puede ocurrir una excepción, y el bloque \textit{catch} maneja la excepción arrojada. Los errores que no se manejan pueden propagarse a través de los métodos, y para indicar que un método puede lanzar una excepción, se utiliza la palabra reservada \textit{``throws''}.
+
+  \subsection*{Propagación de Excepciones}
+  La propagación de excepciones es el proceso mediante el cual una excepción se transfiere desde el punto donde se genera hasta un punto donde se puede manejar o capturar la excepción. Si una excepción no se maneja en el lugar donde se origina, se propaga hacia arriba en la pila de llamadas de métodos hasta que se encuentra un bloque \textit{``catch''} adecuado para manejarla.
+
+  \subsection*{\textit{Throw}}
+  La palabra reservada \textit{``throw''} se utiliza para lanzar o arrojar una excepción de manera explícita en el código. Esto permite a los programadores indicar que ha ocurrido un error o una situación excepcional y que se debe tomar una acción específica para manejarlo
+
+  \subsection*{\textit{Throws}}
+  La palabra reservada \textit{``throws''} se utiliza en la firma de un método para indicar que el método puede lanzar excepciones específicas. Esto notifica a quien llama al método que debe manejar o propagar las excepciones mencionadas. 
+
+  \subsection*{Excepciones Propias}
+  Las excepciones propias son clases de excepción que se crean específicamente para representar errores o situaciones excepcionales relacionadas con un dominio de negocio particular. Estas clases de excepción suelen heredar de la clase \textit{Exception} o \textit{Throwable} y permiten personalizar el manejo de errores en una aplicación
 
   \section*{Objetivos}
   \begin{itemize}
-    \item 
+    \item Identificar y solucionar bloques de código que puedan causar problemas de usabilidad o errores que afecten negativamente la experiencia del usuario.
+    \item Aplicar buenas prácticas de codificación y manejo de excepciones para que el código sea más comprensible y colaborativo
+    \item Identificar bloques de código propensos a generar errores y aplicar técnicas adecuadas para el manejo de situaciones excepcionales en tiempo de ejecución    
   \end{itemize}
 
   \section*{Metodología}
@@ -162,7 +258,34 @@
 
 
   \section*{Conclusiones}
+  Las excepciones y los errores desempeñan un papel fundamental en el desarrollo de \textit{software} y la programación en general. Son un componente esencial para garantizar la confiabilidad, la robustez y la calidad de los programas. El manejo de excepciones nos permite controlar y gestionar situaciones excepcionales de manera predecible en lugar de permitir que los errores provoquen fallos inesperados o la terminación abrupta de un programa. Todo esto con el fin de contribuir a la mejora de la calidad del código y a prevenir problemas futuros.
 
+  \begin{enumerate}
+    \item Sin modificar el programa original, dejaría de funcionar el programa si quitamos la instrucción \textit{throws} de la clase Principal. ¿si por qué o no por qué?
+    
+    
+
+    \item Indique cuál es la ventaja de usar \textit{inner class} genéricas y cuál es la ventaja de usar \textit{static inner class}.
+    
+    \subsubsection*{Ventajas de usar clases internas genéricas}
+    Las clases internas genéricas ofrecen la posibilidad de crear componentes reutilizables que pueden funcionar con una variedad de tipos de datos sin necesidad de duplicar el código. Esta característica fomenta la reutilización y la modularidad en el desarrollo de software.
+
+    El uso de tipos genéricos garantiza un código más seguro y menos propenso a errores, ya que el compilador realiza verificaciones de tipo durante la compilación, lo que previene errores de tipo en tiempo de ejecución.
+
+    Las clases internas genéricas son adaptables a diferentes tipos de datos, lo que las hace versátiles y adecuadas para la implementación de estructuras de datos genéricas, como colecciones, árboles, pilas y otras estructuras similares.
+
+    \subsubsection*{Ventajas de usar clases internas estáticas}
+    Las clases internas estáticas no precisan de una instancia de la clase externa para su instanciación, lo que implica que se pueden utilizar sin requerir la creación de una instancia de la clase contenedora, lo cual puede resultar en ahorro de recursos.
+
+    Frecuentemente, las clases internas estáticas se emplean para encapsular funcionalidades compartidas por todas las instancias de la clase externa, evitando así la duplicación de código y promoviendo la eficacia en el desarrollo.
+
+    Debido a su naturaleza estática, estas clases internas no tienen acceso a las variables de instancia de la clase contenedora, lo que contribuye a prevenir problemas de concurrencia y a mejorar el rendimiento en aplicaciones multihilo.
+    
+    \item Porque las excepciones en JAVA de tipo no marcadas no pueden ser únicamente
+    \textit{\textbf{RunTime Exception}}.
+
+    Las excepciones en Java de tipo no marcadas no son únicamente \textit{RuntimeException}, ya que también pueden ser otras excepciones no marcadas, como \textit{NullPointerException}, \textit{ArrayIndexOutOfBoundsException}, \textit{IllegalArgumentException}, entre otras. Las excepciones no marcadas representan errores en tiempo de ejecución que no necesitan ser declarados en la firma de un método, pero aún deben manejarse apropiadamente para evitar problemas en la aplicación.
+  \end{enumerate}
 
   \section*{Referencias}
   \begin{small}
