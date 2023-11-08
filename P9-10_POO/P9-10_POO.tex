@@ -252,7 +252,7 @@ public enum Sx {
 };
   \end{lstlisting}
 
-  \textbf{Clase Abstracta \textit{Persona}}
+  \textbf{\textit{Persona.java}}
   \begin{lstlisting}
 abstract class Persona{
   String nombre;
@@ -280,12 +280,9 @@ abstract class Persona{
   abstract boolean servicioMilitar();
   abstract boolean serPresidente();
 }
-  \end{lstlisting}
 
-  \textbf{Clase \textit{Mexicano}}
-  \begin{lstlisting}
 class Mexicano extends Persona {
-  String curp; //Variable polimorfica
+  String curp;
   Mexicano(String nombre, int edad, Sx sexo, String curp) {
     this.nombre=nombre;
     this.sexo=sexo;
@@ -301,15 +298,6 @@ class Mexicano extends Persona {
 
   @Override
   boolean servicioMilitar() {
-    /*
-    boolean bandera = false;
-    if(this.edad >= 17 && this.sexo == Sx.MASCULINO) {
-      bandera= true; 
-    }
-    return bandera;
-    */
-    // el siguiente codigo es equivalente al comentado de arriba
-    
     return (this.edad >=17 && this.sexo == Sx.MASCULINO) ?  true : false;
   }
 
@@ -318,10 +306,7 @@ class Mexicano extends Persona {
     return (this.edad >=35) ?  true : false;
   }
 }
-  \end{lstlisting}
 
-  \textbf{Clase \textit{Extranjero}}
-  \begin{lstlisting}
 class Extranjero extends Persona {
   Extranjero(String nombre, int edad, Sx sexo) {
     this.nombre=nombre;
@@ -347,31 +332,23 @@ class Extranjero extends Persona {
 }
   \end{lstlisting}
 
-  \section*{Clase \textit{OuterException}}
+  \section*{\textit{OuterException.java}}
   \begin{lstlisting}
-// OuterException verifica que una persona puede votar
-// InnerException verifica que ademas pueda ser presidente 
 class OuterException extends Exception {
   OuterException(String s) {
     super(s);
   }
   
-  // para mandar a llamar la inner clase local no estatica
   OuterException(String s, boolean sth) {
     InnerException2 local = new InnerException2(s);
   }
 
-  //Inner class
-  //se puede nombrar una clase interna  de esta manera
-  //es necesario utilizar static porque de otra manera se necesitara
-  //crear un objeto de esta clase
   static class InnerException extends Exception {
     InnerException(String s) {
       super(s);
     }
   }
   
-  //usamos una inner class generica 
   class InnerException2 extends Exception {
     
     InnerException2(String s) {
@@ -381,10 +358,9 @@ class OuterException extends Exception {
 }    
   \end{lstlisting}
 
-  \textbf{Clase \textit{Principal}}
+  \textbf{\textit{Principal.java}}
   \begin{lstlisting}
 import java.util.HashMap;
-//import 
 
 class Principal {
   public static void main(String[] args) 
@@ -410,7 +386,6 @@ class Principal {
       }
     });
 
-    // levantar excepcion por no poder ser presidente
     gente.forEach((k, p) -> {
       try {
         if (!p.serPresidente()) 
@@ -421,7 +396,6 @@ class Principal {
       }
     });
 
-    // levantas excepcion para poder realizar servicio militar
     gente.forEach((k, p) -> {
         try {
           if (!p.servicioMilitar()) 
@@ -439,7 +413,7 @@ class Principal {
   \subsection*{Problema 1}
   Modifique el programa visto durante la práctica para construir objetos ``Persona'' desde consola solicitando nombre, edad, nacionalidad y sexo, la llave CURP.
 
-  \textbf{Clase \textit{Principal}}
+  \textbf{\textit{Principal.java}}
   \begin{lstlisting}
 import java.util.HashMap;
 import java.util.Scanner;
@@ -471,8 +445,7 @@ class Principal {
 
 		gente.forEach((k,p)-> {System.out.println(k + " : Nombre - " 
         + p.getNombre() + " : Edad - " + p.getEdad() );});
-    
-		//levantar excepcion por no poder votar
+
 		gente.forEach((k, p) -> {
 		try {
 			if (!p.votar()) 
@@ -482,7 +455,6 @@ class Principal {
 		}
 		});
 
-		// levantar excepcion por no poder ser presidente
 		gente.forEach((k, p) -> {
 		try {
 			if (!p.serPresidente()) 
@@ -493,7 +465,6 @@ class Principal {
 		}
 		});
 
-		// levantas excepcion para poder realizar servicio militar
 		gente.forEach((k, p) -> {
 			try {
 				if (!p.servicioMilitar()) 
@@ -527,6 +498,182 @@ class Principal {
     \item Construya una excepción que permita jubilar a una Persona considere la edad de jubilación de $>=$ 64 años.
   \end{enumerate}
   
+  \textbf{\textit{Persona.java}}
+  \begin{lstlisting}
+  abstract class Persona {
+	String nombre;
+	int edad;
+	Sx sexo;
+	String nacionalidad;
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public int getEdad() {
+		return this.edad;
+	}
+
+	public Sx getSexo() {
+		return this.sexo;
+	}
+
+	public String getNacionalidad() {
+		return this.nacionalidad;
+	}
+
+	abstract boolean votar();
+
+	abstract boolean servicioMilitar();
+
+	abstract boolean serPresidente();
+
+	public void verificarNacionalidad() 
+			throws NacionalidadInvalidaException {
+		if (this.nacionalidad.equals("Mexicano") && this instanceof Extranjero) {
+			throw new 
+          NacionalidadInvalidaException("Un extranjero no puede ser mexicano.");
+		}
+	}
+
+	public void verificarEdad() throws EdadInvalidaException {
+		if (this.edad <= 0) {
+			throw new 
+          EdadInvalidaException("La edad no puede ser menor o igual a 0.");
+		}
+	}
+
+	abstract boolean jubilar() throws JubilacionException;
+
+	public void verificarJubilacion() throws JubilacionException {
+		if (this.edad < 64) {
+			throw new 
+          JubilacionException("La persona no cumple con la edad minima para jubilarse.");
+		}
+	}
+}
+
+class Mexicano extends Persona {
+	String curp; 
+
+	Mexicano(String nombre, int edad, Sx sexo, String curp) {
+		this.nombre = nombre;
+		this.sexo = sexo;
+		if (edad <= 0) {
+			throw new 
+          EdadInvalidaException("La edad no puede ser menor o igual a 0.");
+		}
+		this.edad = edad;
+		this.curp = curp;
+		this.nacionalidad = "Mexicano";
+	}
+
+	@Override
+	boolean votar() {
+		return (this.edad >= 18) ? true : false;
+	}
+
+	@Override
+	boolean servicioMilitar() {
+		return (this.edad >= 17 && this.sexo == Sx.MASCULINO) ? true : false;
+	}
+
+	@Override
+	boolean serPresidente() {
+		return (this.edad >= 35) ? true : false;
+	}
+
+	@Override
+	boolean jubilar() throws JubilacionException {
+		verificarJubilacion();
+		return true;
+	}
+}
+
+class Extranjero extends Persona {
+	Extranjero(String nombre, int edad, Sx sexo) {
+		this.nombre = nombre;
+		this.sexo = sexo;
+		if (edad <= 0) {
+			throw new 
+          EdadInvalidaException("La edad no puede ser menor o igual a 0.");
+		}
+		this.edad = edad;
+		this.nacionalidad = "Extranjero";
+	}
+
+	@Override
+	boolean votar() {
+		return false;
+	}
+
+	@Override
+	boolean servicioMilitar() {
+		return false;
+	}
+
+	@Override
+	boolean serPresidente() {
+		return false;
+	}
+
+	@Override
+	boolean jubilar() throws JubilacionException {
+		verificarJubilacion();
+		return true;
+	}
+}
+  \end{lstlisting}
+
+  \textbf{\textit{OuterException.java}}
+  \begin{lstlisting}
+class OuterException extends Exception {
+	OuterException(String s) {
+		super(s);
+	}
+
+	OuterException(String s, boolean sth) {
+		InnerException2 local = new InnerException2(s);
+	}
+
+	static class InnerException extends Exception {
+		InnerException(String s) {
+			super(s);
+		}
+	}
+
+	class InnerException2 extends Exception {
+
+		InnerException2(String s) {
+			System.out.println(s);
+		}
+	}
+}
+
+class NacionalidadInvalidaException extends Exception {
+	public NacionalidadInvalidaException(String message) {
+		super(message);
+	}
+}
+
+class EdadInvalidaException extends IllegalArgumentException {
+	public EdadInvalidaException(String message) {
+		super(message);
+	}
+}
+
+class JubilacionException extends Exception {
+	public JubilacionException(String message) {
+		super(message);
+	}
+}
+  \end{lstlisting}
+
+  \textbf{Ejecución}
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{10P2.png}
+  \end{figure}
 
   \subsection*{Problema 3}
   Usando instrucciones \textit{try-catch} aplique la jerarquía de excepciones de la siguiente manera:
@@ -539,14 +686,296 @@ class Principal {
 
   Considerando que la 1 es la de mas alta prioridad y podrá acceder al nivel 2 y así sucesivamente.
 
+  \textbf{\textit{Persona.java}}
+  \begin{lstlisting}
+class NoEsMexicanoException extends Exception {
+}
+
+class NoPuedeVotarException extends Exception {
+}
+
+class NoPuedeSerPresidenteException extends Exception {
+}
+
+abstract class Persona {
+	String nombre;
+	int edad;
+	Sx sexo;
+	String nacionalidad;
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public int getEdad() {
+		return this.edad;
+	}
+
+	public Sx getSexo() {
+		return this.sexo;
+	}
+
+	public String getNacionalidad() {
+		return this.nacionalidad;
+	}
+
+	abstract boolean votar();
+
+	abstract boolean servicioMilitar();
+
+	abstract boolean serPresidente();
+
+	public void verificarNacionalidad()
+			throws NoEsMexicanoException, NoPuedeVotarException, 
+      NoPuedeSerPresidenteException {
+		try {
+			if (!this.nacionalidad.equals("Mexicano")) {
+				throw new NoEsMexicanoException();
+			}
+
+			try {
+				if (!this.votar()) {
+					throw new NoPuedeVotarException();
+				}
+
+				try {
+					if (!this.serPresidente()) {
+						throw new NoPuedeSerPresidenteException();
+					}
+				} catch (NoPuedeSerPresidenteException e) {
+					System.out.println("Puede votar pero no puede ser presidente");
+					throw e;
+				}
+			} catch (NoPuedeVotarException e) {
+				System.out.println("Es mexicano pero no puede votar");
+				throw e;
+			}
+		} catch (NoEsMexicanoException e) {
+			System.out.println("No es mexicano");
+			throw e;
+		}
+	}
+
+	public void verificarEdad() throws EdadInvalidaException {
+		if (this.edad <= 0) {
+			throw new 
+          EdadInvalidaException("La edad no puede ser menor o igual a 0.");
+		}
+	}
+
+	abstract boolean jubilar() throws JubilacionException;
+
+	public void verificarJubilacion() throws JubilacionException {
+		if (this.edad < 64) {
+			throw new 
+          JubilacionException("La persona no cumple con la edad minima para jubilarse.");
+		}
+	}
+}
+
+class Mexicano extends Persona {
+	String curp;
+
+	Mexicano(String nombre, int edad, Sx sexo, String curp) {
+		this.nombre = nombre;
+		this.sexo = sexo;
+		if (edad <= 0) {
+			throw new 
+          EdadInvalidaException("La edad no puede ser menor o igual a 0.");
+		}
+		this.edad = edad;
+		this.curp = curp;
+		this.nacionalidad = "Mexicano";
+	}
+
+	@Override
+	boolean votar() {
+		return (this.edad >= 18) ? true : false;
+	}
+
+	@Override
+	boolean servicioMilitar() {
+		return (this.edad >= 17 && this.sexo == Sx.MASCULINO) ? true : false;
+	}
+
+	@Override
+	boolean serPresidente() {
+		return (this.edad >= 35) ? true : false;
+	}
+
+	@Override
+	boolean jubilar() throws JubilacionException {
+		verificarJubilacion();
+		return true;
+	}
+}
+
+class Extranjero extends Persona {
+	Extranjero(String nombre, int edad, Sx sexo) {
+		this.nombre = nombre;
+		this.sexo = sexo;
+		if (edad <= 0) {
+			throw new 
+          EdadInvalidaException("La edad no puede ser menor o igual a 0.");
+		}
+		this.edad = edad;
+		this.nacionalidad = "Extranjero";
+	}
+
+	@Override
+	boolean votar() {
+		return false;
+	}
+
+	@Override
+	boolean servicioMilitar() {
+		return false;
+	}
+
+	@Override
+	boolean serPresidente() {
+		return false;
+	}
+
+	@Override
+	boolean jubilar() throws JubilacionException {
+		verificarJubilacion();
+		return true;
+	}
+}
+  \end{lstlisting}
+
+  \textbf{\textit{OuterException.java}}
+  \begin{lstlisting}
+class OuterException extends Exception {
+	OuterException(String s) {
+		super(s);
+	}
+
+	OuterException(String s, boolean sth) {
+		InnerException2 local = new InnerException2(s);
+	}
+
+	static class InnerException extends Exception {
+		InnerException(String s) {
+			super(s);
+		}
+	}
+
+	class InnerException2 extends Exception {
+
+		InnerException2(String s) {
+			System.out.println(s);
+		}
+	}
+}
+
+class NacionalidadInvalidaException extends Exception {
+	public NacionalidadInvalidaException(String message) {
+		super(message);
+	}
+}
+
+class EdadInvalidaException extends IllegalArgumentException {
+	public EdadInvalidaException(String message) {
+		super(message);
+	}
+}
+
+class JubilacionException extends Exception {
+	public JubilacionException(String message) {
+		super(message);
+	}
+}
+  \end{lstlisting} 
+
+  \textbf{\textit{Principal.java}}
+  \begin{lstlisting}
+import java.util.HashMap;
+import java.util.Scanner;
+
+class Principal {
+	public static void main(String[] args)
+			throws OuterException, OuterException.InnerException {
+		HashMap<String, Persona> gente = new HashMap<String, Persona>();
+		Scanner sc = new Scanner(System.in);
+
+		while (true) {
+			System.out.print("Ingrese el nombre: ");
+			String nombre = sc.next();
+			System.out.print("Ingrese la edad: ");
+			int edad = sc.nextInt();
+			System.out.print("Ingrese el sexo: ");
+			Sx sexo = Sx.valueOf(sc.next().toUpperCase());
+			System.out.print("Ingrese el CURP: ");
+			String curp = sc.next();
+
+			gente.put(curp, new Mexicano(nombre, edad, sexo, curp));
+
+			System.out.println("Desea agregar otra persona? (s/n)");
+			String resp = sc.next();
+			if (resp.equals("n"))
+				break;
+			System.out.println(" ");
+		}
+
+		gente.forEach((k, p) -> {
+			System.out.println(k + " : Nombre - "
+					+ p.getNombre() + " : Edad - " + p.getEdad());
+		});
+
+		gente.forEach((k, p) -> {
+			try {
+				if (!p.votar())
+					throw new 
+						OuterException("no puede votar : " + p.getNombre());
+			} catch (OuterException n) {
+				System.out.println(n);
+			}
+		});
+
+		gente.forEach((k, p) -> {
+			try {
+				if (!p.serPresidente())
+					throw new 
+						OuterException.InnerException("no puede ser presidente : " + p.getNombre());
+			} catch (OuterException.InnerException n) {
+				System.out.println(n);
+			}
+		});
+
+		gente.forEach((k, p) -> {
+			try {
+				if (!p.servicioMilitar())
+					throw new 
+						OuterException("no puede realizar su servicio militar : " + p.getNombre(), true);
+			} catch (OuterException n) {
+				return;
+			}
+		});
+
+		gente.forEach((k, p) -> {
+			try {
+				if (!p.jubilar())
+					throw new 
+						JubilacionException("no puede jubilarse : " + p.getNombre());
+			} catch (JubilacionException n) {
+				System.out.println(n);
+			}
+		});
+
+		sc.close();
+	}
+}
+  \end{lstlisting}
 
   \section*{Conclusiones}
   Las excepciones y los errores desempeñan un papel fundamental en el desarrollo de \textit{software} y la programación en general. Son un componente esencial para garantizar la confiabilidad, la robustez y la calidad de los programas. El manejo de excepciones nos permite controlar y gestionar situaciones excepcionales de manera predecible en lugar de permitir que los errores provoquen fallos inesperados o la terminación abrupta de un programa. Todo esto con el fin de contribuir a la mejora de la calidad del código y a prevenir problemas futuros.
 
   \begin{enumerate}
-    \item Sin modificar el programa original, dejaría de funcionar el programa si quitamos la instrucción \textit{throws} de la clase Principal. ¿si por qué o no por qué?
+    \item Sin modificar el programa original, dejaría de funcionar el programa si quitamos la instrucción \textit{throws} de la clase \textit{Principal}. ¿si por qué o no por qué?
     
-
+    Quitando la instrucción \textit{throws} de la clase \textit{Principal}, el programa no dejaría de funcionar debido a que las posibles excepiones dentro del codigo estan siendo controladas por bloques \textit{try-catch}, de manera que \textit{throws} no es necesario para el funcionamiento del programa.
 
     \item Indique cuál es la ventaja de usar \textit{inner class} genéricas y cuál es la ventaja de usar \textit{static inner class}.
     
