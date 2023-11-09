@@ -62,11 +62,27 @@
   \textbf{Palabras Clave.} \textit{Archivos, Organización de archivos, Acceso a archivos, Sistema de archivos.}
 
   \section{INTRODUCCIÓN}
-  \lipsum[1-3]
+  Los archivos son una parte esencial de nuestra vida cotidiana en la era en la que nos situamos y tienen una importancia fundamental por diversas razones, pues son la forma más común de almacenar información de manera digital. En este artículo, exploraremos a detalle qué son los archivos y cómo funcionan, cómo es su organización y su acceso, así como los sistemas de archivos que los organizan y gestionan.
 
   \section{CONTENIDO}
   \subsection{Definición y operaciones}
-  \lipsum[4-5]
+  Un archivo es una unidad de almacenamiento digital que contiene datos, información o programas. Puede contener texto, imágenes, videos, música o cualquier tipo de información digital. Los archivos se utilizan para almacenar, organizar y acceder a datos de manera eficiente. Cada archivo tiene un nombre único que lo identifica y una extensión que indica su tipo. Por ejemplo, un documento de texto puede tener el nombre ``mi$\_$documento'' y la extensión del mismo ``.txt''.
+
+  Las operaciones básicas de los archivos son las siguientes.
+
+  \textbf{Creación:} Para crear un archivo, en primer lugar, se asigna un nombre y una ubicación de ruta en el sistema de archivos. Después, se pueden escribir o copiar datos en el archivo.
+
+  \textbf{Apertura:} La apertura de un archivo es importante y se emplea ya sea para consultar su contenido o para actualizarlo, es imprescindible llevar a cabo la acción de abrirlo. Esta acción debe realizarse de manera previa a cualquier operación de lectura o escritura.
+
+  \textbf{Lectura (consulta):} La operación de lectura implica acceder a la información contenida de un archivo y recuperar el contenido almacenado en él. Los archivos se pueden leer para mostrar su contenido en pantalla o procesarlos de alguna manera.
+
+  \textbf{Escritura (modificación):} Es la operación de agregar, modificar o actualizar datos en un archivo. La escritura permite editar o ampliar la información contenida en un archivo.
+
+  \textbf{Eliminación:} La eliminación de un archivo implica su borrado permanente del sistema de archivos. Esto se hace para liberar espacio en el almacenamiento y eliminar datos innecesarios.
+
+  \textbf{Copia y Movimiento:} Los archivos se pueden copiar o mover a otras ubicaciones dentro del sistema de archivos. Esto es útil para respaldar datos o reorganizar la información.
+
+  \textbf{Renombrado:} Cambiar el nombre de un archivo es una operación común para mejorar la organización de los archivos.
 
   \subsection{Organización de archivos (Físico y lógico)}
   La configuración de un archivo establece la manera en que los datos se distribuyen en el medio de almacenamiento, o se puede describir la organización como la manera en que los datos se organizan en un archivo. Existen dos aspectos principales de la organización de archivos: organización física y la organización lógica.
@@ -95,19 +111,41 @@
   \lipsum[8-9]
 
   \subsection{Sistema de archivos}
-  \lipsum[10-11]
+  Los archivos no existen en un vacío; están organizados y gestionados por sistemas de archivos. Por lo tanto, un sistema de archivos es un conjunto de estructuras y de reglas que permiten el almacenamiento, la recuperación y la gestión de archivos en un dispositivo de almacenamiento, como los pueden ser un disco duro, una memoria USB o una tarjeta de memoria, etc. Por lo tanto, corresponde a un sistema de almacenamiento de un dispositivo de memoria, que estructura y organiza la escritura, búsqueda, lectura, almacenamiento, edición y eliminación de archivos de una manera concreta.
+
+  Cada sistema de archivos cuenta con sus propias características y algunas limitaciones. Entre algunos de los sistemas de archivos más comunes están:
+
+  \begin{itemize}
+    \item \textbf{FAT (File Allocation Table):} Utilizado principalmente en dispositivos de almacenamiento USB y tarjetas de memoria. Es un sistema de archivos simple pero ampliamente compatible.
+    \item \textbf{NTFS (New Technology File System):} Utilizado en sistemas Windows, ofrece características avanzadas como permisos de acceso y compresión de archivos.
+    \item \textbf{ext4 (cuarta versión extendida):} Común en sistemas Linux, ext4 es eficiente y confiable, con soporte para archivos grandes y sistemas de archivos de gran capacidad.
+    \item	\textbf{HFS+ (Hierarchical File System Plus):} Utilizado en sistemas macOS, es conocido por su manejo de archivos de gran tamaño y metadatos avanzados.
+    \item \textbf{APFS (Apple File System):} El sistema de archivos más reciente de Apple, diseñado para mejorar la eficiencia y la seguridad en dispositivos macOS y iOS.
+    \item \textbf{NTFS (Network File System):} Un sistema de archivos de red utilizado en sistemas Unix y Linux, que permite compartir archivos y recursos en redes.
+  \end{itemize}
+  
+  Los sistemas de archivos son esenciales para garantizar que los archivos se almacenan de manera eficiente, se puedan acceder de manera rápida y se mantengan seguros. La elección del sistema de archivos adecuado depende de las necesidades específicas del usuario y del entorno en el que se utiliza. Comprender cómo funcionan los archivos y cómo se organizan en sistemas de archivos es esencial para maximizar la eficiencia y la seguridad en la gestión de datos en cualquier dispositivo de almacenamiento.
+
 
   \section{CONCLUSIONES}
   \lipsum[12-13]
 
   \section{REFERENCIAS}
   \setlength{\parindent}{0.0cm}
+  \small
   \textit{Archivo Secuencial-Indexado.} (s. f.). Administracion de Archivos. \url{https://nlaredo.tecnm.mx/takeyas/Apuntes/Administracion_Archivos/Apuntes/Archivos_secuencial-indexados.PDF} \\
 
+  Gálvez, S. Mora, M. (2005). \textit{Java a Tope: Traductores Y Compiladores Con Lex/yacc, Jflex/cup Y Javacc.} Universidad de Málaga. \\
+
   \textit{IBM documentation.} (s. f.). \url{https://www.ibm.com/docs/es/cobol-linux-x86/1.2?topic=clause-file-organization} \\
+
+  López, J. (2011). \textit{Administración de sistemas operativos: Un enfoque práctico.} Editorial Ra-Ma. \\
+
+  Silberschatz, A. Galvin, P. Gagne, G. (2008). \textit{Operating System Concepts.} John Wiley $\&$ Sons Inc. \\
+
+  Tanenbaum, A. Bos, H. (2017). \textit{Modern Operating Systems.} Pearson. \\
 
   Universidad Autonoma del Estado de Mexico. (s. f.). \textit{Organizacion de Archivos} [Diapositivas]. uamex. \url{http://ri.uaemex.mx/oca/view/20.500.11799/34751/1/secme-19554.pdf} \\
 
   Universidad Nacional Autonoma de Mexico. (s. f.). \textit{Tipos de Archivos} [Diapositivas]. \url{http://fcasua.contad.unam.mx/apuntes/interiores/docs/98/3/informatica3.pdf} \\
-
 \end{document}
