@@ -69,7 +69,27 @@
   \lipsum[4-5]
 
   \subsection{Organización de archivos (Físico y lógico)}
-  \lipsum[6-7]
+  La configuración de un archivo establece la manera en que los datos se distribuyen en el medio de almacenamiento, o se puede describir la organización como la manera en que los datos se organizan en un archivo. Existen dos aspectos principales de la organización de archivos: organización física y la organización lógica.
+
+  \subsubsection*{Organización física}
+  La disposición física de archivos hace referencia a la manera en que los datos se guardan en medios de almacenamiento tangibles.
+
+  \textbf{Secuencial:} Un archivo organizado de forma secuencial es una secuencia de registros almacenados uno tras otro en un medio de almacenamiento externo, de manera que para acceder a un registro específico n, es necesario recorrer todos los n-1 registros que lo anteceden.
+
+  \textbf{Aleatoria o directa:} Un archivo con organización directa se caracteriza por la falta de correspondencia entre el orden físico y el orden lógico de los datos. Los datos se ubican en el archivo y se accede a ellos de manera aleatoria a través de su posición. Esta forma de organización ofrece la ventaja de permitir la lectura y escritura de registros en cualquier orden y posición. Sin embargo, presenta el inconveniente de requerir una programación que relacione el contenido de un registro con su ubicación, lo que implica la posibilidad de que haya espacios vacíos en el soporte de almacenamiento.
+
+  \textbf{Indexado:} Un archivo secuencial indexado ofrece una combinación de opciones de acceso que combina las características de un archivo secuencial con las de un archivo relativo o de acceso directo. Se utiliza una tabla que enumera de manera secuencial los valores de clave del archivo y, para cada uno de ellos, proporciona la dirección del registro correspondiente.
+
+  \subsubsection*{Organización lógica}
+  La organización lógica de archivos hace referencia a la manera en que los datos son organizados y guardados en un archivo, considerando la relación y disposición de los registros o datos en función de su contenido y finalidad. Esta organización se centra en la forma en que los datos son estructurados y almacenados para simplificar su posterior acceso y manipulación. Algunos métodos son:
+
+  \textbf{Registros:} La organización de datos en registros es una práctica común. Estos registros son estructuras de datos que albergan campos de información relacionados. Es importante destacar que los registros pueden tener una estructura que varía, lo que significa que algunos podrían tener un formato fijo, mientras que otros pueden contar con un formato variable, adaptándose a las necesidades específicas del sistema.
+
+  \textbf{Campos:} Dentro de cada registro, se encuentran los campos, que son las unidades de datos individuales. Cada campo tiene un tipo de dato específico, como números enteros, cadenas de texto, fechas, entre otros. Esto permite la clasificación y organización precisa de la información, facilitando su manipulación y recuperación.
+
+  \textbf{Clave de Búsqueda:} La clave de búsqueda es un elemento crítico en la organización lógica de archivos. Se trata de un campo único o un conjunto de campos que se utilizan como punto de acceso para recuperar registros específicos en el archivo. La elección de la clave de búsqueda adecuada es esencial para agilizar la búsqueda y recuperación de datos.
+
+  \textbf{Índices:} Los índices desempeñan un papel importante en la optimización de la búsqueda de registros en un archivo. Pueden ser de dos tipos principales: índices secundarios y primarios. Los índices secundarios se basan en valores de campo que no son la clave de búsqueda, y los índices primarios se basan en la clave de búsqueda misma. Estos índices permiten acelerar el acceso a la información al proporcionar un mapa de ubicación eficiente de los registros en el archivo.
 
   \subsection{Acceso a archivos (Físico y lógico)}
   \lipsum[8-9]
@@ -81,5 +101,13 @@
   \lipsum[12-13]
 
   \section{REFERENCIAS}
-  \lipsum[14-15]
+  \setlength{\parindent}{0.0cm}
+  \textit{Archivo Secuencial-Indexado.} (s. f.). Administracion de Archivos. \url{https://nlaredo.tecnm.mx/takeyas/Apuntes/Administracion_Archivos/Apuntes/Archivos_secuencial-indexados.PDF} \\
+
+  \textit{IBM documentation.} (s. f.). \url{https://www.ibm.com/docs/es/cobol-linux-x86/1.2?topic=clause-file-organization} \\
+
+  Universidad Autonoma del Estado de Mexico. (s. f.). \textit{Organizacion de Archivos} [Diapositivas]. uamex. \url{http://ri.uaemex.mx/oca/view/20.500.11799/34751/1/secme-19554.pdf} \\
+
+  Universidad Nacional Autonoma de Mexico. (s. f.). \textit{Tipos de Archivos} [Diapositivas]. \url{http://fcasua.contad.unam.mx/apuntes/interiores/docs/98/3/informatica3.pdf} \\
+
 \end{document}
