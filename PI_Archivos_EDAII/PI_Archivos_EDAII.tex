@@ -57,18 +57,21 @@
     \linejump
   ]
   
-  \textbf{Resumen.} \lipsum[1]
+  \textbf{Resumen.} 
+  El texto aborda la naturaleza y operaciones fundamentales de los archivos digitales, destacando su función en el almacenamiento eficiente de datos. Describe las operaciones básicas, la organización física y lógica de archivos, así como el acceso físico y lógico. También explora la importancia de los sistemas de archivos, proporcionando ejemplos comunes.
 
-  \textbf{Palabras Clave.} \textit{Archivos, Organización de archivos, Acceso a archivos, Sistema de archivos.}
+  \textbf{Palabras Clave.} \textit{Archivos, Almacenamiento digital, Organización física y lógica, Registros, Acceso, Sistema de archivos.}
 
   \section{INTRODUCCIÓN}
-  Los archivos son una parte esencial de nuestra vida cotidiana en la era en la que nos situamos y tienen una importancia fundamental por diversas razones, pues son la forma más común de almacenar información de manera digital. En este artículo, exploraremos a detalle qué son los archivos y cómo funcionan, cómo es su organización y su acceso, así como los sistemas de archivos que los organizan y gestionan.
+  Los archivos desempeñan un papel esencial en la era digital, siendo la forma predominante de almacenar información de manera eficiente. En este contexto, exploraremos a fondo la naturaleza y funcionamiento de los archivos, abordando operaciones clave como creación, apertura, lectura, escritura y eliminación. Además, nos sumergiremos en la organización física y lógica de archivos, comprendiendo la disposición de datos en medios de almacenamiento tangibles y la manera en que los datos se estructuran para facilitar su acceso y manipulación. 
+  
+  Analizaremos también el acceso a archivos a niveles físicos y lógicos, destacando estrategias de optimización y la importancia de estructuras de datos y algoritmos. Finalmente, exploraremos la gestión integral de archivos a través de sistemas de archivos, presentando ejemplos como FAT, NTFS y ext4. En conjunto, este artículo proporcionará una visión completa de la relevancia y funcionamiento de los archivos en nuestra vida cotidiana digital.
 
   \section{CONTENIDO}
   \subsection{Definición y operaciones}
   Un archivo es una unidad de almacenamiento digital que contiene datos, información o programas. Puede contener texto, imágenes, videos, música o cualquier tipo de información digital. Los archivos se utilizan para almacenar, organizar y acceder a datos de manera eficiente. Cada archivo tiene un nombre único que lo identifica y una extensión que indica su tipo. Por ejemplo, un documento de texto puede tener el nombre ``mi$\_$documento'' y la extensión del mismo ``.txt''.
 
-  Las operaciones básicas de los archivos son las siguientes.
+  Las operaciones básicas de los archivos son las siguientes:
 
   \textbf{Creación:} Para crear un archivo, en primer lugar, se asigna un nombre y una ubicación de ruta en el sistema de archivos. Después, se pueden escribir o copiar datos en el archivo.
 
@@ -108,7 +111,21 @@
   \textbf{Índices:} Los índices desempeñan un papel importante en la optimización de la búsqueda de registros en un archivo. Pueden ser de dos tipos principales: índices secundarios y primarios. Los índices secundarios se basan en valores de campo que no son la clave de búsqueda, y los índices primarios se basan en la clave de búsqueda misma. Estos índices permiten acelerar el acceso a la información al proporcionar un mapa de ubicación eficiente de los registros en el archivo.
 
   \subsection{Acceso a archivos (Físico y lógico)}
-  \lipsum[8-9]
+  El acceso a archivos es un componente esencial en la informática y la programación. Este proceso involucra dos aspectos fundamentales: el acceso físico, que se centra en la organización y manipulación de datos a nivel de almacenamiento, y el acceso lógico, que implica la interacción de los programas con los datos a través de identificadores lógicos.
+
+  \subsubsection*{Acceso físico}
+  El acceso físico a archivos se enfoca en la gestión de datos en dispositivos de almacenamiento. Los archivos, como entidades de datos, se subdividen en bloques físicos, tales como sectores o clústeres, que sirven como unidades fundamentales para el almacenamiento de información. La eficiencia en el acceso físico involucra estrategias que optimizan la interacción con estos bloques para minimizar los tiempos de acceso y mejorar el rendimiento general del sistema.
+
+  Las estrategias de optimización, como el buffering (almacenamiento temporal de datos en la memoria), el uso de caché (almacenamiento en memoria auxiliar de acceso rápido) y la optimización del tamaño de las operaciones de lectura/escritura, son fundamentales en el acceso físico. Estas estrategias buscan reducir los tiempos de acceso a los datos al minimizar los movimientos físicos en el dispositivo de almacenamiento, maximizando así la eficiencia del sistema.
+
+  En este nivel, la selección adecuada de estructuras de datos y algoritmos es de suma importancia para gestionar de manera óptima la información a nivel físico. La elección de estructuras de datos eficientes y algoritmos optimizados permitirá una gestión más efectiva de la distribución de datos en el dispositivo de almacenamiento, mejorando la velocidad de acceso y minimizando la fragmentación o la pérdida de datos.
+
+  \subsubsection*{Acceso lógico}
+  El acceso lógico se concentra en la interacción de programas con datos a través de identificadores lógicos. Utiliza estructuras de datos como listas, árboles o tablas hash para organizar y manipular información. La eficiencia en este nivel se logra mediante la elección cuidadosa de algoritmos que minimicen la complejidad temporal y espacial en operaciones como búsqueda, inserción, eliminación y actualización de datos.
+
+  La implementación eficiente de estructuras de datos y algoritmos es crucial en ambos niveles de acceso a archivos. En el acceso físico, se utilizan para optimizar la gestión de datos a nivel de almacenamiento, minimizando los tiempos de acceso y maximizando el rendimiento. Mientras tanto, en el acceso lógico, estas herramientas son fundamentales para la organización, búsqueda y manipulación efectiva de la información contenida en los archivos.
+
+  El acceso a archivos, ya sea a nivel físico o lógico, depende en gran medida de la implementación adecuada de estructuras de datos y algoritmos. La comprensión y la aplicación efectiva de estas herramientas son vitales para el desarrollo de software robusto y eficiente en términos de rendimiento. La optimización en la selección y uso de estructuras de datos y algoritmos juega un papel crucial en la creación de sistemas que maximizan la eficiencia y la velocidad en el manejo de datos.
 
   \subsection{Sistema de archivos}
   Los archivos no existen en un vacío; están organizados y gestionados por sistemas de archivos. Por lo tanto, un sistema de archivos es un conjunto de estructuras y de reglas que permiten el almacenamiento, la recuperación y la gestión de archivos en un dispositivo de almacenamiento, como los pueden ser un disco duro, una memoria USB o una tarjeta de memoria, etc. Por lo tanto, corresponde a un sistema de almacenamiento de un dispositivo de memoria, que estructura y organiza la escritura, búsqueda, lectura, almacenamiento, edición y eliminación de archivos de una manera concreta.
@@ -128,7 +145,13 @@
 
 
   \section{CONCLUSIONES}
-  \lipsum[12-13]
+  En el panorama digital actual, la gestión eficiente de archivos es esencial para optimizar la manipulación de datos. Las operaciones fundamentales, desde la creación hasta la eliminación de archivos, definen la interacción cotidiana con la información digital. La organización física y lógica proporciona estructuras claras para el almacenamiento, asegurando que los datos estén accesibles y bien estructurados.
+
+  El acceso a archivos, ya sea a nivel físico o lógico, resalta la importancia de estrategias cuidadosas, desde la gestión de bloques físicos hasta la implementación de estructuras de datos en el acceso lógico. La eficiencia en estas áreas no solo mejora el rendimiento del sistema, sino que también contribuye a la seguridad y confiabilidad de los datos almacenados.
+
+  La variedad de sistemas de archivos, como FAT, NTFS, y ext4, ilustra la diversidad de necesidades y entornos informáticos. La elección del sistema adecuado se convierte en una consideración crucial para garantizar la compatibilidad, la seguridad y la eficiencia en el manejo de archivos.
+
+  En última instancia, la comprensión integral de estos conceptos es esencial para diseñadores de sistemas, desarrolladores de software y usuarios finales. La aplicación efectiva de estas prácticas no solo facilita la gestión de datos, sino que también contribuye a la robustez y eficiencia de los sistemas informáticos en su conjunto. Con un conocimiento profundo de las operaciones, la organización y el acceso a archivos, junto con la elección adecuada de sistemas de archivos, se sientan las bases para un manejo óptimo de la información digital en cualquier entorno.
 
   \section{REFERENCIAS}
   \setlength{\parindent}{0.0cm}
@@ -139,7 +162,17 @@
 
   \textit{IBM documentation.} (s. f.). \url{https://www.ibm.com/docs/es/cobol-linux-x86/1.2?topic=clause-file-organization} \\
 
+  \textit{IBM Documentation.} (s. f.). Ibm.com. \url{https://www.ibm.com/docs/es/i/7.5?topic=security-securing-logical-files} \\
+
+  I. \textit{TIPOS DE ARCHIVO DE ACUERDO A SU ORGANIZACIÓN Y OPERACIONES SOBRE ÉSTOS.} (n.d.). \url{http://fcasua.contad.unam.mx/apuntes/interiores/docs/98/3/informatica3.pdf} \\
+
+  J.D. Ullman, \textit{Principles of Database and Knowledge Base Systems}, Vol. I y II, Computer Science Press, 1998. \\
+
   López, J. (2011). \textit{Administración de sistemas operativos: Un enfoque práctico.} Editorial Ra-Ma. \\
+
+  N. Wirth, \textit{Algoritmos + Estructuras de datos = Programas}, Ediciones del Castillo, 1980. Apartado 6.5.3 \\
+
+  P. Atzeni, S. Ceri, S. Paraboschi y R. Torlone, \textit{Database Systems. Concepts, Languages and Architectures}, McGraw-Hill, 2000. \\
 
   Silberschatz, A. Galvin, P. Gagne, G. (2008). \textit{Operating System Concepts.} John Wiley $\&$ Sons Inc. \\
 
