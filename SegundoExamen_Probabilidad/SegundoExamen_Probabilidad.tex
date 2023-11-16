@@ -1,0 +1,278 @@
+\documentclass[12pt]{report}
+
+\usepackage[spanish]{babel}
+\usepackage[none]{hyphenat}
+\usepackage[left=1.5cm, right=1.5cm, top = 2cm, bottom=2.5cm]{geometry}
+\usepackage{parskip}
+\usepackage[export]{adjustbox}
+\usepackage{enumitem}[shortlabels]
+\usepackage{graphicx}
+\usepackage{caption} 
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{multirow, makecell}
+\usepackage{amsmath} 
+\usepackage{amsfonts}
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+\usepackage{helvet}
+\usepackage{pgfplots}
+
+\newcommand{\linejump}{\hfill \break}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{azuloscuro}{RGB}{0,0,128}
+
+\sloppy
+\decimalpoint
+\graphicspath{{img/}}
+
+\begin{document}
+  \noindent
+  \begin{center}
+    \textbf{UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO \\
+    FACULTAD DE INGENIERÍA \\
+    DIVISIÓN DE CIENCIAS BÁSICAS \\
+    COORDINACIÓN DE CIENCIAS APLICADAS \\
+    SEGUNDO EXAMEN PARCIAL DE PROBABILIDAD}
+  \end{center}
+
+  \linejump
+
+  \textbf{Profesora} Act. Nora Patricia Rocha Miller \hfill \textbf{15 de noviembre de 2023} \\
+  \textbf{Semestre 2024-1} \hfill \textbf{FECHA DE ENTREGA: 16/11/23, 23:00 horas}
+
+  \linejump
+
+  \textbf{Nombre:} \underline{\hspace*{2.8cm} Acosta \hspace*{2.8cm} Porcayo \hspace*{2.8cm} Alan Omar \hspace*{2.8cm}}  \\
+  \hspace*{3.7cm} \textbf{Apellido paterno} \hspace*{0.75cm} \textbf{Apellido materno} \hspace*{1.8cm} \textbf{Nombre(s)}
+
+  \linejump
+
+  {\color{azuloscuro} Instrucciones: Lea cuidadosamente el examen antes de resolverlo. Identifique el experimento aleatorio, la variable aleatoria muestre el desarrollo completo de los que se pide utilizando la notación matemática correspondiente.}
+
+  \linejump
+  \linejump
+
+  \begin{enumerate}
+    \item Muchos productos se fabrican en masa en líneas de ensamble automatizadas. La distribución de probabilidad del tiempo entre dos llegadas sucesivas de componentes fabricadas a la salida de la línea de ensamble tiene la siguiente función de densidad
+
+    \[
+      f(x) = \left\{
+      \begin{array}{ll}
+          \dfrac{e^{-.05x}}{20}, & \hspace*{1cm} x > 0 \\
+          0 & \hspace*{1cm} \text{en otro caso}
+      \end{array}
+      \right.
+    \]
+
+  \linejump
+  \begin{enumerate}[label=\alph*.]
+    \item ¿Qué mide la variable aleatoria $X$?
+
+    $X$ mide el tiempo entre la salida sucesiva de dos componentes.
+
+    \newpage
+    \item Grafique la función de densidad
+    
+    \begin{center}
+      \begin{tikzpicture}
+          \begin{axis}[
+            axis lines=middle,
+            xlabel=$x$,
+            ylabel=$f(x)$,
+            xmin=0,
+            ymin=0,
+            grid,
+          ]
+          
+          \addplot[
+            domain=0:10,
+            samples=100,
+            color=blue,
+            thick,
+          ]
+          {exp(-0.05*x)/20};
+        \end{axis}
+      \end{tikzpicture}
+    \end{center}
+    
+    \item ¿Qué probabilidad hay de que un tiempo entre llegadas (el tiempo entre llegadas de dos tubos de magnetrón) sea menor de 10 segundos?
+    
+    \begin{align*}
+      P(X < 10) &= \int_0^{10} f(x)dx = \int_0^{10} \frac{e^{-0.05x}}{20} dx = \frac{1}{20} \int_0^{10} e^{-0.05x} dx = \frac{1}{20} \left[ \frac{e^{-0.05x}}{-0.05} \right]_0^{10} \\
+      &= \left[ -e^{-0.05x} \right]_0^{10} = -e^{-0.05(10)} - (-e^{-0.05(0)}) = -e^{-0.5} - (-e^0) \\
+      &= -e^{-0.5} + 1 = 1 - 0.6065 = {\color{blue}\boxed{0.3935}}
+    \end{align*}
+
+    \item ¿Qué probabilidad hay de que los siguientes cuatro tiempos entre llegadas sean todos menores de 10 segundos?
+    
+    \begin{align*}
+      P(X_1 < 10 \cap X_2 < 10 \cap X_3 < 10 \cap X_4 < 10) &= P(X_1 < 10) \cdot P(X_2 < 10) \cdot P(X_3 < 10) \\
+      & \cdot P(X_4 < 10) = P(X < 10)^4 \\ 
+      &= 0.3935^4 \approx {\color{blue}\boxed{0.0240}}
+    \end{align*}
+    
+    \item Encuentre la Función de Distribución Acumulada y grafíquela
+    
+    \begin{align*}
+      F(x) &= \int_{-\infty}^x f(t)dt = \int_{-\infty}^0 0dt + \int_0^x \frac{e^{-0.05t}}{20} dt = \frac{1}{20} \int_0^x e^{-0.05t} dt = \frac{1}{20} \left[ \frac{e^{-0.05t}}{-0.05} \right]_0^x \\ 
+      &= \left[ -e^{-0.5t} \right]_0^x = -e^{-0.05x} - (-e^0) = -e^{-0.05x} + 1 = {\color{blue}\boxed{1 - e^{-0.05x}}}
+    \end{align*}
+
+    \[
+      F(x) = \left\{
+      \begin{array}{ll}
+          1 - e^{-0.05x}, & \hspace*{1cm} x > 0 \\
+          0 & \hspace*{1cm} \text{en otro caso}
+      \end{array}
+      \right.
+    \]
+
+    \begin{center}
+      \begin{tikzpicture}
+          \begin{axis}[
+            axis lines=middle,
+            xlabel=$x$,
+            ylabel=$f(x)$,
+            xmin=0,
+            ymin=0,
+            grid,
+          ]
+          
+          \addplot[
+            domain=0:200,
+            samples=100,
+            color=blue,
+            thick,
+          ]
+          {1- exp(-0.05*x)};
+        \end{axis}
+      \end{tikzpicture}
+    \end{center}
+
+    \item Utilice la FDA del inciso anterior y calcule las siguientes probabilidades
+    
+    \begin{enumerate}[label=\alph*)]
+      \item Que el tiempo entre llegadas exceda el minuto
+      
+      \begin{align*}
+        P(X > 60) &= P(60 < X < \infty) = F(\infty) - F(60) = 1 - F(60) \\
+        &= 1 - (1 - e^{-0.05(60)}) = e^{-3} \approx {\color{blue}\boxed{0.0498}}
+      \end{align*}
+
+      \item Si ya excedió 10 segundos, exceda 20 segundos
+      
+      \begin{align*}
+        P(X > 20 \mid X > 10) &= P(20 < X < \infty \mid 10 < X < \infty) \\ 
+        &= \frac{P(20 < X < \infty \cap 10 < X < \infty)}{P(10 < X < \infty)} \\
+        &= \frac{P(20 < X < \infty)}{P(10 < X < \infty)} \\
+        &= \frac{F(\infty) - F(20)}{F(\infty) - F(10)} = \frac{1 - F(20)}{1 - F(10)} \\
+        &= \frac{1 - (1 - e^{-0.05(20)})}{1 - (1 - e^{-0.05(10)})} = \frac{e^{-1}}{e^{-0.5}} = \frac{0.3679}{0.6065} \approx {\color{blue}\boxed{0.6066}}
+      \end{align*}
+    \end{enumerate}
+
+    \item Calcule el tiempo medio entre dos llegadas sucesivas
+
+    \begin{align*}
+      E[X] &= \int_{-\infty}^{\infty} xf(x)dx = \int_{-\infty}^0 0dx + \int_0^{\infty} \frac{xe^{-0.05x}}{20} dx = \frac{1}{20} \int_0^{\infty} xe^{-0.05x} dx 
+    \end{align*}
+
+    \begin{align*}
+      u = x \hspace*{3cm} & dv = e^{-0.05x} dx \\
+      du = dx \hspace*{3cm} & v = \frac{e^{-0.05x}}{-0.05} 
+    \end{align*}
+
+    \begin{align*}
+      E[X] &= \frac{1}{20} \left[ \frac{xe^{-0.05x}}{-0.05} \right]_0^{\infty} - \frac{1}{20} \int_0^{\infty} \frac{e^{-0.05x}}{-0.05} dx = \left[ -xe^{-0.05x} \right]_0^\infty + \int_0^\infty e^{-0.05x} dx \\ 
+      &= \left[ -xe^{-0.05x} \right]_0^\infty + \left[ \frac{e^{-0.05x}}{-0.05} \right]_0^\infty = \left[ -\infty e^{-\infty} - (-0e^0) \right] + \left[ \frac{e^{-\infty}}{-0.05} - \frac{e^0}{-0.05} \right] \\
+      &= \left[ 0 + 0 \right] + \left[ 0 - \frac{1}{-0.05} \right] = \frac{1}{0.05} = {\color{blue}\boxed{20}}
+    \end{align*}
+
+    \item Calcule la varianza de $X$
+    
+    \begin{align*}
+      \sigma^2 &= E\left[ \left( X - E[X] \right)^2 \right] = E[X^2] - E[X]^2 = \int_{-\infty}^{\infty} x^2 f(x)dx - E[X]^2 \\
+      &= \int_{-\infty}^0 0dx + \int_0^{\infty} \frac{x^2e^{-0.05x}}{20} dx - 20^2 = \frac{1}{20} \int_0^{\infty} x^2e^{-0.05x} dx - 400
+    \end{align*}
+
+    \begin{align*}
+      u = x^2 \hspace*{3cm} & dv = e^{-0.05x} dx \\
+      du = 2xdx \hspace*{3cm} & v = \frac{e^{-0.05x}}{-0.05}
+    \end{align*}
+
+    \begin{align*}
+      \sigma^2 &= \frac{1}{20} \left[ \frac{x^2e^{-0.05x}}{-0.05} \right]_0^{\infty} - \frac{1}{20} \int_0^{\infty} \frac{2xe^{-0.05x}}{-0.05} dx - 400 \\
+      &= \left[ -x^2e^{-0.05x} \right]_0^\infty + 2\int_0^\infty xe^{-0.05x} dx - 400 \\
+      &= \left[ -\infty e^{-\infty} - (-0e^0) \right] + 2\left[ 20(E[X]) \right] - 400 \\
+      &= \left[ 0 + 0 \right] + 2\left[ 20(20) \right] - 400 = 800 - 400 = {\color{blue}\boxed{400}}
+    \end{align*}
+
+  \end{enumerate}
+
+  \linejump
+  \item La gerencia de un banco debe decidir si instalará o no un sistema de apoyo a decisiones para prestamos comerciales (un sistema de información gerencial en línea) que ayude a sus analistas a tomar este tipo de decisiones, La experiencia anterior indica que $X$, el número adicional (por año) de decisiones de préstamos correctas — aceptar buenas solicitudes de préstamos y rechazar las que tarde o temprano no podrán pagarse — atribuible al sistema de apoyo de decisiones, y $Y$ la duración (en años) de este sistema, tienen la distribución de probabilidad conjunta que se muestra en la tabla.
+  \end{enumerate}
+
+  \newpage
+  \begin{table}[h!]
+    \centering
+    \begin{tabular}{|cccccccccccc|}
+    \hline
+    \multicolumn{12}{|c|}{x}                                                                                                                                                                                                                                                                                                                       \\ \hline
+    \multicolumn{2}{|c|}{}                                            & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{10}    & \multicolumn{1}{c|}{20}    & \multicolumn{1}{c|}{30}    & \multicolumn{1}{c|}{40}    & \multicolumn{1}{c|}{50}    & \multicolumn{1}{c|}{60}    & \multicolumn{1}{c|}{70}    & \multicolumn{1}{c|}{80}    & 90    \\ \hline
+    \multicolumn{1}{|c|}{\multirow{5}{*}{y}} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{0.001} & \multicolumn{1}{c|}{0.002} & \multicolumn{1}{c|}{0.002} & \multicolumn{1}{c|}{0.025} & \multicolumn{1}{c|}{0.040} & \multicolumn{1}{c|}{0.025} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0}     & 0     \\ \cline{2-12} 
+    \multicolumn{1}{|c|}{}                   & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0.010} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.100} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.050} & \multicolumn{1}{c|}{0.030} & \multicolumn{1}{c|}{0.030} & 0.025 \\ \cline{2-12} 
+    \multicolumn{1}{|c|}{}                   & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0.025} & \multicolumn{1}{c|}{0.050} & \multicolumn{1}{c|}{0.080} & \multicolumn{1}{c|}{0.050} & \multicolumn{1}{c|}{0.080} & \multicolumn{1}{c|}{0.040} & 0.030 \\ \cline{2-12} 
+    \multicolumn{1}{|c|}{}                   & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0.001} & \multicolumn{1}{c|}{0.002} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0.010} & \multicolumn{1}{c|}{0.025} & \multicolumn{1}{c|}{0.010} & \multicolumn{1}{c|}{0.003} & \multicolumn{1}{c|}{0.001} & 0.001 \\ \cline{2-12} 
+    \multicolumn{1}{|c|}{}                   & \multicolumn{1}{c|}{5} & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0.002} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0.020} & \multicolumn{1}{c|}{0.030} & \multicolumn{1}{c|}{0.015} & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & 0     \\ \hline
+    \end{tabular}
+  \end{table}
+
+  \linejump
+  \begin{enumerate}
+    \item Calcule las distribuciones de probabilidad marginal $p_X(x)$ y $p_Y(y)$
+    
+    \begin{align*}
+      &p_X(0) = \sum_{y=1}^5 p_{XY}(0, y) = 0.001 + 0.005 + 0 + 0 + 0 = 0.006 \\
+      &p_X(10) = \sum_{y=1}^5 p_{XY}(10, y) = 0.002 + 0.005 + 0 + 0.001 + 0.002 = 0.010 \\
+      &p_X(20) = \sum_{y=1}^5 p_{XY}(20, y) = 0.002 + 0.010 + 0 + 0.002 + 0.005 = 0.019 \\
+      &p_X(30) = \sum_{y=1}^5 p_{XY}(30, y) = 0.025 + 0.075 + 0.025 + 0.005 + 0.005 = 0.135 \\
+      &p_X(40) = \sum_{y=1}^5 p_{XY}(40, y) = 0.040 + 0.100 + 0.050 + 0.010 + 0.020 = 0.220 \\
+      &p_X(50) = \sum_{y=1}^5 p_{XY}(50, y) = 0.025 + 0.075 + 0.080 + 0.025 + 0.030 = 0.235 \\
+      &p_X(60) = \sum_{y=1}^5 p_{XY}(60, y) = 0.005 + 0.050 + 0.050 + 0.010 + 0.015 = 0.130 \\
+      &p_X(70) = \sum_{y=1}^5 p_{XY}(70, y) = 0.005 + 0.030 + 0.080 + 0.003 + 0 = 0.118 \\
+      &p_X(80) = \sum_{y=1}^5 p_{XY}(80, y) = 0 + 0.030 + 0.040 + 0.001 + 0 = 0.071 \\
+      &p_X(90) = \sum_{y=1}^5 p_{XY}(90, y) = 0 + 0.025 + 0.030 + 0.001 + 0 = 0.056 \\
+      &p_X(x) = \sum_{y=1}^5 p_{XY}(x, y) = 0.006 + 0.010 + 0.019 + 0.135 + 0.220 + 0.235 + 0.130 + 0.118 \\
+      &\hspace*{1.5cm} + 0.071 + 0.056 = 1
+    \end{align*}
+
+    \begin{align*}
+      &p_Y(1) = \sum_{x=0}^{90} p_{XY}(x, 1) = 0.001 + 0.002 + 0.002 + 0.025 + 0.040 + 0.025 + 0.005 \\
+      &\hspace*{1.5cm} + 0.005 + 0 + 0 = 0.105 \\
+      &p_Y(2) = \sum_{x=0}^{90} p_{XY}(x, 2) = 0.005 + 0.005 + 0.010 + 0.075 + 0.100 + 0.075 + 0.050 \\
+      &\hspace*{1.5cm} + 0.030 + 0.030 + 0.025 = 0.405 \\
+      &p_Y(3) = \sum_{x=0}^{90} p_{XY}(x, 3) = 0 + 0 + 0 + 0.025 + 0.050 + 0.080 + 0.050 + 0.080 + 0.040 \\
+      &\hspace*{1.5cm} + 0.030 = 0.355 \\
+      &p_Y(4) = \sum_{x=0}^{90} p_{XY}(x, 4) = 0 + 0.001 + 0.002 + 0.005 + 0.010 + 0.025 + 0.010 + 0.003 \\
+      &\hspace*{1.5cm} + 0.001 + 0.001 = 0.058 \\
+      &p_Y(5) = \sum_{x=0}^{90} p_{XY}(x, 5) = 0 + 0.002 + 0.005 + 0.005 + 0.020 + 0.030 + 0.015 + 0 + 0 \\
+      &\hspace*{1.5cm} + 0 = 0.077 \\
+      &p_Y(y) = \sum_{x=0}^{90} p_{XY}(x, y) = 0.105 + 0.405 + 0.355 + 0.058 + 0.077 = 1
+    \end{align*}
+
+    \item Obtenga la distribución de probabilidad condicional $p_X(x \mid y)$
+    
+    \item Dado que el sistema de apoyo a decisiones está en su tercer año de operación, calcule la probabilidad de que se tomarán por lo menos 40 decisiones de préstamos correctas adicionales.
+    
+    \item Calcule la duración esperada del sistema de apoyo a decisiones, es decir, calcule $E[Y]$
+    
+    \item ¿Hay correlación entre $X$ y $Y$? ¿Son $X$ y $Y$. independientes?
+    
+    \item Cada decisión de préstamo correcta aporta aproximadamente 25,000 dólares a las utilidades del banco: calcule la media y la desviación estándar de las utilidades adicionales atribuibles al sistema de apoyo a decisiones. (Sugerencia: utilice la distribución marginal $p_X(x)$)
+    
+  \end{enumerate}
+  
+\end{document}
