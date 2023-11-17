@@ -167,9 +167,9 @@
       \begin{align*}
         P(X > 20 \mid X > 10) &= P(20 < X < \infty \mid 10 < X < \infty) \\ 
         &= \frac{P(20 < X < \infty \cap 10 < X < \infty)}{P(10 < X < \infty)} \\
-        &= \frac{P(20 < X < \infty)}{P(10 < X < \infty)} \\
-        &= \frac{F(\infty) - F(20)}{F(\infty) - F(10)} = \frac{1 - F(20)}{1 - F(10)} \\
-        &= \frac{1 - (1 - e^{-0.05(20)})}{1 - (1 - e^{-0.05(10)})} = \frac{e^{-1}}{e^{-0.5}} = \frac{0.3679}{0.6065} \approx {\color{blue}\boxed{0.6066}}
+        &= \frac{P(20 < X < \infty) \cdot P(10 < X < \infty)}{P(10 < X < \infty)} \\
+        &= P(20 < X < \infty) = F(\infty) - F(20) = 1 - F(20) \\
+        &= 1 - (1 - e^{-0.05(20)}) = e^{-1} \approx {\color{blue}\boxed{0.3679}}
       \end{align*}
     \end{enumerate}
 
@@ -216,63 +216,170 @@
   \end{enumerate}
 
   \newpage
-  \begin{table}[h!]
+  \begin{figure}[h!]
     \centering
-    \begin{tabular}{|cccccccccccc|}
-    \hline
-    \multicolumn{12}{|c|}{x}                                                                                                                                                                                                                                                                                                                       \\ \hline
-    \multicolumn{2}{|c|}{}                                            & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{10}    & \multicolumn{1}{c|}{20}    & \multicolumn{1}{c|}{30}    & \multicolumn{1}{c|}{40}    & \multicolumn{1}{c|}{50}    & \multicolumn{1}{c|}{60}    & \multicolumn{1}{c|}{70}    & \multicolumn{1}{c|}{80}    & 90    \\ \hline
-    \multicolumn{1}{|c|}{\multirow{5}{*}{y}} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{0.001} & \multicolumn{1}{c|}{0.002} & \multicolumn{1}{c|}{0.002} & \multicolumn{1}{c|}{0.025} & \multicolumn{1}{c|}{0.040} & \multicolumn{1}{c|}{0.025} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0}     & 0     \\ \cline{2-12} 
-    \multicolumn{1}{|c|}{}                   & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0.010} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.100} & \multicolumn{1}{c|}{0.075} & \multicolumn{1}{c|}{0.050} & \multicolumn{1}{c|}{0.030} & \multicolumn{1}{c|}{0.030} & 0.025 \\ \cline{2-12} 
-    \multicolumn{1}{|c|}{}                   & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0.025} & \multicolumn{1}{c|}{0.050} & \multicolumn{1}{c|}{0.080} & \multicolumn{1}{c|}{0.050} & \multicolumn{1}{c|}{0.080} & \multicolumn{1}{c|}{0.040} & 0.030 \\ \cline{2-12} 
-    \multicolumn{1}{|c|}{}                   & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0.001} & \multicolumn{1}{c|}{0.002} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0.010} & \multicolumn{1}{c|}{0.025} & \multicolumn{1}{c|}{0.010} & \multicolumn{1}{c|}{0.003} & \multicolumn{1}{c|}{0.001} & 0.001 \\ \cline{2-12} 
-    \multicolumn{1}{|c|}{}                   & \multicolumn{1}{c|}{5} & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0.002} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0.005} & \multicolumn{1}{c|}{0.020} & \multicolumn{1}{c|}{0.030} & \multicolumn{1}{c|}{0.015} & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & 0     \\ \hline
-    \end{tabular}
-  \end{table}
+    \includegraphics[width=0.9\linewidth]{T1.png}
+  \end{figure}
 
   \linejump
   \begin{enumerate}
     \item Calcule las distribuciones de probabilidad marginal $p_X(x)$ y $p_Y(y)$
     
     \begin{align*}
-      &p_X(0) = \sum_{y=1}^5 p_{XY}(0, y) = 0.001 + 0.005 + 0 + 0 + 0 = 0.006 \\
-      &p_X(10) = \sum_{y=1}^5 p_{XY}(10, y) = 0.002 + 0.005 + 0 + 0.001 + 0.002 = 0.010 \\
-      &p_X(20) = \sum_{y=1}^5 p_{XY}(20, y) = 0.002 + 0.010 + 0 + 0.002 + 0.005 = 0.019 \\
-      &p_X(30) = \sum_{y=1}^5 p_{XY}(30, y) = 0.025 + 0.075 + 0.025 + 0.005 + 0.005 = 0.135 \\
-      &p_X(40) = \sum_{y=1}^5 p_{XY}(40, y) = 0.040 + 0.100 + 0.050 + 0.010 + 0.020 = 0.220 \\
-      &p_X(50) = \sum_{y=1}^5 p_{XY}(50, y) = 0.025 + 0.075 + 0.080 + 0.025 + 0.030 = 0.235 \\
-      &p_X(60) = \sum_{y=1}^5 p_{XY}(60, y) = 0.005 + 0.050 + 0.050 + 0.010 + 0.015 = 0.130 \\
-      &p_X(70) = \sum_{y=1}^5 p_{XY}(70, y) = 0.005 + 0.030 + 0.080 + 0.003 + 0 = 0.118 \\
-      &p_X(80) = \sum_{y=1}^5 p_{XY}(80, y) = 0 + 0.030 + 0.040 + 0.001 + 0 = 0.071 \\
-      &p_X(90) = \sum_{y=1}^5 p_{XY}(90, y) = 0 + 0.025 + 0.030 + 0.001 + 0 = 0.056 \\
-      &p_X(x) = \sum_{y=1}^5 p_{XY}(x, y) = 0.006 + 0.010 + 0.019 + 0.135 + 0.220 + 0.235 + 0.130 + 0.118 \\
-      &\hspace*{1.5cm} + 0.071 + 0.056 = 1
+      p_X(x) = \sum_y p_{XY}(x, y) = \sum_1^5 p_{XY}(x,y)
+    \end{align*}
+
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[width=0.9\linewidth]{Tpx.png}
+    \end{figure}
+
+    \begin{align*}
+      p_Y(y) = \sum_x p_{XY}(x, y) = \sum_0^{90} p_{XY}(x,y)
+    \end{align*}
+
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[width=0.55\linewidth]{Tpy.png}
+    \end{figure}
+
+    \item Obtenga la distribución de probabilidad condicional $p_{X \mid Y}(x \mid y)$
+    
+    \begin{align*}
+      p_{X \mid Y}(x \mid y) = \dfrac{p_{XY}(x, y)}{p_Y(y)}
+    \end{align*}
+    
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[width=0.9\linewidth]{Tpxmy.png} 
+    \end{figure}
+
+    \newpage
+    \item Dado que el sistema de apoyo a decisiones está en su tercer año de operación, calcule la probabilidad de que se tomarán por lo menos 40 decisiones de préstamos correctas adicionales.
+    
+    \begin{align*}
+      P(X \geq 40 \mid Y = 3) &= \frac{P(X \geq 40, Y = 3)}{P(Y = 3)} \\
+      &= \frac{p_{XY}(40, 3) + p_{XY}(50, 3) + p_{XY}(60, 3) + p_{XY}(70, 3) + p_{XY}(80, 3) + p_{XY}(90, 3)}{p_Y(3)} \\
+      &= \frac{0.050 + 0.080 + 0.050 + 0.080 + 0.040 + 0.030}{0.355} = \frac{0.330}{0.355} \approx {\color{blue}\boxed{0.9296}}
+    \end{align*}
+
+    \item Calcule la duración esperada del sistema de apoyo a decisiones, es decir, calcule $E[Y]$
+    
+    \begin{align*}
+      E[Y] &= \sum_y yp_Y(y) = \sum_1^5 yp_Y(y) = 1(0.105) + 2(0.405) + 3(0.355) + 4(0.058) + 5(0.077) \\
+      &= 0.105 + 0.810 + 1.065 + 0.232 + 0.385 = {\color{blue}\boxed{2.597}}
+    \end{align*}
+
+    \item ¿Hay correlación entre $X$ y $Y$? ¿Son $X$ y $Y$. independientes?
+    
+    \textbf{Correlación:}
+    
+    $$\rho_{XY} = \frac{\sigma_{XY}}{\sigma_X \sigma_Y}$$
+    $$\sigma_X^2 = E\left[ X^2 \right] - E[X]^2$$
+    $$\sigma_Y^2 = E\left[ Y^2 \right] - E[Y]^2$$
+    $$\sigma_{XY} = E\left[ XY \right] - E[X]E[Y]$$
+
+    \begin{align*}
+      E[X] &= \sum_x xp_X(x) = \sum_0^{90} xp_X(x) \\
+      &= 0(0.006) + 10(0.010) + 20(0.019) + 30(0.135) + 40(0.220) + 50(0.235) \\
+      &\hspace*{0.5cm} + 60(0.130) + 70(0.118) + 80(0.071) + 90(0.056) \\
+      &= 0.00 + 0.10 + 0.38 + 4.05 + 8.80 + 11.75 + 7.80 + 8.26 + 5.68 + 5.04 \\
+      &= 51.86
     \end{align*}
 
     \begin{align*}
-      &p_Y(1) = \sum_{x=0}^{90} p_{XY}(x, 1) = 0.001 + 0.002 + 0.002 + 0.025 + 0.040 + 0.025 + 0.005 \\
-      &\hspace*{1.5cm} + 0.005 + 0 + 0 = 0.105 \\
-      &p_Y(2) = \sum_{x=0}^{90} p_{XY}(x, 2) = 0.005 + 0.005 + 0.010 + 0.075 + 0.100 + 0.075 + 0.050 \\
-      &\hspace*{1.5cm} + 0.030 + 0.030 + 0.025 = 0.405 \\
-      &p_Y(3) = \sum_{x=0}^{90} p_{XY}(x, 3) = 0 + 0 + 0 + 0.025 + 0.050 + 0.080 + 0.050 + 0.080 + 0.040 \\
-      &\hspace*{1.5cm} + 0.030 = 0.355 \\
-      &p_Y(4) = \sum_{x=0}^{90} p_{XY}(x, 4) = 0 + 0.001 + 0.002 + 0.005 + 0.010 + 0.025 + 0.010 + 0.003 \\
-      &\hspace*{1.5cm} + 0.001 + 0.001 = 0.058 \\
-      &p_Y(5) = \sum_{x=0}^{90} p_{XY}(x, 5) = 0 + 0.002 + 0.005 + 0.005 + 0.020 + 0.030 + 0.015 + 0 + 0 \\
-      &\hspace*{1.5cm} + 0 = 0.077 \\
-      &p_Y(y) = \sum_{x=0}^{90} p_{XY}(x, y) = 0.105 + 0.405 + 0.355 + 0.058 + 0.077 = 1
+      E\left[ X^2 \right] &= \sum_x x^2p_X(x) = \sum_0^{90} x^2p_X(x) \\
+      &= 0^2(0.006) + 10^2(0.010) + 20^2(0.019) + 30^2(0.135) + 40^2(0.220) + 50^2(0.235) \\
+      &\hspace*{0.5cm} + 60^2(0.130) + 70^2(0.118) + 80^2(0.071) + 90^2(0.056) \\
+      &= 0.0 + 1.0 + 7.6 + 121.5 + 352.0 + 587.5 + 468.0 + 578.2 \\
+      &\hspace*{0.5cm}+ 454.4 + 453.6 \\
+      &= 3023.8
     \end{align*}
 
-    \item Obtenga la distribución de probabilidad condicional $p_X(x \mid y)$
+    \begin{align*}
+      \sigma_X &= \sqrt{E\left[ X^2 \right] - E[X]^2} = \sqrt{3023.8 - 51.86^2} = \sqrt{3023.80 - 2689.46} = \sqrt{334.34} \approx 18.285 
+    \end{align*}
+
+    \begin{align*}
+      E[Y] = \sum_y yp_Y(y) = \sum_1^5 yp_Y(y) = 2.597
+    \end{align*}
+
+    \begin{align*}
+      E\left[ Y^2 \right] &= \sum_y y^2p_Y(y) = \sum_1^5 y^2p_Y(y) \\
+      &= 1^2(0.105) + 2^2(0.405) + 3^2(0.355) + 4^2(0.058) + 5^2(0.077) \\
+      &= 0.105 + 1.620 + 3.195 + 0.928 + 1.925 \\
+      &= 7.773
+    \end{align*}
+
+    \begin{align*}
+      \sigma_Y &= \sqrt{E\left[ Y^2 \right] - E[Y]^2} = \sqrt{7.773 - 2.597^2} = \sqrt{7.773 - 6.744} = \sqrt{1.029} \approx 1.014
+    \end{align*}
+
+    \begin{align*}
+      E[XY] &= \sum_x \sum_y xy p_{XY}(x, y) = \sum_0^{90} \sum_1^5 xy p_{XY}(x, y) \\
+      &= 0\left[ 1(0.001) + 2(0.005) + 3(0.000) + 4(0.000) + 5(0.000) \right] \\
+      &\hspace*{0.5cm}+ 10\left[ 1(0.002) + 2(0.005) + 3(0.000) + 4(0.001) + 5(0.002) \right] \\
+      &\hspace*{0.5cm}+ 20\left[ 1(0.002) + 2(0.010) + 3(0.000) + 4(0.002) + 5(0.005) \right] \\
+      &\hspace*{0.5cm}+ 30\left[ 1(0.025) + 2(0.075) + 3(0.025) + 4(0.005) + 5(0.005) \right] \\
+      &\hspace*{0.5cm}+ 40\left[ 1(0.040) + 2(0.100) + 3(0.050) + 4(0.010) + 5(0.020) \right] \\
+      &\hspace*{0.5cm}+ 50\left[ 1(0.025) + 2(0.075) + 3(0.080) + 4(0.025) + 5(0.030) \right] \\
+      &\hspace*{0.5cm}+ 60\left[ 1(0.005) + 2(0.050) + 3(0.050) + 4(0.010) + 5(0.015) \right] \\
+      &\hspace*{0.5cm}+ 70\left[ 1(0.005) + 2(0.030) + 3(0.080) + 4(0.003) + 5(0.000) \right] \\
+      &\hspace*{0.5cm}+ 80\left[ 1(0.000) + 2(0.030) + 3(0.040) + 4(0.001) + 5(0.000) \right] \\
+      &\hspace*{0.5cm}+ 90\left[ 1(0.000) + 2(0.025) + 3(0.030) + 4(0.001) + 5(0.000) \right] \\
+      &= 0.00 + 0.26 + 1.10 + 8.85 + 21.20 + 33.25 + 22.20 + 22.19 + 14.72 + 12.96 \\
+      &= 136.73
+    \end{align*}
+
+    \begin{align*}
+      \sigma_{XY} &= E[XY] - E[X]E[Y] = 136.73 - (51.86)(2.597) = 136.73 - 134.68 = 2.05
+    \end{align*}
+
+    \begin{align*}
+      \rho_{XY} &= \frac{\sigma_{XY}}{\sigma_X \sigma_Y} = \frac{2.05}{(18.285)(1.014)} = \frac{2.05}{18.541} \approx {\color{blue}\boxed{0.111}}
+    \end{align*}
+
+    Al ser $\rho_{XY} \neq 0$, se puede concluir que {\color{blue}hay correlación} entre $X$ y $Y$.
+
+    \linejump
+    \textbf{Independencia:}
+
+    Dada por: $p_{XY}(x, y) = p_X(x) \cdot p_Y(y)$
     
-    \item Dado que el sistema de apoyo a decisiones está en su tercer año de operación, calcule la probabilidad de que se tomarán por lo menos 40 decisiones de préstamos correctas adicionales.
-    
-    \item Calcule la duración esperada del sistema de apoyo a decisiones, es decir, calcule $E[Y]$
-    
-    \item ¿Hay correlación entre $X$ y $Y$? ¿Son $X$ y $Y$. independientes?
-    
+    \begin{align*}
+      &\text{Con } X = 60 \text{ y } Y = 3 \\
+      &p_{XY}(60, 3) = 0.050 \\
+      &p_X(60) \cdot p_Y(3) = 0.130 \cdot 0.355 = 0.046 \\
+      &\Rightarrow p_{XY}(60, 3) \neq p_X(60) \cdot p_Y(3)
+    \end{align*}
+
+    \begin{align*}
+      &\text{Con } X = 30 \text{ y } Y = 5 \\
+      &p_{XY}(30, 5) = 0.005 \\
+      &p_X(30) \cdot p_Y(5) = 0.135 \cdot 0.077 = 0.010 \\
+      &\Rightarrow p_{XY}(30, 5) \neq p_X(30) \cdot p_Y(5)
+    \end{align*}
+
+    \begin{align*}
+      &\text{Con } X = 90 \text{ y } Y = 1 \\
+      &p_{XY}(90, 1) = 0.000 \\
+      &p_X(90) \cdot p_Y(1) = 0.056 \cdot 0.105 = 0.006 \\
+      &\Rightarrow p_{XY}(90, 1) \neq p_X(90) \cdot p_Y(1)
+    \end{align*}
+
+    Como se puede observar, hay valores de $X$ y $Y$ que no cumplen con la condición de independencia, por lo que se puede concluir que $X$ y $Y$ {\color{blue}no son independientes.} \\
+
     \item Cada decisión de préstamo correcta aporta aproximadamente 25,000 dólares a las utilidades del banco: calcule la media y la desviación estándar de las utilidades adicionales atribuibles al sistema de apoyo a decisiones. (Sugerencia: utilice la distribución marginal $p_X(x)$)
     
+    \textbf{Media:}
+    \begin{align*}
+      \mu = E[25,000X] &= 25,000E[X] = 25,000(51.86) = \$1,296,500
+    \end{align*}
+
+    \linejump
+    \textbf{Desviación estándar:}
+    \begin{align*}
+      \sigma = \sqrt{25,000^2 \sigma_X^2} &= 25,000\sqrt{\sigma_X^2} = 25,000(18.285) = \$457,125
+    \end{align*}
   \end{enumerate}
-  
 \end{document}
