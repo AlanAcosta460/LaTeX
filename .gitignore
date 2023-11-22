@@ -11,3 +11,5 @@
 *.lof
 *.toc
 *.xdv
+
+/tmp
